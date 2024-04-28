@@ -1,0 +1,8 @@
+/Users/jalememmedli/Desktop/Dannys/Dannys/obj/Debug/net6.0/Dannys.csproj.AssemblyReference.cache
+/Users/jalememmedli/Desktop/Dannys/Dannys/obj/Debug/net6.0/Dannys.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jalememmedli/Desktop/Dannys/Dannys/obj/Debug/net6.0/Dannys.AssemblyInfoInputs.cache
+/Users/jalememmedli/Desktop/Dannys/Dannys/obj/Debug/net6.0/Dannys.AssemblyInfo.cs
+/Users/jalememmedli/Desktop/Dannys/Dannys/obj/Debug/net6.0/Dannys.csproj.CoreCompileInputs.cache
+/Users/jalememmedli/Desktop/Dannys/Dannys/obj/Debug/net6.0/Dannys.MvcApplicationPartsAssemblyInfo.cache
+/Users/jalememmedli/Desktop/Dannys/Dannys/obj/Debug/net6.0/Dannys.RazorAssemblyInfo.cache
+/Users/jalememmedli/Desktop/Dannys/Dannys/obj/Debug/net6.0/Dannys.RazorAssemblyInfo.cs
