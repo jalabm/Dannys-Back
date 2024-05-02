@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "iZ2NFTN19wXnoBh72AHF00FsvAFMWgGmqg3/oORb1T4WZUtoF14HEwxPIwNEqPLH1hUqz8tKGERqp8f8IVMSuQ==",
+  "dgSpecHash": "4BOKAqGGEsc2kIrYoORmFV1LUj1UboDo7O1z1zUos59x73KhKUDp8kN2TiFN2odPiANexRyzLHTKMkmH4vxHuQ==",
   "success": true,
   "projectFilePath": "/Users/jalememmedli/Desktop/Dannys/Dannys/Dannys.csproj",
   "expectedPackageFiles": [
+    "/Users/jalememmedli/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
+    "/Users/jalememmedli/.nuget/packages/automapper.collection/10.0.0/automapper.collection.10.0.0.nupkg.sha512",
+    "/Users/jalememmedli/.nuget/packages/automapper.collection.entityframeworkcore/10.0.0/automapper.collection.entityframeworkcore.10.0.0.nupkg.sha512",
+    "/Users/jalememmedli/.nuget/packages/automapper.extensions.expressionmapping/7.0.0/automapper.extensions.expressionmapping.7.0.0.nupkg.sha512",
     "/Users/jalememmedli/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/jalememmedli/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/jalememmedli/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

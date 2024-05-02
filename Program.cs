@@ -1,10 +1,15 @@
-﻿using Dannys.Data;
+﻿using System.Reflection;
+using Dannys.Data;
+using Dannys.Interceptors;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+builder.Services.AddScoped<BaseEntityInterceptor>();
+builder.Services.AddHttpContextAccessor();
 
 
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Default")));

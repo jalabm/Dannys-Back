@@ -16,6 +16,12 @@
     <None Remove="Areas\Admin\Views\Dashboard\" />
     <None Remove="Data\" />
     <None Remove="Models\Common\" />
+    <None Remove="AutoMappers\" />
+    <None Remove="Dtos\" />
+    <None Remove="Dtos\ProductDtos\" />
+    <None Remove="Areas\Admin\Views\Category\" />
+    <None Remove="Dtos\CategoryDtos\" />
+    <None Remove="Interceptors\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -29,18 +35,22 @@
     <Folder Include="wwwroot\Admin\" />
     <Folder Include="Data\" />
     <Folder Include="Models\Common\" />
-    <Folder Include="wwwroot\Admin\Assets\" />
-    <Folder Include="wwwroot\Admin\Assets\css\" />
-    <Folder Include="wwwroot\Admin\Assets\fonts\" />
-    <Folder Include="wwwroot\Admin\Assets\images\" />
-    <Folder Include="wwwroot\Admin\Assets\js\" />
-    <Folder Include="wwwroot\Admin\Assets\scss\" />
-    <Folder Include="wwwroot\Admin\Assets\vendors\" />
+    <Folder Include="wwwroot\Admin\assets\css\" />
+    <Folder Include="wwwroot\Admin\assets\fonts\" />
+    <Folder Include="wwwroot\Admin\assets\images\" />
+    <Folder Include="wwwroot\Admin\assets\js\" />
+    <Folder Include="wwwroot\Admin\assets\scss\" />
+    <Folder Include="wwwroot\Admin\assets\vendors\" />
+    <Folder Include="AutoMappers\" />
+    <Folder Include="Dtos\" />
+    <Folder Include="Dtos\ProductDtos\" />
+    <Folder Include="Areas\Admin\Views\Category\" />
+    <Folder Include="Dtos\CategoryDtos\" />
+    <Folder Include="Interceptors\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
     <Content Remove="wwwroot\Admin\" />
-    <Content Remove="wwwroot\Admin\Assets\" />
     <Content Remove="wwwroot\Admin\Assets\css\" />
     <Content Remove="wwwroot\Admin\Assets\fonts\" />
     <Content Remove="wwwroot\Admin\Assets\images\" />
@@ -60,5 +70,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="AutoMapper.Collection.EntityFrameworkCore" Version="10.0.0" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
   </ItemGroup>
 </Project>

@@ -1,11 +1,19 @@
-﻿using Dannys.Models;
+﻿using Dannys.Interceptors;
+using Dannys.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dannys.Data;
 
 public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+    private readonly BaseEntityInterceptor _interceptor;
+
+
+    public AppDbContext(DbContextOptions<AppDbContext> options, BaseEntityInterceptor interceptor) : base(options)
+    {
+        _interceptor = interceptor;
+    }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -14,6 +22,14 @@ public class AppDbContext : DbContext
 
 
     }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+        optionsBuilder.AddInterceptors(_interceptor);
+    }
+
+
     public DbSet<Product> Products { get; set; } = null!;
     public DbSet<Category> Categories { get; set; } = null!;
     public DbSet<ProductImg> ProductImgs { get; set; } = null!;

@@ -1,0 +1,138 @@
+﻿@model List<Category>
+@{
+    int count = 1;
+}
+
+
+<!-- partial -->
+<div class="main-panel" style="padding:0px">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title"> Basic Tables </h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div style="display: flex; align-items: center; justify-content: flex-end;margin-bottom:20px">
+                            <a style="display:flex;align-items:center;justify-content:center;width:70px; height:40px;border-radius:6px ;color:white;background-color:navy; border:none;text-decoration:none " asp-controller="Category" asp-action="Create">Create</a>
+
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th> # </th>
+                                        <th> Title </th>
+                                        <th> SubTitle </th>
+                                        <th> Created Time </th>
+                                        <th> Created By </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Position: activate to sort column ascending">Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var category in Model)
+                                    {
+                                        <tr>
+
+                                            <td> @(count++) </td>
+                                            <td> @category.Title</td>
+                                            <td> @category.SubTitle </td>
+                                            <td> @category.CreatedAt</td>
+                                            <td> @category.CreatedBy</td>
+                                            <td><a class="btn deleteBtn btn-danger" data-id="@category.Id" asp-action="Delete" asp-route-id="@category.Id">Delete</a></td>
+                                            <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@category.Id">Update</a></td>
+                                        </tr>
+                                    }
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:../../partials/_footer.html -->
+    <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+            <span class="text-muted float-none float-sm-end d-block mt-1 mt-sm-0 text-center"> <span class="text-muted float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span> <i class="mdi mdi-heart text-danger"></i></span>
+        </div>
+    </footer>
+    <!-- partial -->
+</div>
+
+
+
+@section Scripts {
+    <script>const btns = document.querySelectorAll(".deleteBtn")
+        btns.forEach(x => {
+            console.log(x)
+        })</script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+
+        const deleteBtn = document.querySelectorAll(".deleteBtn");
+        deleteBtn.forEach(x => {
+            console.log(x);
+            x.addEventListener("click", function (e) {
+                e.preventDefault();
+                console.log(x)
+                swalWithBootstrapButtons.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes, delete it!",
+                    cancelButtonText: "No, cancel!",
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        const categoryId = this.dataset.id;
+                        console.log(categoryId);
+                        $.ajax({
+                            type: "POST",
+                            url: `Category/Delete/${categoryId}`,
+                            success: function (res) {
+                                console.log(res)
+                                location.reload()
+                            },
+                            error: function (err) {
+                                console.log(err)
+                            }
+                        })
+
+                    } else if (
+                        /* Read more about handling dismissals below */
+                        result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                        swalWithBootstrapButtons.fire({
+                            title: "Cancelled",
+                            text: "Your imaginary file is safe :)",
+                            icon: "error"
+                        });
+                    }
+                });
+            })
+        })</script>
+}
