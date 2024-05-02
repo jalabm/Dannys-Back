@@ -3,7 +3,7 @@ using Dannys.Models.Common;
 
 namespace Dannys.Models
 {
-	public class Basketitem:BaseEntity
+	public class Basketitem:BaseAuditableEntity
 	{
 		public int ProductId { get; set; }
 		public string AppUserId { get; set; } = null!;

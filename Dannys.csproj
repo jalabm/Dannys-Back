@@ -22,6 +22,8 @@
     <None Remove="Areas\Admin\Views\Category\" />
     <None Remove="Dtos\CategoryDtos\" />
     <None Remove="Interceptors\" />
+    <None Remove="Dtos\TopicDtos\" />
+    <None Remove="Areas\Admin\Views\Topic\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -47,6 +49,8 @@
     <Folder Include="Areas\Admin\Views\Category\" />
     <Folder Include="Dtos\CategoryDtos\" />
     <Folder Include="Interceptors\" />
+    <Folder Include="Dtos\TopicDtos\" />
+    <Folder Include="Areas\Admin\Views\Topic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

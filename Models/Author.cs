@@ -3,7 +3,7 @@ using Dannys.Models.Common;
 
 namespace Dannys.Models
 {
-	public class Author:BaseEntity
+	public class Author:BaseAuditableEntity
 	{
 		public string FullName { get; set; } = null!;
 		public string Description { get; set; } = null!;

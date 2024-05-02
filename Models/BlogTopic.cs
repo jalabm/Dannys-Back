@@ -3,7 +3,7 @@ using Dannys.Models.Common;
 
 namespace Dannys.Models
 {
-	public class BlogTopic:BaseEntity
+	public class BlogTopic:BaseAuditableEntity
 	{
 		public int BlogId { get; set; }
 		public Blog Blog { get; set; } = null!;

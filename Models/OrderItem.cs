@@ -3,7 +3,7 @@ using Dannys.Models.Common;
 
 namespace Dannys.Models
 {
-	public class OrderItem:BaseEntity
+	public class OrderItem:BaseAuditableEntity
 	{
 		public int ProductId { get; set; }
 		public int OrderId { get; set; }
