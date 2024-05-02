@@ -24,6 +24,8 @@
     <None Remove="Interceptors\" />
     <None Remove="Dtos\TopicDtos\" />
     <None Remove="Areas\Admin\Views\Topic\" />
+    <None Remove="Dtos\AuthorDtos\" />
+    <None Remove="Areas\Admin\Views\Author\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -51,6 +53,8 @@
     <Folder Include="Interceptors\" />
     <Folder Include="Dtos\TopicDtos\" />
     <Folder Include="Areas\Admin\Views\Topic\" />
+    <Folder Include="Dtos\AuthorDtos\" />
+    <Folder Include="Areas\Admin\Views\Author\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

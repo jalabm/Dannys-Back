@@ -1,4 +1,4 @@
-﻿@model List<Topic>
+﻿@model List<Author>
 @{
     int count = 1;
 }
@@ -8,7 +8,7 @@
 <div class="main-panel" style="padding:0px">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> Topic</h3>
+            <h3 class="page-title"> Author</h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Tables</a></li>
@@ -21,8 +21,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div style="display: flex; align-items: center; justify-content: flex-end;margin-bottom:20px">
-                            <a style="display:flex;align-items:center;justify-content:center;width:70px; height:40px;border-radius:6px ;color:white;background-color:navy; border:none;text-decoration:none "
-                               asp-action="Create">Create</a>
+                            <a style="display:flex;align-items:center;justify-content:center;width:70px; height:40px;border-radius:6px ;color:white;background-color:navy; border:none;text-decoration:none "  asp-action="Create">Create</a>
 
                         </div>
                         <div class="table-responsive">
@@ -31,6 +30,9 @@
                                     <tr>
                                         <th> # </th>
                                         <th> Name </th>
+                                        <th> Surname </th>
+                                        <th> Description </th>
+                                        <th> Biographia </th>
                                         <th> Created Time </th>
                                         <th> Created By </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Position: activate to sort column ascending">Actions</th>
@@ -38,16 +40,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var topic in Model)
+                                    @foreach (var author in Model)
                                     {
                                         <tr>
 
                                             <td> @(count++) </td>
-                                            <td> @topic.Name</td>
-                                            <td> @topic.CreatedAt</td>
-                                            <td> @topic.CreatedBy</td>
-                                            <td><a class="btn deleteBtn btn-danger" data-id="@topic.Id" asp-action="Delete" asp-route-id="@topic.Id">Delete</a></td>
-                                            <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@topic.Id">Update</a></td>
+                                            <td> @author.Name</td>
+                                            <td> @author.Surname </td>
+                                            <td> @author.Description </td>
+                                            <td> @author.Biographia </td>
+                                            <td> @author.CreatedAt</td>
+                                            <td> @author.CreatedBy</td>
+                                            <td><a class="btn deleteBtn btn-danger" data-id="@author.Id" asp-action="Delete" asp-route-id="@author.Id">Delete</a></td>
+                                            <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@author.Id">Update</a></td>
                                         </tr>
                                     }
 
@@ -107,11 +112,11 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
 
-                        const topicId = this.dataset.id;
-                        console.log(topicId);
+                        const categoryId = this.dataset.id;
+                        console.log(categoryId);
                         $.ajax({
                             type: "POST",
-                            url: `Topic/Delete/${topicId}`,
+                            url: `Category/Delete/${categoryId}`,
                             success: function (res) {
                                 console.log(res)
                                 location.reload()
@@ -135,3 +140,9 @@
             })
         })</script>
 }
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+

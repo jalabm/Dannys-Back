@@ -19,7 +19,7 @@ public class TopicController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var topics = await _context.Topics.ToListAsync();
+        var topics = await _context.Topics.Where(x => !x.IsDeleted).ToListAsync();
         return View(topics);
     }
     public IActionResult Create()
@@ -103,8 +103,8 @@ public class TopicController : Controller
 
         if (topic is null)
             return NotFound();
-
-        _context.Topics.Remove(topic);
+        topic.IsDeleted = true;
+        _context.Topics.Update(topic);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
 
