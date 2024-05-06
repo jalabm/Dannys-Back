@@ -19,7 +19,7 @@ public class TopicController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var topics = await _context.Topics.Where(x => !x.IsDeleted).ToListAsync();
+        var topics = await _context.Topics.Where(x => !x.IsDeleted).ToListAsync()   ;
         return View(topics);
     }
     public IActionResult Create()

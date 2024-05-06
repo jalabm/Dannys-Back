@@ -1,0 +1,58 @@
+﻿
+@model BlogUpdatedto
+
+<form method="post" class="category" style="width: 100%">
+    <div class="content-wrapper" style=" height:100vh">
+        <div class="page-header">
+            <h3 class="page-title"> Form elements </h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card" style=" width:100%">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="forms-sample">
+                            <div class="form-group">
+                                <label asp-for="Title" for="exampleInputUsername1">Title</label>
+                                <input type="text" class="form-control" id="exampleInputTitle" asp-for="Title" placeholder="Title">
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ShortDescription" for="exampleInputSubtitle">Short Description</label>
+                                <input type="text" class="form-control" id="exampleInputShortDescription" placeholder="Surname" asp-for="ShortDescription">
+                                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LongDescription" for="exampleInputSubtitle">Long Description</label>
+                                <input type="text" class="form-control" id="exampleInputDescription" placeholder="Description" asp-for="LongDescription">
+                                <span asp-validation-for="LongDescription" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="form-label">Select Topics</label>
+                                <select asp-for="TopicIds" asp-items="@(new SelectList(ViewBag.Topics,nameof(Topic.Id),nameof(Topic.Name)))" class="form-control">
+                                </select>
+                                <span asp-validation-for="TopicIds" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="form-label"> Author</label>
+                                <select asp-for="AuthorId" asp-items="@(new SelectList(ViewBag.Author,nameof(Author.Id),nameof(Author.Name)))" class="form-control">
+                                    <option disabled selected>Select Author</option>
+                                </select>
+                                <span asp-validation-for="AuthorId" class="text-danger"></span>
+                            </div>
+                            <div asp-validation-summary="ModelOnly" class="text-danger">  </div>
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-dark">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

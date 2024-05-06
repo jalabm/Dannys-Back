@@ -26,6 +26,11 @@
     <None Remove="Areas\Admin\Views\Topic\" />
     <None Remove="Dtos\AuthorDtos\" />
     <None Remove="Areas\Admin\Views\Author\" />
+    <None Remove="Dtos\BlogDtos\" />
+    <None Remove="Areas\Admin\Views\Blog\" />
+    <None Remove="Dtos\SliderDtos\" />
+    <None Remove="Extensions\" />
+    <None Remove="Areas\Admin\Views\Slider\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -55,6 +60,14 @@
     <Folder Include="Areas\Admin\Views\Topic\" />
     <Folder Include="Dtos\AuthorDtos\" />
     <Folder Include="Areas\Admin\Views\Author\" />
+    <Folder Include="Dtos\BlogDtos\" />
+    <Folder Include="Areas\Admin\Views\Blog\" />
+    <Folder Include="Dtos\SliderDtos\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Areas\Admin\Views\Slider\" />
+    <Folder Include="wwwroot\assets\" />
+    <Folder Include="wwwroot\assets\image\" />
+    <Folder Include="wwwroot\assets\image\sliderIcons\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -65,6 +78,9 @@
     <Content Remove="wwwroot\Admin\Assets\js\" />
     <Content Remove="wwwroot\Admin\Assets\scss\" />
     <Content Remove="wwwroot\Admin\Assets\vendors\" />
+    <Content Remove="wwwroot\assets\" />
+    <Content Remove="wwwroot\assets\image\" />
+    <Content Remove="wwwroot\assets\image\sliderIcons\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.29">

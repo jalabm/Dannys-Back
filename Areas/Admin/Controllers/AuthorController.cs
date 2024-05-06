@@ -83,15 +83,8 @@ public class AuthorController : Controller
         if (!ModelState.IsValid)
             return View(dto);
 
-        var isExistDescription = await _context.Authors.AnyAsync(x => x.Description.ToLower() == dto.Description.ToLower());
-        var isExistBiographia = await _context.Authors.AnyAsync(x => x.Biographia.ToLower() == dto.Biographia.ToLower());
+        var isExistBiographia = await _context.Authors.AnyAsync(x => x.Biographia.ToLower() == dto.Biographia.ToLower()&&x.Id != id);
 
-       
-        if (isExistDescription)
-        {
-            ModelState.AddModelError("Description", "Description alredy exist");
-            return View(dto);
-        }
         if (isExistBiographia)
         {
             ModelState.AddModelError("Biographia", "Biographia alredy exist");
@@ -99,8 +92,6 @@ public class AuthorController : Controller
         }
 
         existAuthor = _mapper.Map(dto, existAuthor);
-
-
 
         _context.Update(existAuthor);
         await _context.SaveChangesAsync();
