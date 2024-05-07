@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using Dannys.Data;
+﻿using Dannys.Data;
 using Dannys.Enums;
-using Dannys.Models;
+using Dannys.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,16 +13,16 @@ public class AccountController : Controller
     private readonly UserManager<AppUser> _userManager;
     private readonly IEmailService _emailService;
     private readonly SignInManager<AppUser> _signInManager;
-    private readonly RoleManager<IdentityRole> _roleManager;
     private readonly AppDbContext _context;
+    private readonly IMapper _mapper;
 
-    public AccountController(UserManager<AppUser> userManager, IEmailService emailService, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, AppDbContext context)
+    public AccountController(UserManager<AppUser> userManager, IEmailService emailService, SignInManager<AppUser> signInManager, AppDbContext context, IMapper mapper)
     {
         _userManager = userManager;
         _emailService = emailService;
         _signInManager = signInManager;
-        _roleManager = roleManager;
         _context = context;
+        _mapper = mapper;
     }
 
     public IActionResult Register()
@@ -39,15 +34,11 @@ public class AccountController : Controller
     {
         if (!ModelState.IsValid)
         {
-            return View();
+            return View(dto);
         }
-        AppUser appUser = new()
-        {
-            UserName = dto.Username,
-            Email = dto.Email,
-            Surname = dto.Surname,
-            Name = dto.Name
-        };
+
+        AppUser appUser = _mapper.Map<AppUser>(dto);
+
         var result = await _userManager.CreateAsync(appUser, dto.Password);
 
         if (!result.Succeeded)
@@ -55,15 +46,13 @@ public class AccountController : Controller
             foreach (var error in result.Errors)
             {
                 ModelState.AddModelError("", error.Description);
-
-
             }
-            return View();
+            return View(dto);
         }
 
         var token = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
 
-        string? url = Url.Action("ConfirmEmail", "Account", new { userId = appUser.Id, token = token }, HttpContext.Request.Scheme);
+        string url = Url.Action("ConfirmEmail", "Account", new { userId = appUser.Id, token = token }, HttpContext.Request.Scheme) ?? "";
 
 
         _emailService.SendEmail(appUser.Email, "Confirm Email", url);
@@ -106,27 +95,44 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(LoginDto dto)
     {
-        if (!ModelState.IsValid) return View(   dto);
+        if (!ModelState.IsValid) return View(dto);
 
-        var existUser = await _userManager.FindByEmailAsync(dto.Email);
+        var existUser = await _userManager.FindByEmailAsync(dto.EmailOrUsername);
+
         if (existUser == null)
         {
-            ModelState.AddModelError("", "Invalid Credentials");
-            return View();
+
+
+            existUser = await _userManager.FindByNameAsync(dto.EmailOrUsername);
+
+            if (existUser is null)
+            {
+                ModelState.AddModelError("", "Invalid Credentials");
+                return View(dto);
+            }
         }
 
         var result = await _signInManager.PasswordSignInAsync(existUser, dto.Password, dto.RememberMe, true);
         if (!result.Succeeded)
         {
+            if (result.IsLockedOut)
+            {
+
+                ModelState.AddModelError("", "User is blocked");
+                return View(dto);
+            }
+
+
             ModelState.AddModelError("", "Invalid Credentials");
-            return View();
+            return View(dto);
         }
 
         await TransferBasket(existUser);
 
-        var role = await _userManager.IsInRoleAsync(existUser, Roles.Admin.ToString());
-        if (role)
+        var isAdmin = await _userManager.IsInRoleAsync(existUser, Roles.Admin.ToString());
+        if (isAdmin)
             return RedirectToAction("Index", "Dashboard", new { Area = "Admin" });
+
         return RedirectToAction("Index", "Home");
 
     }
@@ -152,20 +158,6 @@ public class AccountController : Controller
     public async Task<IActionResult> LogOut()
     {
         await _signInManager.SignOutAsync();
-        return RedirectToAction("Index", "Home");
-    }
-
-
-    public async Task<IActionResult> CreateRole()
-    {
-        foreach (var role in Enum.GetValues(typeof(Roles)))
-        {
-            await _roleManager.CreateAsync(new IdentityRole
-            {
-                Id = Guid.NewGuid().ToString(),
-                Name = role.ToString(),
-            });
-        }
         return RedirectToAction("Index", "Home");
     }
 

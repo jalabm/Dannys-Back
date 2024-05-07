@@ -1,14 +1,14 @@
-﻿@model List<Category>
+﻿@model List<Product>
 @{
     int count = 1;
 }
 
 
 <!-- partial -->
-<div class="main-panel" style="padding:0px">
+<div class="main-panel" style="padding:0px; height:100vh;overflow:scroll">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> Category</h3>
+            <h3 class="page-title"> Product</h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Tables</a></li>
@@ -29,31 +29,33 @@
                                 <thead>
                                     <tr>
                                         <th> # </th>
-                                        <th> Title </th>
-                                        <th> SubTitle </th>
+                                        <th> Name </th>
+                                        <th> Price </th>
+                                        <th> Discount </th>
+                                        <th> Description </th>
                                         <th> Created Time </th>
                                         <th> Created By </th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Position: activate to sort column ascending">Actions</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="3" aria-label="Position: activate to sort column ascending">Actions</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var category in Model)
+                                    @foreach (var product in Model)
                                     {
                                         <tr>
 
                                             <td> @(count++) </td>
-                                            <td> @category.Title</td>
-                                            <td> @category.SubTitle </td>
-                                            <td> @category.CreatedAt</td>
-                                            <td> @category.CreatedBy</td>
-                                            <td><a class="btn deleteBtn btn-danger" data-id="@category.Id" asp-action="Delete" asp-route-id="@category.Id">Delete</a></td>
-                                            <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@category.Id">Update</a></td>
+                                            <td> @product.Name</td>
+                                            <td> @product.Price </td>
+                                            <td> @product.Discount </td>
+                                            <td> @product.Description </td>
+                                            <td> @product.CreatedAt</td>
+                                            <td> @product.CreatedBy</td>
+                                            <td><a class="btn deleteBtn btn-danger" data-id="@product.Id" asp-action="Delete" asp-route-id="@product.Id">Delete</a></td>
+                                            <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@product.Id">Update</a></td>
+                                            <td><a class="btn btn-primary" asp-action="Detail" asp-route-id="@product.Id">Detail</a></td>
                                         </tr>
                                     }
-
-
-
                                 </tbody>
                             </table>
                         </div>
@@ -73,4 +75,3 @@
     </footer>
     <!-- partial -->
 </div>
-

@@ -1,10 +1,11 @@
 ﻿using Dannys.Interceptors;
-using Dannys.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dannys.Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext
 {
 
     private readonly BaseEntityInterceptor _interceptor;
@@ -18,10 +19,13 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        builder.Entity<Product>().HasQueryFilter(x => !x.IsDeleted);
 
-
+        AddedQueryFilter(builder);
+        AddedRoles(builder);
+        AddedAdminUser(builder);
     }
+
+   
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -44,5 +48,49 @@ public class AppDbContext : DbContext
     public DbSet<OrderItem> OrderItems { get; set; } = null!;
     public DbSet<Reservation> Reservations { get; set; } = null!;
     public DbSet<Table> Tables { get; set; } = null!;
+
+
+
+
+    private static void AddedQueryFilter(ModelBuilder builder)
+    {
+        builder.Entity<Product>().HasQueryFilter(x => !x.IsDeleted);
+        builder.Entity<Category>().HasQueryFilter(x => !x.IsDeleted);
+        builder.Entity<Author>().HasQueryFilter(x => !x.IsDeleted);
+        builder.Entity<Topic>().HasQueryFilter(x => !x.IsDeleted);
+    }
+
+    private static void AddedAdminUser(ModelBuilder builder)
+    {
+        AppUser appUser = new()
+        {
+            Id = "1",
+            Name = "Admin",
+            Surname = "Admin",
+            UserName = "admin",
+            Email = "admin@gmail.com",
+            NormalizedEmail = "ADMIN@GMAIL.COM",
+            NormalizedUserName = "ADMIN",
+            EmailConfirmed = true,
+            PasswordHash = "AQAAAAEAACcQAAAAEIFavcXSkUaaUvyIby+VzzxiM4Tm/ULRmnIUQIQ3WZNNh7oA4E/GwvuXma3yJ24sew==",
+            SecurityStamp = "SPU6GFMFF6OXBLM2PSPAAUU375TGRCUO"
+        };
+
+
+        builder.Entity<AppUser>().HasData(appUser);
+
+
+        builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>() { RoleId = "1", UserId = "1" });
+    }
+
+    private static void AddedRoles(ModelBuilder builder)
+    {
+        builder.Entity<IdentityRole>().HasData(
+            new IdentityRole() { Name = "Admin", NormalizedName = "ADMIN", Id = "1" },
+            new IdentityRole() { Name = "Member", NormalizedName = "MEMBER", Id = "2" },
+            new IdentityRole() { Name = "Moderator", NormalizedName = "MODERATOR", Id = "3" }
+
+            );
+    }
 }
 

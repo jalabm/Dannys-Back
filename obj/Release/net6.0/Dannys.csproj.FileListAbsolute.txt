@@ -76,3 +76,4 @@
 /Users/jalememmedli/Desktop/Dannys/Dannys/obj/Release/net6.0/Dannys.pdb
 /Users/jalememmedli/Desktop/Dannys/Dannys/obj/Release/net6.0/Dannys.genruntimeconfig.cache
 /Users/jalememmedli/Desktop/Dannys/Dannys/obj/Release/net6.0/ref/Dannys.dll
+/Users/jalememmedli/Desktop/Dannys/Dannys/bin/Release/net6.0/Newtonsoft.Json.dll

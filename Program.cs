@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using Dannys.Data;
 using Dannys.Interceptors;
+using Dannys.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,21 +15,21 @@ builder.Services.AddHttpContextAccessor();
 
 
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
-//builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 //builder.Services.AddScoped<LayoutService>();
 
-//builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
-//{
-//    options.User.RequireUniqueEmail = true;
-//    options.Password.RequireDigit = true;
-//    options.Password.RequiredLength = 8;
-//    options.Password.RequireUppercase = true;
-//    options.Password.RequireNonAlphanumeric = true;
-//    options.Lockout.AllowedForNewUsers = false;
-//    options.Lockout.MaxFailedAccessAttempts = 5;
-//    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-//}).AddEntityFrameworkStores<AppDbContext>()
-//.AddDefaultTokenProviders();
+builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+{
+    options.User.RequireUniqueEmail = true;
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 8;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Lockout.AllowedForNewUsers = false;
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+}).AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
 
 var app = builder.Build();

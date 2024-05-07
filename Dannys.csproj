@@ -34,6 +34,8 @@
     <None Remove="Views\Account\" />
     <None Remove="Dtos\AccountDtos\" />
     <None Remove="Enums\" />
+    <None Remove="Areas\Admin\Views\Product\" />
+    <None Remove="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -74,6 +76,8 @@
     <Folder Include="Views\Account\" />
     <Folder Include="Dtos\AccountDtos\" />
     <Folder Include="Enums\" />
+    <Folder Include="Areas\Admin\Views\Product\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

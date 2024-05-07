@@ -21,7 +21,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div style="display: flex; align-items: center; justify-content: flex-end;margin-bottom:20px">
-                            <a style="display:flex;align-items:center;justify-content:center;width:70px; height:40px;border-radius:6px ;color:white;background-color:navy; border:none;text-decoration:none "  asp-action="Create">Create</a>
+                            <a style="display:flex;align-items:center;justify-content:center;width:70px; height:40px;border-radius:6px ;color:white;background-color:navy; border:none;text-decoration:none " asp-action="Create">Create</a>
 
                         </div>
                         <div class="table-responsive">
@@ -78,71 +78,4 @@
     <!-- partial -->
 </div>
 
-
-
-@section Scripts {
-    <script>const btns = document.querySelectorAll(".deleteBtn")
-        btns.forEach(x => {
-            console.log(x)
-        })</script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-    <script>const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: "btn btn-success",
-                cancelButton: "btn btn-danger"
-            },
-            buttonsStyling: false
-        });
-
-        const deleteBtn = document.querySelectorAll(".deleteBtn");
-        deleteBtn.forEach(x => {
-            console.log(x);
-            x.addEventListener("click", function (e) {
-                e.preventDefault();
-                console.log(x)
-                swalWithBootstrapButtons.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonText: "Yes, delete it!",
-                    cancelButtonText: "No, cancel!",
-                    reverseButtons: true
-                }).then((result) => {
-                    if (result.isConfirmed) {
-
-                        const categoryId = this.dataset.id;
-                        console.log(categoryId);
-                        $.ajax({
-                            type: "POST",
-                            url: `Category/Delete/${categoryId}`,
-                            success: function (res) {
-                                console.log(res)
-                                location.reload()
-                            },
-                            error: function (err) {
-                                console.log(err)
-                            }
-                        })
-
-                    } else if (
-                        /* Read more about handling dismissals below */
-                        result.dismiss === Swal.DismissReason.cancel
-                    ) {
-                        swalWithBootstrapButtons.fire({
-                            title: "Cancelled",
-                            text: "Your imaginary file is safe :)",
-                            icon: "error"
-                        });
-                    }
-                });
-            })
-        })</script>
-}
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
 

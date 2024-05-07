@@ -3,7 +3,7 @@ using Dannys.Models.Common;
 
 namespace Dannys.Models
 {
-	public class Table:BaseAuditableEntity
+	public class Table:BaseEntity
 	{
 		public int Persons { get; set; }
 		public int IsReservated { get; set; }

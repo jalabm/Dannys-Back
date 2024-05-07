@@ -1,0 +1,77 @@
+﻿@model ProductCreateDto
+<form method="post" class="category" style="width: 100%" enctype="multipart/form-data">
+    <div class="content-wrapper" style=" height: 100vh; overflow: scroll">
+        <div class="page-header">
+            <h3 class="page-title"> Form elements </h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card" style=" width:100%">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="forms-sample">
+                            <div class="form-group">
+                                <label asp-for="Name" for="exampleInputUsername1">Name</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Name" placeholder="Name">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Description" for="exampleInputUsername1">Description</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Description" placeholder="Description">
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Price" for="exampleInputUsername1">Price</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Price" placeholder="Price">
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Discount" for="exampleInputUsername1">Discount</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Discount" placeholder="Discount">
+                                <span asp-validation-for="Discount" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Ingredients" for="exampleInputUsername1">Ingredients</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Ingredients" placeholder="Ingredients">
+                                <span asp-validation-for="Ingredients" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Porsion" for="exampleInputUsername1">Porsion</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Porsion" placeholder="Porsion">
+                                <span asp-validation-for="Porsion" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MainFile" for="exampleInputUsername1"></label>
+                                <input class="form-control" id="exampleInputName" asp-for="MainFile" placeholder="Enter Main File">
+                                <span asp-validation-for="MainFile" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="AdditionalFiles" for="exampleInputUsername1"></label>
+                                <input class="form-control" id="exampleInputName" asp-for="AdditionalFiles" placeholder="Enter Additional Files">
+                                <span asp-validation-for="AdditionalFiles" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="form-label"> Category</label>
+                                <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories,nameof(Category.Id),nameof(Category.Title)))" class="form-control">
+                                    <option disabled selected>Select Category</option>
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                            <div asp-validation-summary="ModelOnly" class="text-danger">  </div>
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-dark">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+

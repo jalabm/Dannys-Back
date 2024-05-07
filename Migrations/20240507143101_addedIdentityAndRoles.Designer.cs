@@ -4,6 +4,7 @@ using Dannys.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dannys.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240507143101_addedIdentityAndRoles")]
+    partial class addedIdentityAndRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -785,13 +787,6 @@ namespace Dannys.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "1",
-                            RoleId = "1"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -826,26 +821,6 @@ namespace Dannys.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("AppUser");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "1",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "d5096637-c83c-4a23-8e8f-584e826f453e",
-                            Email = "admin@gmail.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@GMAIL.COM",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIFavcXSkUaaUvyIby+VzzxiM4Tm/ULRmnIUQIQ3WZNNh7oA4E/GwvuXma3yJ24sew==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "SPU6GFMFF6OXBLM2PSPAAUU375TGRCUO",
-                            TwoFactorEnabled = false,
-                            UserName = "admin",
-                            Name = "Admin",
-                            Surname = "Admin"
-                        });
                 });
 
             modelBuilder.Entity("Dannys.Models.Basketitem", b =>
