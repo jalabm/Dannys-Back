@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4BOKAqGGEsc2kIrYoORmFV1LUj1UboDo7O1z1zUos59x73KhKUDp8kN2TiFN2odPiANexRyzLHTKMkmH4vxHuQ==",
+  "dgSpecHash": "SDuOjb8ksOdAk8clG2z3Q+RqaYLXhwctfon4OpwHzPfARju72W2hTtygXeovIdjKObDP5HAFAWC8dnxn5h4Beg==",
   "success": true,
   "projectFilePath": "/Users/jalememmedli/Desktop/Dannys/Dannys/Dannys.csproj",
   "expectedPackageFiles": [
@@ -61,6 +61,7 @@
     "/Users/jalememmedli/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/Users/jalememmedli/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",
     "/Users/jalememmedli/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "/Users/jalememmedli/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/Users/jalememmedli/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/Users/jalememmedli/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/Users/jalememmedli/.nuget/packages/system.configuration.configurationmanager/4.7.0/system.configuration.configurationmanager.4.7.0.nupkg.sha512",

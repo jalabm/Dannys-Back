@@ -1,0 +1,34 @@
+﻿@model LoginDto
+
+
+<main class="page-section inner-page-sec-padding-bottom">
+    <div class="container">
+        <div class="row">
+
+            <div style="margin:0 auto" class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                <form method="post">
+                    <div class="login-form">
+                        <h4 class="login-title">Returning Customer</h4>
+                        <p><span class="font-weight-bold">I am a returning customer</span></p>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-md-12 col-12 mb--15">
+                                <label asp-for="Email">Enter your email address here...</label>
+                                <input class="mb-0 form-control" asp-for="Email" placeholder="Enter you email address here...">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 mb--20">
+                                <label asp-for="Password">Password</label>
+                                <input class="mb-0 form-control" asp-for="Password" placeholder="Enter your password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-outlined">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

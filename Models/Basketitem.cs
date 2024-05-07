@@ -10,6 +10,7 @@ namespace Dannys.Models
 
 		public Product Product { get; set; } = null!;
 		public AppUser AppUser { get; set; } = null!;
+		public int Count { get; set; }
 	}
 }
 

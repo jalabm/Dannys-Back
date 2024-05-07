@@ -31,6 +31,9 @@
     <None Remove="Dtos\SliderDtos\" />
     <None Remove="Extensions\" />
     <None Remove="Areas\Admin\Views\Slider\" />
+    <None Remove="Views\Account\" />
+    <None Remove="Dtos\AccountDtos\" />
+    <None Remove="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -68,6 +71,9 @@
     <Folder Include="wwwroot\assets\" />
     <Folder Include="wwwroot\assets\image\" />
     <Folder Include="wwwroot\assets\image\sliderIcons\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="Dtos\AccountDtos\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -96,5 +102,6 @@
     </PackageReference>
     <PackageReference Include="AutoMapper.Collection.EntityFrameworkCore" Version="10.0.0" />
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 </Project>
