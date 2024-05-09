@@ -3397,6 +3397,26 @@
       "PackagePath": "staticwebassets/Admin/assets/vendors/typeahead.js/typeahead.bundle.min.js"
     },
     {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/image/productImgs/11a9f21d-a242-4a81-911a-4021f905ea05_product-img5.jpg",
+      "PackagePath": "staticwebassets/assets/image/productImgs/11a9f21d-a242-4a81-911a-4021f905ea05_product-img5.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/image/productImgs/869e112b-c6ec-45b8-b713-98f1893c9955_product-img4.jpg",
+      "PackagePath": "staticwebassets/assets/image/productImgs/869e112b-c6ec-45b8-b713-98f1893c9955_product-img4.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/image/productImgs/c3f41aad-9e46-4f05-9611-c0c43d20c0ed_product-img3.jpg",
+      "PackagePath": "staticwebassets/assets/image/productImgs/c3f41aad-9e46-4f05-9611-c0c43d20c0ed_product-img3.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/image/productImgs/e42df9fa-f51a-47cd-addb-b4b9ccbdc768_product-img2.jpg",
+      "PackagePath": "staticwebassets/assets/image/productImgs/e42df9fa-f51a-47cd-addb-b4b9ccbdc768_product-img2.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/image/productImgs/e826f899-b7ff-41f9-a170-8f8c89d9210b_product-img3.jpg",
+      "PackagePath": "staticwebassets/assets/image/productImgs/e826f899-b7ff-41f9-a170-8f8c89d9210b_product-img3.jpg"
+    },
+    {
       "Id": "obj/Release/net6.0/staticwebassets/msbuild.Dannys.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

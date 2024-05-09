@@ -78,6 +78,7 @@
     <Folder Include="Enums\" />
     <Folder Include="Areas\Admin\Views\Product\" />
     <Folder Include="Services\" />
+    <Folder Include="wwwroot\assets\image\productImgs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -91,6 +92,7 @@
     <Content Remove="wwwroot\assets\" />
     <Content Remove="wwwroot\assets\image\" />
     <Content Remove="wwwroot\assets\image\sliderIcons\" />
+    <Content Remove="wwwroot\assets\image\productImgs\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.29">

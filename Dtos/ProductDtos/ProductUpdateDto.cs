@@ -15,8 +15,11 @@ public class ProductUpdateDto
     public int CategoryId { get; set; }
     public int SalesCount { get; set; }
 
-    public IFormFile MainFile { get; set; } = null!;
+    public string? MainFileUrl { get; set; } 
+    public IFormFile? MainFile { get; set; } = null!;
     public List<IFormFile> AdditionalFiles { get; set; } = new();
+    public List<string> ImagePaths { get; set; } = new();
+    public List<int> ImageIds { get; set; } = new();
 }
 
 

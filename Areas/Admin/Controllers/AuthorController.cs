@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Dannys.Data;
+﻿using Dannys.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -42,12 +41,12 @@ public class AuthorController : Controller
        
         if (isExistDescription)
         {
-            ModelState.AddModelError("Description", "Description alredy exist");
+            ModelState.AddModelError("Description", "Description already exist");
             return View(dto);
         }
         if (isExistBiographia)
         {
-            ModelState.AddModelError("Biographia", "Biographia alredy exist");
+            ModelState.AddModelError("Biographia", "Biographia already exist");
             return View(dto);
         }
 
@@ -87,7 +86,7 @@ public class AuthorController : Controller
 
         if (isExistBiographia)
         {
-            ModelState.AddModelError("Biographia", "Biographia alredy exist");
+            ModelState.AddModelError("Biographia", "Biographia already exist");
             return View(dto);
         }
 

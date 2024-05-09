@@ -3,11 +3,18 @@ namespace Dannys.Extensions
 {
 	public static class FileExtension
 	{
-        public static async Task<string> SaveFileAsync(this IFormFile file, string root, string assets, string image, string folderName)
+        public static async Task<string> SaveFileAsync(this IFormFile file, params string[] roots)
         {
             string uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            string path = Path.Combine(root, assets, image, folderName, uniqueFileName);
 
+            string path = "";
+
+            foreach (var root in roots)
+            {
+                path = Path.Combine(path, root);
+            }
+
+            path = Path.Combine(path, uniqueFileName);
 
             using FileStream fs = new FileStream(path, FileMode.Create);
 
@@ -34,12 +41,20 @@ namespace Dannys.Extensions
             }
             return true;
         }
-        public static void DeleteFile(this string fileName, string root, string assets, string image, string folderName)
+        public static void DeleteFile(this string fileName, params string[] roots)
         {
-            string path = Path.Combine(root, assets, image, folderName, fileName);
-            if (System.IO.File.Exists(path))
+            string path = "";
+
+            foreach (var root in roots)
             {
-                System.IO.File.Delete(path);
+                path = Path.Combine(path, root);
+            }
+
+            path = Path.Combine(path, fileName);
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
             }
         }
     }

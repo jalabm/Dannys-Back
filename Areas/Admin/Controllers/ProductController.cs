@@ -91,27 +91,28 @@ public class ProductController : Controller
         }
 
         Product product = _mapper.Map<Product>(dto);
+
         var mainFileName = await dto.MainFile.SaveFileAsync(_env.WebRootPath, "assets", "image", "productImgs");
-        var mainProductImageCreate = CreateProduct(mainFileName, true, product);
+        var mainProductImageCreate = CreateProductImage(mainFileName, true, product);
         product.ProductImgs.Add(mainProductImageCreate);
 
         foreach (var file in dto.AdditionalFiles)
         {
             var filename = await file.SaveFileAsync(_env.WebRootPath, "assets", "image", "productImgs");
-            var additionalProductImgs = CreateProduct(filename, false, product);
+            var additionalProductImgs = CreateProductImage(filename, false, product);
             product.ProductImgs.Add(additionalProductImgs);
 
         }
 
-        await _context.Products.AddAsync(product);
 
+        await _context.Products.AddAsync(product);
         await _context.SaveChangesAsync();
 
         return RedirectToAction("Index");
 
     }
 
-    public ProductImg CreateProduct(string url, bool isMain, Product product)
+    private ProductImg CreateProductImage(string url, bool isMain, Product product)
     {
         return new ProductImg
         {
@@ -131,12 +132,21 @@ public class ProductController : Controller
                                              .FirstOrDefaultAsync(x => x.Id == id);
         if (product == null) return NotFound();
         ProductUpdateDto dto = _mapper.Map<ProductUpdateDto>(product);
+
+
+        dto.ImagePaths = product.ProductImgs.Where(x => !x.IsMain).Select(x => x.Url).ToList();
+        dto.ImageIds = product.ProductImgs.Where(x => !x.IsMain).Select(x => x.Id).ToList();
+        dto.MainFileUrl = product.ProductImgs.FirstOrDefault(x => x.IsMain)?.Url ?? "null";
         return View(dto);
     }
 
     [HttpPost]
     public async Task<IActionResult> Update(int id, ProductUpdateDto dto)
     {
+        if (!ModelState.IsValid)
+        {
+            return View();
+        }
 
         ViewBag.Categories = await _context.Categories.ToListAsync();
 
@@ -147,10 +157,7 @@ public class ProductController : Controller
             return NotFound();
         }
 
-        if (!ModelState.IsValid)
-        {
-            return View(dto);
-        }
+
 
 
         var isExist = await _context.Products.AnyAsync(x => x.Name == dto.Name && x.Id != id);
@@ -186,26 +193,7 @@ public class ProductController : Controller
 
         }
 
-        if (dto.AdditionalFiles is not null)
-        {
-            foreach (var file in dto.AdditionalFiles)
-            {
 
-                if (!file.CheckFileSize(2))
-                {
-                    ModelState.AddModelError("AdditionalFiles", "Files cannot be more than 2mb");
-                    return View(dto);
-                }
-
-
-                if (!file.CheckFileType("image"))
-                {
-                    ModelState.AddModelError("AdditionalFiles", "Files must be image type!");
-                    return View(dto);
-
-                }
-            }
-        }
         if (dto.MainFile != null)
         {
             if (!dto.MainFile.CheckFileSize(2))
@@ -224,32 +212,65 @@ public class ProductController : Controller
 
         }
 
-        if (dto.AdditionalFiles?.Count > 0)
+
+
+
+
+        var ExistedImages = existProduct.ProductImgs.Where(x => !x.IsMain).Select(x => x.Id).ToList();
+        if (dto.ImageIds is not null)
         {
-            foreach (var item in existProduct.ProductImgs.Where(x => !x.IsMain))
+            ExistedImages = ExistedImages.Except(dto.ImageIds).ToList();
+
+        }
+        if (ExistedImages.Count > 0)
+        {
+            foreach (var imageId in ExistedImages)
             {
-                item.Url.DeleteFile(_env.WebRootPath, "assets", "image", "productImgs");
-                _context.ProductImgs.Remove(item);
+                var deletedImage = existProduct.ProductImgs.FirstOrDefault(x => x.Id == imageId);
+                if (deletedImage is not null)
+                {
+
+                    existProduct.ProductImgs.Remove(deletedImage);
+
+                    deletedImage.Url.DeleteFile(_env.WebRootPath, "assets", "image", "productImgs");
+                }
 
             }
-            foreach (var file in dto.AdditionalFiles)
-            {
-                var filename = await file.SaveFileAsync(_env.WebRootPath, "assets", "image", "productImgs");
-                var additionalProductImages = CreateProduct(filename, false, existProduct);
-                existProduct.ProductImgs.Add(additionalProductImages);
+        }
 
-            }
+
+        foreach (var file in dto.AdditionalFiles)
+        {
+            var filename = await file.SaveFileAsync(_env.WebRootPath, "assets", "image", "productImgs");
+            var additionalProductImages = new ProductImg() { IsMain = false, Product = existProduct, Url = filename };
+            existProduct.ProductImgs.Add(additionalProductImages);
+
         }
 
 
         if (dto.MainFile is not null)
         {
-            existProduct.ProductImgs.FirstOrDefault(x => x.IsMain)?.Url.DeleteFile(_env.WebRootPath, "assets", "image", "ptoductImgs");
-            var mainFileName = await dto.MainFile.SaveFileAsync(_env.WebRootPath, "assets", "image", "ptoductImgs");
-            var mainProductImage = CreateProduct(mainFileName, true, existProduct);
-            existProduct.ProductImgs.Add(mainProductImage);
+            var existMainImage = existProduct.ProductImgs.FirstOrDefault(x => x.IsMain);
+            //remove exist image
+            if (existMainImage is not null)
+            {
+                existMainImage.Url.DeleteFile(_env.WebRootPath, "assets", "image", "productImgs");
+                existProduct.ProductImgs.Remove(existMainImage);
+
+            }
+
+
+
+            var filename = await dto.MainFile.SaveFileAsync(_env.WebRootPath, "assets", "image", "productImgs");
+            ProductImg image =new ProductImg(){  IsMain=true, Product=existProduct, Url=filename };
+            existProduct.ProductImgs.Add(image);
+
+
+
 
         }
+
+
 
         existProduct = _mapper.Map(dto, existProduct);
 

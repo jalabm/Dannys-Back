@@ -29,6 +29,7 @@
                                 <thead>
                                     <tr>
                                         <th> # </th>
+                                        <th> Image </th>
                                         <th> Name </th>
                                         <th> Price </th>
                                         <th> Discount </th>
@@ -45,6 +46,7 @@
                                         <tr>
 
                                             <td> @(count++) </td>
+                                            <td> <img src="~/assets/image/productImgs/@product.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url" style="border-radius: 30px; width: 35px; height:35px;object-fit: cover"/></td>
                                             <td> @product.Name</td>
                                             <td> @product.Price </td>
                                             <td> @product.Discount </td>
