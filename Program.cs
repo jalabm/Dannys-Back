@@ -11,6 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped<BaseEntityInterceptor>();
+builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddHttpContextAccessor();
 
 

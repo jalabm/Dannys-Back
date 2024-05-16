@@ -1,6 +1,5 @@
-﻿using AutoMapper;
-using Dannys.Data;
-using Dannys.Models;
+﻿using Dannys.Data;
+using Dannys.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,11 +9,13 @@ public class BlogController : Controller
 {
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
+    private readonly CloudinaryService _cloudinaryService;
 
-    public BlogController(AppDbContext context, IMapper mapper)
+    public BlogController(AppDbContext context, IMapper mapper, CloudinaryService cloudinaryService)
     {
         _context = context;
         _mapper = mapper;
+        _cloudinaryService = cloudinaryService;
     }
 
     public async Task<IActionResult> Index()
@@ -28,7 +29,7 @@ public class BlogController : Controller
     {
         ViewBag.Topics = await _context.Topics.ToListAsync();
         ViewBag.Author = await _context.Authors.ToListAsync();
-
+       
         return View();
     }
 
@@ -67,6 +68,9 @@ public class BlogController : Controller
             return View(dto);
         }
         Blog blog = _mapper.Map<Blog>(dto);
+
+        blog.ImageUrl =await _cloudinaryService.FileCreateAsync(dto.Image);
+
 
         await _context.Blogs.AddAsync(blog);
 

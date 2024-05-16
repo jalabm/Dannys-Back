@@ -79,6 +79,7 @@
     <Folder Include="Areas\Admin\Views\Product\" />
     <Folder Include="Services\" />
     <Folder Include="wwwroot\assets\image\productImgs\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -109,5 +110,6 @@
     <PackageReference Include="AutoMapper.Collection.EntityFrameworkCore" Version="10.0.0" />
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="CloudinaryDotNet" Version="1.26.2" />
   </ItemGroup>
 </Project>

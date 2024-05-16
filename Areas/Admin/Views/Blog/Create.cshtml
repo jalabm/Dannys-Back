@@ -1,7 +1,7 @@
 ﻿
 @model BlogCreatedto
 
-<form method="post" class="category" style="width: 100%">
+<form method="post" class="category" style="width: 100%" enctype="multipart/form-data">
     <div class="content-wrapper" style=" height:100vh">
         <div class="page-header">
             <h3 class="page-title"> Form elements </h3>
@@ -31,6 +31,11 @@
                                 <label asp-for="LongDescription" for="exampleInputSubtitle">Long Description</label>
                                 <input type="text" class="form-control" id="exampleInputDescription" placeholder="Description" asp-for="LongDescription">
                                 <span asp-validation-for="LongDescription" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Image" for="exampleInputUsername1"></label>
+                                <input class="form-control" id="exampleInputName" asp-for="Image" placeholder="Enter Image" />
+                                <span asp-validation-for="Image" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1" class="form-label"> Topic</label>

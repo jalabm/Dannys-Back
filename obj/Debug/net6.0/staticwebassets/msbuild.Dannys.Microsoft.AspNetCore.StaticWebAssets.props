@@ -13696,22 +13696,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\47fb32d3-f44a-4537-be90-ca245932f3c9_product-img3.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\542aeb32-ddf1-47e1-a1a4-7842a08669ad_product-img3.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>Dannys</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Dannys</BasePath>
-      <RelativePath>assets/image/productImgs/542aeb32-ddf1-47e1-a1a4-7842a08669ad_product-img3.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\542aeb32-ddf1-47e1-a1a4-7842a08669ad_product-img3.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\552649af-759b-4e77-ade7-156fbaefb4a3_restaurant-img-1.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Dannys</SourceId>
@@ -13727,70 +13711,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\552649af-759b-4e77-ade7-156fbaefb4a3_restaurant-img-1.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\589ec640-78ef-41b1-b4f6-60b9928b4fcb_product-img4.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>Dannys</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Dannys</BasePath>
-      <RelativePath>assets/image/productImgs/589ec640-78ef-41b1-b4f6-60b9928b4fcb_product-img4.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\589ec640-78ef-41b1-b4f6-60b9928b4fcb_product-img4.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\58c741bc-1f6f-4ab3-a596-885d5bd6bb7d_product-img5.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>Dannys</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Dannys</BasePath>
-      <RelativePath>assets/image/productImgs/58c741bc-1f6f-4ab3-a596-885d5bd6bb7d_product-img5.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\58c741bc-1f6f-4ab3-a596-885d5bd6bb7d_product-img5.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\69b86a83-a229-4feb-a422-f822f616caa5_product-img7.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>Dannys</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Dannys</BasePath>
-      <RelativePath>assets/image/productImgs/69b86a83-a229-4feb-a422-f822f616caa5_product-img7.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\69b86a83-a229-4feb-a422-f822f616caa5_product-img7.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\6a1ed360-859a-4d39-b110-38f798ef7018_product-img4.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>Dannys</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Dannys</BasePath>
-      <RelativePath>assets/image/productImgs/6a1ed360-859a-4d39-b110-38f798ef7018_product-img4.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\6a1ed360-859a-4d39-b110-38f798ef7018_product-img4.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\72c021de-fc49-435f-9186-ef1df4a2786b_product-img5.jpg))">
       <SourceType>Package</SourceType>
@@ -13856,22 +13776,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\9fe9bbf6-5697-4474-a8a5-963df0c950e7_product-img4.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\cbc051dc-9375-423b-9f2f-1b062f177827_product-img6.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>Dannys</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Dannys</BasePath>
-      <RelativePath>assets/image/productImgs/cbc051dc-9375-423b-9f2f-1b062f177827_product-img6.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\cbc051dc-9375-423b-9f2f-1b062f177827_product-img6.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\cd3df859-78d3-4f9c-b861-e92289d83240_product-img3.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Dannys</SourceId>
@@ -13919,6 +13823,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\f416d30b-f0e9-44a0-924c-a238ee932612_product-img4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\f7549757-9f1a-45cb-94e1-6dd1f7ba1eef_product-img6.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Dannys</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Dannys</BasePath>
+      <RelativePath>assets/image/productImgs/f7549757-9f1a-45cb-94e1-6dd1f7ba1eef_product-img6.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\image\productImgs\f7549757-9f1a-45cb-94e1-6dd1f7ba1eef_product-img6.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Dannys.bundle.scp.css))">
       <SourceType>Package</SourceType>

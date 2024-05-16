@@ -77,3 +77,4 @@
 /Users/jalememmedli/Desktop/Dannys/Dannys/bin/Debug/net6.0/AutoMapper.Collection.EntityFrameworkCore.dll
 /Users/jalememmedli/Desktop/Dannys/Dannys/bin/Debug/net6.0/AutoMapper.Extensions.ExpressionMapping.dll
 /Users/jalememmedli/Desktop/Dannys/Dannys/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/jalememmedli/Desktop/Dannys/Dannys/bin/Debug/net6.0/CloudinaryDotNet.dll
