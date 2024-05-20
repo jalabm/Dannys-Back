@@ -40,30 +40,38 @@
                         {
                             <tr>
                                 <td class="product-remove">
-                                    <a href="#" class="remove">X</a>
+                                    <a asp-controller="basket" asp-action="RemoveToBasket" asp-route-id="@item.Product.Id" class="remove">X</a>
                                 </td>
                                 <td class="product-thumbnail">
-                                    <a href="#" class="imageCol">
+                                    <a asp-controller="shop" asp-action="Detail" asp-route-id="@item.Product.Id" class="imageCol">
                                         <img class="img-responsive"
                                              src="@item.Product.ProductImgs.FirstOrDefault(x=>x.IsMain).Url"
                                              alt="" />
                                     </a>
                                 </td>
                                 <td class="product-name" data-title="Product">
-                                    <a href="#">Apple cider sauce and pork loin chops</a>
+                                    <a asp-controller="shop" asp-action="Detail" asp-route-id="@item.Product.Id">@item.Product.Name</a>
                                 </td>
                                 <td class="product-price" data-title="Price">
-                                    <span>$15.90</span>
+                                    @if (item.Product.Discount > 0)
+                                    {
+                                        <span class="price"> $@(item.Product.Price-(item.Product.Price*item.Product.Discount/100))</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="price"> $@item.Product.Price</span>
+
+                                    }
                                 </td>
                                 <td class="product-quantity" data-title="Quantity">
                                     <div class="quantity">
                                         <input type="number"
                                                class="input-text qty text"
-                                               value="1" />
+                                               value="@item.Count" />
                                     </div>
                                 </td>
                                 <td class="product-subtotal" data-title="Total">
-                                    <span>$15.90</span>
+                                    <span>$@(item.Count * (item.Product.Price - (item.Product.Price * item.Product.Discount / 100)))</span>
                                 </td>
                             </tr>
 
@@ -88,7 +96,7 @@
                                 </div>
 
                                 <div class="update-cart">
-                                    <a href="#" class="btn btn-default">Update Cart</a>
+                                    <a asp-action="index" class="btn btn-default">Update Cart</a>
                                 </div>
                             </td>
                         </tr>
@@ -107,12 +115,10 @@
                                 <th>Subtotal</th>
                                 <td data-title="Subtotal">
 
-                                    @foreach (var item in Model)
-                                    {
-                                        <span class="woocommerce-Price-amount amount">$@((item.Product.Price - item.Product.Price * item.Product.Discount / 100)*item.Count)</span>
+                                        <span class="woocommerce-Price-amount amount">$@totalPrice</span>
 
 
-                                    }
+                                    
                                 </td>
                             </tr>
                             <tr class="order-total">

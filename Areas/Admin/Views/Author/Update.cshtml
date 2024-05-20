@@ -1,16 +1,11 @@
 ﻿@model AuthorUpdateDto
 
 
-<form method="post" class="category" style="width: 100%">
-    <div class="content-wrapper" style=" height:100vh">
+<form method="post" class="category" style="width: 100%" enctype="multipart/form-data">
+    <div class="content-wrapper" style=" height: 100vh; overflow: scroll">
         <div class="page-header">
-            <h3 class="page-title"> Form elements </h3>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Form elements</li>
-                </ol>
-            </nav>
+            <h3 class="page-title"> Author Update </h3>
+            
         </div>
         <div class="row">
             <div class="col-md-6 grid-margin stretch-card" style=" width:100%">
@@ -36,6 +31,16 @@
                                 <label asp-for="Biographia" for="exampleInputSubtitle">Biographia</label>
                                 <input type="text" class="form-control" id="exampleInputBiographia" placeholder="Biographia" asp-for="Biographia">
                                 <span asp-validation-for="Biographia" class="text-danger"></span>
+                            </div>
+                            <img style="width: 100px; height: 100px;" class="primary-img"
+                                 src="@Model.Image"
+                                 alt="Product Images" />
+                            <input asp-for="Image" type="hidden" value="@Model.Image " />
+
+                            <div class="form-group">
+                                <label asp-for="Image" for="exampleInputUsername1"></label>
+                                <input class="form-control" id="exampleInputName" asp-for="Image" placeholder="Enter Image">
+                                <span asp-validation-for="Image" class="text-danger"></span>
                             </div>
                             <div asp-validation-summary="ModelOnly" class="text-danger">  </div>
                             <button type="submit" class="btn btn-primary me-2">Submit</button>

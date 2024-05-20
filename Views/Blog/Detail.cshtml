@@ -1,0 +1,232 @@
+﻿@model BlogVM
+
+    <main class="blog-detail">
+        <section id="News-banner">
+            <div class="banner-part">
+                <div class="banner-content">
+                    <h3>Restaurant</h3>
+                    <h1>Blog</h1>
+                    <p class="white">We Cook & Blog to your liking</p>
+                    <p class="yellow">Danny's</p>
+                </div>
+                <div class="overlay"></div>
+            </div>
+        </section>
+
+        <section id="News-detail">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-8">
+                        <div class="left-part">
+                            <div class="detial-header">
+                                <h2>@Model.Blog.Title</h2>
+                                <div class="detail-meta">
+                                    <p>@Model.Blog.CreatedAt by <a href="#">@Model.Blog.Author.Name </a>in PHOTOGRAPHY</p>
+                                </div>
+                            </div>
+                            <div class="detail-img">
+                                <a href=""><img src="@Model.Blog.ImageUrl" alt=""></a>
+                            </div>
+                            <div class="detail-content">
+                                <p> @Model.Blog.LongDescription </p>
+
+                            </div>
+                            <div class="detail-navigation">
+                                <div class="nav-prev">
+                                    <a href="">
+                                        <span class="nav-subtitle">prev</span>
+                                        <span class="nav-detail">@Model.Blogs.Where(x=>x.Id<Model.Blog.Id)</span>
+                                    </a>
+                                </div>
+                                <div class="nav-next">
+                                    <a href="">
+                                        <span class="nav-subtitle">next</span>
+                                        <span class="nav-detail">@Model.Blogs.Where(x => x.Id > Model.Blog.Id)</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="detail-author">
+                                <div class="row">
+                                    <div class="col-sm-2 col-md-3 col-lg-2">
+                                        <div class="author-img">
+                                            <img src="/assets/images/blog/authour-img.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10 col-md-9 col-lg-8">
+                                        <div class="author-detail">
+                                            <h5>Pam Andersson</h5>
+                                            <a href="#" class="author-link">http://pamandersson.com</a>
+                                            <p>
+                                                Quisque placerat risus non ornare posuere. Cras pretium volutpat
+                                                pulvinar. Morbi imperdiet lectus vitae lorem semper, non iaculis nulla
+                                                finibus. Suspendisse iaculis orci enim, ut posuere magna sodales ut.
+                                            </p>
+                                            <div class="author-sosials">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-part">
+                                <h5>Leave a Reply</h5>
+                                <form>
+                                    <div class="form-group">
+                                        <label>Comment</label>
+                                        <textarea class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-default">post comment</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 col-lg-4 col-xs-12">
+                        <div class="right-part">
+                            <div class="categories-part">
+                                <h3>Categories</h3>
+                                <ul>
+                                    <li>
+                                        <a href="">All</a>
+                                    </li>
+                                    <li>
+                                        <a href="">CHEF'S SPECIALITY</a>
+                                    </li>
+                                    <li>
+                                        <a href="">DRINKS</a>
+                                    </li>
+                                    <li>
+                                        <a href="">DESERT</a>
+                                    </li>
+                                    <li>
+                                        <a href="">MAIN</a>
+                                    </li>
+                                    <li>
+                                        <a href="">OFFERS</a>
+                                    </li>
+                                    <li>
+                                        <a href="">STARTERS</a>
+                                    </li>
+                                    <li>
+                                        <a href="">DAILY MENU</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="kallyas-part">
+                                <img src="/assets/images/blog/banner.jpg" alt="">
+                            </div>
+                            <div class="follow-part">
+                                <h3>Follow Us</h3>
+                                <div class="text">
+                                    <ul>
+                                        <li>
+                                            <a href="#" class="icon-list-item">
+                                                <i class="fa-brands fa-facebook-f"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="icon-list-item"><i class="fa-brands fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="icon-list-item">
+                                                <i class="fa-brands fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="icon-list-item"><i class="fa-brands fa-twitter"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="newsletter">
+                                <h3>
+                                    NEWSLETTER
+                                </h3>
+                                <div class="dn-widgetNewsletter-intro">
+                                    Subscribe &amp; receive
+                                    15% discount
+                                    coupon
+                                </div>
+                                <form method="post" class="js-mcForm dn-widgetNewsletter-form"
+                                      data-url="https://demos.hogash.com/dannys/" name="newsletter_form">
+                                    <input type="email" name="mc_email"
+                                           class="form-control dn-widgetNewsletter-email js-mcForm-email" value=""
+                                           placeholder="your.address@email.com">
+                                    <input type="hidden" name="mailchimp_list" class="nl-lid" value="ec23162409">
+                                    <input type="hidden" name="nonce" value="d84097bcc5" class="zn_hg_mailchimp">
+                                    <input type="hidden" name="action" value="hg_mailchimp_register">
+                                    <input type="submit" name="submit"
+                                           class="dn-widgetNewsletter-submit btn btn-default btn-default--whover"
+                                           value="SUBSCRIBE">
+                                </form>
+                            </div>
+                            <div class="featured">
+                                <h3>FEATURED</h3>
+                                <ul>
+                                    <li>
+                                        <div class="circle">
+                                            1
+                                        </div>
+                                        <a class="top" href="">Special deal if you order 3 or more pizza’s</a>
+                                        <p>
+                                            under <span>
+                                                <a href="">All</a>,
+                                                <a href="">Chef's Speciality</a>,
+                                                <a href="">Main</a>,
+                                                <a href="">Offers</a>,
+
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <div class="circle">
+                                            2
+                                        </div>
+                                        <a class="top" href="">Special deal if you order 3 or more pizza’s</a>
+                                        <p>
+                                            under <span>
+                                                <a href="">All</a>,
+                                                <a href="">Chef's Speciality</a>,
+                                                <a href="">Main</a>,
+                                                <a href="">Offers</a>,
+
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <div class="circle">
+                                            3
+                                        </div>
+                                        <a class="top" href="">Special deal if you order 3 or more pizza’s</a>
+                                        <p>
+                                            under <span>
+                                                <a href="">All</a>,
+                                                <a href="">Chef's Speciality</a>,
+                                                <a href="">Main</a>,
+                                                <a href="">Offers</a>,
+
+                                            </span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>

@@ -39,6 +39,9 @@
     <None Remove="Views\Menu\" />
     <None Remove="Views\Basket\" />
     <None Remove="Views\Shop\" />
+    <None Remove="Views\Reservation\" />
+    <None Remove="Views\Blog\" />
+    <None Remove="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -86,6 +89,9 @@
     <Folder Include="Views\Menu\" />
     <Folder Include="Views\Basket\" />
     <Folder Include="Views\Shop\" />
+    <Folder Include="Views\Reservation\" />
+    <Folder Include="Views\Blog\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

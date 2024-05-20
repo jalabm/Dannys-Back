@@ -10,6 +10,7 @@ namespace Dannys.Models
 		public string Surname { get; set; } = null!;
 		public string Description { get; set; } = null!;
 		public string Biographia { get; set; } = null!;
+		public string ImageUrl { get; set; } = null!;
         [NotMapped]
         public string Fullname { get => $"{Name} {Surname} "; }
         public ICollection<Blog> Blogs { get; set; } = new List<Blog>();

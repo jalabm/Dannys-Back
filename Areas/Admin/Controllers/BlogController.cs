@@ -47,12 +47,12 @@ public class BlogController : Controller
 
         if (!dto.Image.CheckFileSize(2))
         {
-            ModelState.AddModelError("MainFile", "Files cannot be more than 2mb");
+            ModelState.AddModelError("Image", "Files cannot be more than 2mb");
             return View(dto);
         }
         if (!dto.Image.CheckFileType("image"))
         {
-            ModelState.AddModelError("MainFile", "Files must be image type!");
+            ModelState.AddModelError("Image", "Files must be image type!");
             return View(dto);
         }
 
@@ -138,12 +138,12 @@ public class BlogController : Controller
 
             if (!dto.Image.CheckFileSize(2))
             {
-                ModelState.AddModelError("MainFile", "Files cannot be more than 2mb");
+                ModelState.AddModelError("Image", "Files cannot be more than 2mb");
                 return View(dto);
             }
             if (!dto.Image.CheckFileType("image"))
             {
-                ModelState.AddModelError("MainFile", "Files must be image type!");
+                ModelState.AddModelError("Image", "Files must be image type!");
                 return View(dto);
             }
 
@@ -192,10 +192,10 @@ public class BlogController : Controller
 
         existBlog = _mapper.Map(dto, existBlog);
 
-        if(dto.Image is not null)
-        {
-            existBlog.ImageUrl = await _cloudinaryService.FileCreateAsync(dto.Image);
-        }
+    if(dto.Image is not null)
+    {
+        existBlog.ImageUrl = await _cloudinaryService.FileCreateAsync(dto.Image);
+    }
 
         _context.Update(existBlog);
         await _context.SaveChangesAsync();

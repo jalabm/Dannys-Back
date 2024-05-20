@@ -1,4 +1,7 @@
 ﻿using Dannys.Data;
+using Dannys.Extensions;
+using Dannys.Models;
+using Dannys.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,11 +12,13 @@ public class AuthorController : Controller
 {
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
+    private readonly CloudinaryService _cloudinaryService;
 
-    public AuthorController(AppDbContext context, IMapper mapper)
+    public AuthorController(AppDbContext context, IMapper mapper, CloudinaryService cloudinaryService)
     {
         _context = context;
         _mapper = mapper;
+        _cloudinaryService = cloudinaryService;
     }
 
     public async Task<IActionResult> Index()
@@ -50,8 +55,19 @@ public class AuthorController : Controller
             return View(dto);
         }
 
-        Author author = _mapper.Map<Author>(dto);
+        if (!dto.Image.CheckFileSize(2))
+        {
+            ModelState.AddModelError("Image", "Files cannot be more than 2mb");
+            return View(dto);
+        }
+        if (!dto.Image.CheckFileType("image"))
+        {
+            ModelState.AddModelError("Image", "Files must be image type!");
+            return View(dto);
+        }
 
+        Author author = _mapper.Map<Author>(dto);
+        author.ImageUrl = await _cloudinaryService.FileCreateAsync(dto.Image);
 
 
         await _context.Authors.AddAsync(author);
@@ -90,8 +106,23 @@ public class AuthorController : Controller
             return View(dto);
         }
 
-        existAuthor = _mapper.Map(dto, existAuthor);
 
+        if (!dto.Image.CheckFileSize(2))
+        {
+            ModelState.AddModelError("Image", "Files cannot be more than 2mb");
+            return View(dto);
+        }
+        if (!dto.Image.CheckFileType("image"))
+        {
+            ModelState.AddModelError("Image", "Files must be image type!");
+            return View(dto);
+        }
+
+        existAuthor = _mapper.Map(dto, existAuthor);
+        if (dto.Image is not null)
+        {
+            existAuthor.ImageUrl = await _cloudinaryService.FileCreateAsync(dto.Image);
+        }
         _context.Update(existAuthor);
         await _context.SaveChangesAsync();
 
