@@ -36,6 +36,9 @@
     <None Remove="Enums\" />
     <None Remove="Areas\Admin\Views\Product\" />
     <None Remove="Services\" />
+    <None Remove="Views\Menu\" />
+    <None Remove="Views\Basket\" />
+    <None Remove="Views\Shop\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -80,6 +83,9 @@
     <Folder Include="Services\" />
     <Folder Include="wwwroot\assets\image\productImgs\" />
     <Folder Include="Services\" />
+    <Folder Include="Views\Menu\" />
+    <Folder Include="Views\Basket\" />
+    <Folder Include="Views\Shop\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

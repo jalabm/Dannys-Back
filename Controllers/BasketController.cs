@@ -36,7 +36,7 @@ namespace Dannys.Controllers
             var basktItms = _getBasket();
             foreach (var item in basktItms)
             {
-                var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == item.ProductId);
+                var product = await _context.Products.Include(x=>x.ProductImgs).FirstOrDefaultAsync(x => x.Id == item.ProductId);
                 item.Product = product;
 
             }

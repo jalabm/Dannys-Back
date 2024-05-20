@@ -1,4 +1,6 @@
 ﻿using Dannys.Data;
+using Dannys.Extensions;
+using Dannys.Models;
 using Dannys.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +22,7 @@ public class BlogController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var blogs = await _context.Blogs.Include(x => x.Author).Where(x=>!x.IsDeleted).ToListAsync();
+        var blogs = await _context.Blogs.Include(x => x.Author).Where(x => !x.IsDeleted).ToListAsync();
         return View(blogs);
     }
 
@@ -29,7 +31,7 @@ public class BlogController : Controller
     {
         ViewBag.Topics = await _context.Topics.ToListAsync();
         ViewBag.Author = await _context.Authors.ToListAsync();
-       
+
         return View();
     }
 
@@ -41,6 +43,17 @@ public class BlogController : Controller
         if (!ModelState.IsValid)
         {
             return View();
+        }
+
+        if (!dto.Image.CheckFileSize(2))
+        {
+            ModelState.AddModelError("MainFile", "Files cannot be more than 2mb");
+            return View(dto);
+        }
+        if (!dto.Image.CheckFileType("image"))
+        {
+            ModelState.AddModelError("MainFile", "Files must be image type!");
+            return View(dto);
         }
 
 
@@ -69,7 +82,7 @@ public class BlogController : Controller
         }
         Blog blog = _mapper.Map<Blog>(dto);
 
-        blog.ImageUrl =await _cloudinaryService.FileCreateAsync(dto.Image);
+        blog.ImageUrl = await _cloudinaryService.FileCreateAsync(dto.Image);
 
 
         await _context.Blogs.AddAsync(blog);
@@ -84,7 +97,7 @@ public class BlogController : Controller
 
     public async Task<IActionResult> Update(int id)
     {
-        if (id<1)
+        if (id < 1)
         {
             return NotFound();
         }
@@ -102,7 +115,7 @@ public class BlogController : Controller
 
 
     [HttpPost]
-    public async Task<IActionResult> Update(int id,BlogUpdatedto dto)
+    public async Task<IActionResult> Update(int id, BlogUpdatedto dto)
     {
         ViewBag.Topics = await _context.Topics.ToListAsync();
         ViewBag.Author = await _context.Authors.ToListAsync();
@@ -117,6 +130,23 @@ public class BlogController : Controller
         if (!ModelState.IsValid)
         {
             return View(dto);
+        }
+
+
+        if (dto.Image is not null)
+        {
+
+            if (!dto.Image.CheckFileSize(2))
+            {
+                ModelState.AddModelError("MainFile", "Files cannot be more than 2mb");
+                return View(dto);
+            }
+            if (!dto.Image.CheckFileType("image"))
+            {
+                ModelState.AddModelError("MainFile", "Files must be image type!");
+                return View(dto);
+            }
+
         }
 
         var isExist = await _context.Blogs.AnyAsync(x => x.Title == dto.Title && x.Id != id);
@@ -157,7 +187,15 @@ public class BlogController : Controller
             existBlog.BlogTopics.Add(bTopic);
         }
 
+
+
+
         existBlog = _mapper.Map(dto, existBlog);
+
+        if(dto.Image is not null)
+        {
+            existBlog.ImageUrl = await _cloudinaryService.FileCreateAsync(dto.Image);
+        }
 
         _context.Update(existBlog);
         await _context.SaveChangesAsync();

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Dannys.Data;
 using Dannys.Extensions;
+using Dannys.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,12 +12,14 @@ public class ProductController : Controller
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
+    private readonly CloudinaryService _cloudinaryService;
 
-    public ProductController(AppDbContext context, IWebHostEnvironment env, IMapper mapper)
+    public ProductController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, CloudinaryService cloudinaryService)
     {
         _context = context;
         _env = env;
         _mapper = mapper;
+        _cloudinaryService = cloudinaryService;
     }
 
     public async Task<IActionResult> Index()
@@ -92,13 +95,13 @@ public class ProductController : Controller
 
         Product product = _mapper.Map<Product>(dto);
 
-        var mainFileName = await dto.MainFile.SaveFileAsync(_env.WebRootPath, "assets", "image", "productImgs");
+        var mainFileName = await _cloudinaryService.FileCreateAsync(dto.MainFile);
         var mainProductImageCreate = CreateProductImage(mainFileName, true, product);
         product.ProductImgs.Add(mainProductImageCreate);
 
         foreach (var file in dto.AdditionalFiles)
         {
-            var filename = await file.SaveFileAsync(_env.WebRootPath, "assets", "image", "productImgs");
+            var filename = await _cloudinaryService.FileCreateAsync(file);
             var additionalProductImgs = CreateProductImage(filename, false, product);
             product.ProductImgs.Add(additionalProductImgs);
 
@@ -241,7 +244,7 @@ public class ProductController : Controller
 
         foreach (var file in dto.AdditionalFiles)
         {
-            var filename = await file.SaveFileAsync(_env.WebRootPath, "assets", "image", "productImgs");
+            var filename = await _cloudinaryService.FileCreateAsync(file);
             var additionalProductImages = new ProductImg() { IsMain = false, Product = existProduct, Url = filename };
             existProduct.ProductImgs.Add(additionalProductImages);
 
@@ -254,19 +257,15 @@ public class ProductController : Controller
             //remove exist image
             if (existMainImage is not null)
             {
-                existMainImage.Url.DeleteFile(_env.WebRootPath, "assets", "image", "productImgs");
                 existProduct.ProductImgs.Remove(existMainImage);
 
             }
 
 
 
-            var filename = await dto.MainFile.SaveFileAsync(_env.WebRootPath, "assets", "image", "productImgs");
-            ProductImg image =new ProductImg(){  IsMain=true, Product=existProduct, Url=filename };
+            var filename = await _cloudinaryService.FileCreateAsync(dto.MainFile);
+            ProductImg image = new ProductImg() { IsMain = true, Product = existProduct, Url = filename };
             existProduct.ProductImgs.Add(image);
-
-
-
 
         }
 

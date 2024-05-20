@@ -2,6 +2,8 @@
 using AutoMapper;
 using Dannys.Data;
 using Dannys.Extensions;
+using Dannys.Models;
+using Dannys.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,13 +15,15 @@ public class SliderController : Controller
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
+    private readonly CloudinaryService _cloudinaryService;
 
 
-    public SliderController(AppDbContext context, IWebHostEnvironment env, IMapper mapper)
+    public SliderController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, CloudinaryService cloudinaryService)
     {
         _context = context;
         _env = env;
         _mapper = mapper;
+        _cloudinaryService = cloudinaryService;
     }
 
     public async Task<IActionResult> Index()
@@ -52,9 +56,8 @@ public class SliderController : Controller
             return View(dto);
         }
 
-        string UniqueFileName = await dto.File.SaveFileAsync(_env.WebRootPath, "assets", "image", "sliderIcons");
-
         Slider slider = _mapper.Map<Slider>(dto);
+        slider.Url = await _cloudinaryService.FileCreateAsync(dto.File);
         await _context.Sliders.AddAsync(slider);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
@@ -102,8 +105,11 @@ public class SliderController : Controller
             }
             existSlider.Url.DeleteFile(_env.WebRootPath, "assets", "image", "sliderIcons");
 
-            var uniqueFileName = await dto.File.SaveFileAsync(_env.WebRootPath, "assets", "image", "sliderIcons");
-            existSlider.Url = uniqueFileName;
+            if (dto.File is not null)
+            {
+                existSlider.Url = await _cloudinaryService.FileCreateAsync(dto.File);
+            }
+           
         }
 
         existSlider = _mapper.Map(dto, existSlider);
@@ -123,7 +129,6 @@ public class SliderController : Controller
         {
             return NotFound();
         }
-        slider.Url.DeleteFile(_env.WebRootPath, "assets", "image", "sliderIcons");
         _context.Sliders.Remove(slider);
         await _context.SaveChangesAsync();
 

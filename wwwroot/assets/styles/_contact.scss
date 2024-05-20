@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.contact {
+  background-color: white !important;
+
+#News-banner {
+  height: 500px;
+
+  .banner-part {
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.5;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Adjust alpha to control darkness */
+    }
+
+    min-height: 500px;
+    position: relative;
+    background-image: url(/assets/images/home/reservation-img.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
+
+    .banner-content {
+      z-index: 100;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      h3 {
+        color: #cc9933;
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      .bannerTitle {
+        font-family: 'Great Vibes';
+        margin: 20px 0px 40px 0px;
+        font-size: 128px;
+        line-height: 86px;
+        font-weight: 400;
+        text-align: center;
+        color: white;
+      }
+
+      .connection {
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+        line-height: 24px;
+        color: #999;
+        margin-bottom: 15px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        text-align: center;
+        word-break: keep-all !important;
+        span {
+          color: #fff;
+        }
+      }
+
+      .yellow {
+        color: #cc9933;
+        font-size: 24px;
+        line-height: 34px;
+        letter-spacing: 2px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.content {
+  padding: 90px 0 ;
+  .container {
+    // margin: auto;
+    box-shadow: none; 
+    .row {
+      .col-centered {
+        margin: auto;
+      }
+      h5 {
+        font-family: "Poppins", sans-serif;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #333333;
+        margin: 0;
+        text-align: center;
+      }
+      .dn__contact-form {
+        margin: auto !important;
+        // height: 100% !important;
+
+        .row {
+          margin: 0 -32px;
+
+          .form-group {
+            margin: 0 0 45px;
+            label {
+              text-transform: uppercase;
+              font-size: 12px;
+              line-height: 12px;
+              font-family: "Poppins", sans-serif;
+              font-weight: 600;
+              color: #333333;
+              margin: 0 0 12px;
+            }
+            .form-control {
+              background-color: #efefef;
+              border: none;
+              color: #555;
+              font-size: 14px;
+              line-height: 14px;
+              color: #333;
+              height: 42px;
+              border-radius: 0;
+            }
+            #exampleInputtext3 {
+              height: auto;
+            }
+          }
+        }
+        .send-message {
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+          }
+          .btn-default {
+            font-family: "Poppins", sans-serif;
+            background-color: #cc9933;
+            border: none;
+            color: #000000;
+            text-transform: uppercase;
+            font-size: 12px;
+            padding: 16px 57px 16px 57px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-decoration: none !important;
+            border-radius: 0;
+            -webkit-border-radius: 0;
+            -ms-border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+}
+@media (max-width: 576px) {
+  #News-banner {
+    .banner-part {
+      h1 {
+        font-size: 46px !important;
+        line-height: 50px !important;
+      }
+    }
+  }
+
+  .container {
+    .row {
+        padding: 0 10px;
+        .col-centered{
+            padding:0 !important ;
+        }
+      h5 {
+        margin-bottom: 30px !important;
+      }
+      .dn__contact-form {
+        padding: 10px 40px !important;
+      }
+    }
+  }
+}

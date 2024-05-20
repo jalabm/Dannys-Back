@@ -3397,6 +3397,10 @@
       "PackagePath": "staticwebassets/Admin/assets/vendors/typeahead.js/typeahead.bundle.min.js"
     },
     {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/.DS_Store",
+      "PackagePath": "staticwebassets/assets/.DS_Store"
+    },
+    {
       "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/image/productImgs/0a7947e0-6fa2-4c76-882c-137074605e4d_product-img5.jpg",
       "PackagePath": "staticwebassets/assets/image/productImgs/0a7947e0-6fa2-4c76-882c-137074605e4d_product-img5.jpg"
     },
@@ -3463,6 +3467,230 @@
     {
       "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/image/productImgs/f7549757-9f1a-45cb-94e1-6dd1f7ba1eef_product-img6.jpg",
       "PackagePath": "staticwebassets/assets/image/productImgs/f7549757-9f1a-45cb-94e1-6dd1f7ba1eef_product-img6.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/.DS_Store",
+      "PackagePath": "staticwebassets/assets/images/.DS_Store"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/blog/authour-img.jpg",
+      "PackagePath": "staticwebassets/assets/images/blog/authour-img.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/blog/banner.jpg",
+      "PackagePath": "staticwebassets/assets/images/blog/banner.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/blog/blog-image-4.jpg",
+      "PackagePath": "staticwebassets/assets/images/blog/blog-image-4.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/blog/img_07.jpg",
+      "PackagePath": "staticwebassets/assets/images/blog/img_07.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/blog/postimg_01-840x1024.jpg",
+      "PackagePath": "staticwebassets/assets/images/blog/postimg_01-840x1024.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/blog/postimg_02-683x1024.jpg",
+      "PackagePath": "staticwebassets/assets/images/blog/postimg_02-683x1024.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/blog/postimg_04.jpg",
+      "PackagePath": "staticwebassets/assets/images/blog/postimg_04.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/blog/postimg_05-683x1024.jpg",
+      "PackagePath": "staticwebassets/assets/images/blog/postimg_05-683x1024.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/blog/postimg_06.jpg",
+      "PackagePath": "staticwebassets/assets/images/blog/postimg_06.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/blog/postimg_07.jpg",
+      "PackagePath": "staticwebassets/assets/images/blog/postimg_07.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/logo.png",
+      "PackagePath": "staticwebassets/assets/images/home/logo.png"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/menu-bg-img.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/menu-bg-img.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/mini-cart-img.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/mini-cart-img.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/product-img1.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/product-img1.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/product-img2.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/product-img2.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/product-img3.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/product-img3.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/product-img4.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/product-img4.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/product-img5.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/product-img5.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/product-img6.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/product-img6.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/product-img7.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/product-img7.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/product-img8.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/product-img8.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/reservation-img.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/reservation-img.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/restaurant-img-1.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/restaurant-img-1.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/restaurant-img-2.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/restaurant-img-2.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/slide_01.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/slide_01.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/slide_02.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/slide_02.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/slide_logo.png",
+      "PackagePath": "staticwebassets/assets/images/home/slide_logo.png"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/specialties-img1.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/specialties-img1.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/specialties-img2.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/specialties-img2.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/home/specialties-parra-img.jpg",
+      "PackagePath": "staticwebassets/assets/images/home/specialties-parra-img.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/menu/.DS_Store",
+      "PackagePath": "staticwebassets/assets/images/menu/.DS_Store"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/menu/img_09.jpg",
+      "PackagePath": "staticwebassets/assets/images/menu/img_09.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/menu/img_10.jpg",
+      "PackagePath": "staticwebassets/assets/images/menu/img_10.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/menu/img_11.jpg",
+      "PackagePath": "staticwebassets/assets/images/menu/img_11.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/menu/img_12.jpg",
+      "PackagePath": "staticwebassets/assets/images/menu/img_12.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/menu/img_13.jpg",
+      "PackagePath": "staticwebassets/assets/images/menu/img_13.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/images/reservation/form-img.jpg",
+      "PackagePath": "staticwebassets/assets/images/reservation/form-img.jpg"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/js/common.js",
+      "PackagePath": "staticwebassets/assets/js/common.js"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/js/home.js",
+      "PackagePath": "staticwebassets/assets/js/home.js"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/js/jquery.js",
+      "PackagePath": "staticwebassets/assets/js/jquery.js"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/js/product-detail.js",
+      "PackagePath": "staticwebassets/assets/js/product-detail.js"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/js/reservation.js",
+      "PackagePath": "staticwebassets/assets/js/reservation.js"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_blog.scss",
+      "PackagePath": "staticwebassets/assets/styles/_blog.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_cart.scss",
+      "PackagePath": "staticwebassets/assets/styles/_cart.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_common.scss",
+      "PackagePath": "staticwebassets/assets/styles/_common.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_contact.scss",
+      "PackagePath": "staticwebassets/assets/styles/_contact.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_home.scss",
+      "PackagePath": "staticwebassets/assets/styles/_home.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_menu.scss",
+      "PackagePath": "staticwebassets/assets/styles/_menu.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_reservation.scss",
+      "PackagePath": "staticwebassets/assets/styles/_reservation.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_shop-detail.scss",
+      "PackagePath": "staticwebassets/assets/styles/_shop-detail.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_shop.scss",
+      "PackagePath": "staticwebassets/assets/styles/_shop.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/main.css",
+      "PackagePath": "staticwebassets/assets/styles/main.css"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/main.css.map",
+      "PackagePath": "staticwebassets/assets/styles/main.css.map"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/main.scss",
+      "PackagePath": "staticwebassets/assets/styles/main.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/reservation.css",
+      "PackagePath": "staticwebassets/assets/styles/reservation.css"
     },
     {
       "Id": "obj/Debug/net6.0/staticwebassets/msbuild.Dannys.Microsoft.AspNetCore.StaticWebAssets.props",

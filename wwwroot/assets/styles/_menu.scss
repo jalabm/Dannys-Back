@@ -1,0 +1,285 @@
+// header {
+//     height: 80px;
+//     background-color: #0b0d0f !important;
+//     position: sticky;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     z-index: 9999;
+//     background-color: #0b0d0f;
+//     color: #FFF;
+
+//     .header-home {
+//         position: static;
+//         padding: 20px 0px !important;
+//     }
+// }
+
+*{
+  
+}
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.menu {
+  #Menu-banner {
+    height: 500px;
+
+    .banner-part {
+      min-height: 500px;
+      position: relative;
+      background-image: url(/assets/images/menu/img_09.jpg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: scroll;
+
+      .banner-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        h3 {
+          color: #cc9933;
+          font-size: 18px;
+          line-height: 28px;
+          font-weight: 600;
+          letter-spacing: 4px;
+          text-transform: uppercase;
+          text-align: center;
+        }
+
+        h1 {
+          font-family: 'Great Vibes';
+          margin: 70px 0px;
+          font-size: 128px;
+          line-height: 86px;
+          font-weight: 400;
+          text-align: center;
+          color: white;
+        }
+
+        p {
+          margin-top: 20px;
+          color: #999999;
+          font-size: 18px;
+          line-height: 28px;
+          text-transform: uppercase;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  #Menu {
+    padding-top: 100px;
+    padding-right: 35px;
+    padding-bottom: 100px;
+    padding-left: 35px;
+
+    .row {
+      .menu-left {
+        position: relative;
+
+        .wrapper-img {
+          position: relative;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 700px;
+            display: block;
+          }
+
+          .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Adjust alpha to control darkness */
+          }
+        }
+
+        .wrapper-content {
+          position: absolute;
+          text-align: center;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          z-index: 1;
+          transform: translate(-50%, -50%);
+
+          h3 {
+            background: transparent;
+            color: #ffffff;
+            font-size: 24px;
+            line-height: 34px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-align: center;
+          }
+
+          .empty {
+            color: #ffffff;
+            font-size: 18px;
+            line-height: 28px;
+            text-transform: uppercase;
+            text-align: center;
+          }
+
+          p {
+            color: #ffffff;
+            font-size: 12px;
+            line-height: 24px;
+            font-weight: 400;
+            text-align: center;
+          }
+
+          .price {
+            color: #ffcc66;
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-align: center;
+          }
+        }
+      }
+
+      .menu-right {
+        
+   
+        .inner-content {
+          margin-bottom: 60px;
+          margin-top: 0px;
+
+          h5 {
+            font-size: 56px;
+            line-height: 66px;
+            text-align: center;
+            color: #999966;
+          }
+
+          h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #1b1b1b;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+            text-align: center;
+          }
+        }
+
+        .menu-starter {
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+              width: 50%;
+              padding: 10px;
+              list-style: none;
+a{
+  text-decoration: none;
+}
+              .item-main {
+                display: flex;
+                
+
+                .zn-priceList-dottedSeparator {
+                  background-image: radial-gradient(
+                    circle closest-side,
+                    rgba(0, 0, 0, 0.2) 90%,
+                    transparent 90%
+                  );
+                  background-position: bottom;
+                  background-size: 5px 5px;
+                  /* Increase the size of the dots */
+                  background-repeat: repeat-x;
+                }
+
+                h4 {
+                  font-size: 16px;
+                  line-height: 26px;
+                  font-weight: 600;
+                  color: #1b1b1b;
+                }
+
+                .itemPrice {
+                  font-size: 16px;
+                  line-height: 26px;
+                  font-weight: 600;
+                  color: #cc9933;
+                }
+              }
+
+              .item-desc {
+                font-size: 12px;
+                line-height: 22px;
+                font-weight: 500;
+                color: #666666;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Responsive
+@media (max-width: 576px) {
+  main {
+    #Menu-banner {
+      .banner-part {
+        min-height: 500px;
+
+        .banner-content {
+          h1 {
+            margin: 40px 0px;
+            font-size: 62px;
+            line-height: 62px;
+          }
+        }
+      }
+    }
+
+    #Menu {
+      padding: 100px 0px !important;
+
+      .container {
+        .row {
+          .menu-left {
+            // padding: 0px 35px;
+
+            .wrapper-img {
+              height: 400px;
+            }
+
+            .wrapper-content {
+              padding: 0px;
+            }
+          }
+
+          .menu-right {
+            .inner-content {
+              margin: 20px 0px;
+            }
+
+            .menu-starter {
+              ul {
+                padding: 0;
+                li {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

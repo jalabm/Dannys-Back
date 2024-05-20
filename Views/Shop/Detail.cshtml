@@ -1,0 +1,111 @@
+﻿@model Product
+
+<main class="shop-detail">
+    <section id="News-banner">
+        <div class="banner-part">
+            <div class="banner-content">
+                <h3>Restaurant</h3>
+                <h1>Product</h1>
+                <p class="white">We Cook & Sell to your liking</p>
+                <p class="yellow">Danny's</p>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </section>
+
+    <div class="content inner-pg single-shop-content clearfix">
+        <div class="container">
+            <div class="product">
+                <div class="col-sm-6 col-md-6">
+                    <div class="product-left-box">
+                        <div class="row g-2">
+                            <div class="col-lg-2 orderone">
+                                <div class="cake-img-slider">
+                                    @foreach (var img in Model.ProductImgs)
+                                    {
+                                        <img class="single-slide sliderImg" src="@img.Url" alt="">
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-lg-9 ordertwo">
+                                <div class="product-main">
+                                    <div class="slider-img">
+                                        <img src="@Model.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url"
+                                             alt=""
+                                             class="mainImg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 mini-cont">
+                    <div class="info">
+                        <h3>
+                            @Model.Name
+                        </h3>
+                        @if (Model.Discount > 0)
+                        {
+                            <span class="price"> $@(Model.Price*Model.Discount/100)</span>
+                        }
+                        else
+                        {
+                            <span class="price"> $@Model.Price</span>
+
+                        }
+
+                        <div class="single-shop-item-detail">
+                            <h6>Ingredients</h6>
+                            <p>
+                                @Model.Ingredients
+                            </p>
+                        </div>
+                        <div class="single-cart">
+                            <input type="number" />
+                            <a asp-action="AddToBasket" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value" class="btn btn-default"> add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feedback">
+                <div class="cont">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation">
+                            <a href="#description"
+                               aria-controls="description"
+                               role="tab"
+                               data-toggle="tab"
+                               aria-expanded="false">description</a>
+                        </li>
+                        <li class="active" role="presentation">
+                            <a href="#reviews"
+                               aria-controls="reviews"
+                               role="tab"
+                               data-toggle="tab"
+                               aria-expanded="true">reviews</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane" id="description">
+                            <h5>Product Description</h5>
+                        </div>
+                        <div role="tabpanel" class="tab-pane active" id="reviews">
+                            <h5>Leave a Reply</h5>
+                            <form>
+                                <div class="form-group">
+                                    <label>Comment</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-default">
+                                    post comment
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

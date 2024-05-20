@@ -1,0 +1,87 @@
+﻿@model List<Product>
+
+<main class="shop">
+    <!-- Banner Start -->
+    <section id="News-banner">
+        <div class="banner-part">
+            <div class="banner-content">
+                <h3>Restaurant</h3>
+                <h1>Shop</h1>
+                <p class="yellow">Danny's</p>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </section>
+    <!-- Banner End -->
+
+
+    <div class="content ">
+        <div class="container">
+            @for (int i = 1; i <= Model.Count; i++)
+            {
+                <div class="full-shop-header">
+                    <h2>Shop</h2>
+                    <div class="filter-section">
+                        <p>SHOWING @i OF @Model.Count RESULTS</p>
+                        <div class="right-filter">
+                            <form action="">
+                                <select class="form-control">
+                                    <option>Default sorting</option>
+                                    <option>Sort by average rating </option>
+                                    <option>Sort by price: low to high</option>
+                                    <option>Sort by price: high to low </option>
+
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-list">
+                    <div class="menu-list-right">
+                        <ul class="products-list" style="justify-content:flex-start">
+                            @if (Model.Count > 0)
+                            {
+                                @foreach (var product in Model)
+                                {
+                                    <li class="products-block">
+                                        <a asp-action="Detail" asp-route-id="@product.Id" class="product-link">
+                                            <img class="img-responsive" src="@product.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url" alt="">
+                                            <div class="info-wrapper">
+                                                <div class="btn-add-to-cart">
+                                                    <a asp-action="AddToBasket" asp-route-id="@product.Id" asp-route-returnUrl="@Context.Request.Path.Value" class="btn cart-btn"> Add to cart</a>
+                                                </div>
+                                                <h2 class="product-title">@product.Name</h2>
+                                                <span class="price">$@(product.Price-product.Price*product.Discount/100)</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    @(i++)
+
+                                }
+                                <li class="products-block fancy-pag visible-lg visible-md">
+                                    <div class="fancy-inner-block">
+                                        <div class="pag-arrows">
+                                            <a href="">
+                                                <h2>NEXT</h2>
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <h2>Product Not Found</h2>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+
+    </div>
+</main>
+

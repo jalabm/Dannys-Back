@@ -12,6 +12,7 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped<BaseEntityInterceptor>();
 builder.Services.AddScoped<CloudinaryService>();
+builder.Services.AddScoped<LayoutService>();
 builder.Services.AddHttpContextAccessor();
 
 
@@ -47,6 +48,8 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+
 app.UseEndpoints(endpoint =>
 {
     endpoint.MapControllerRoute(

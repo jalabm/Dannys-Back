@@ -42,7 +42,7 @@
                             </div>
 
                             <img style="width: 100px; height: 100px;" class="primary-img"
-                                 src="~/assets/image/productImgs/@Model.MainFileUrl"
+                                 src="@Model.MainFileUrl"
                                  alt="Product Images" />
                             <input asp-for="MainFileUrl" type="hidden" value="@Model.MainFileUrl " />
 
@@ -63,7 +63,7 @@
                                 <div style="position: relative; display: inline-block; margin-right: 10px;">
                                     <div style="position: relative;">
                                         <img style="width: 100px; height: 100px;" class="primary-img"
-                                             src="~/assets/image/productImgs/@imagePath"
+                                             src="@imagePath"
                                              alt="Product Images" />
                                         <button type="button" class="buttonRemove btn btn-danger" style="position: absolute; top: 0; right: 0; z-index: 1;">
                                             x
