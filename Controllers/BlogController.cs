@@ -16,14 +16,25 @@ public class BlogController : Controller
         _context = context;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? topicId)
     {
         var topics = await _context.Topics.ToListAsync();
-        var blog = await _context.Blogs.Include(x => x.Author).Include(x => x.BlogTopics).ThenInclude(x => x.Topic).ToListAsync();
+        var query = _context.Blogs.Include(x => x.Author).Include(x => x.BlogTopics).ThenInclude(x => x.Topic);
+        List<Blog> blogs = new();
+        if (topicId is not null)
+        {
+            blogs = await query.Where(x => x.BlogTopics.Any(y => y.TopicId == topicId)).ToListAsync();
+
+        }
+        else
+        {
+            blogs = await query.ToListAsync();
+        }
+
         BlogVM blogVm = new BlogVM()
         {
-            Blogs = blog,
-            Topics =topics
+            Blogs = blogs,
+            Topics = topics
 
         };
         return View(blogVm);
@@ -33,7 +44,7 @@ public class BlogController : Controller
     public async Task<IActionResult> Detail(int id)
     {
         var topics = await _context.Topics.ToListAsync();
-        var blog = await _context.Blogs.Include(x => x.Author).Include(x => x.BlogTopics).ThenInclude(x => x.Topic).FirstOrDefaultAsync(x=>x.Id==id);
+        var blog = await _context.Blogs.Include(x => x.Author).Include(x => x.BlogTopics).ThenInclude(x => x.Topic).FirstOrDefaultAsync(x => x.Id == id);
         BlogVM blogVm = new BlogVM()
         {
             Blog = blog,

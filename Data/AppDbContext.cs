@@ -58,6 +58,7 @@ public class AppDbContext : IdentityDbContext
         builder.Entity<Category>().HasQueryFilter(x => !x.IsDeleted);
         builder.Entity<Author>().HasQueryFilter(x => !x.IsDeleted);
         builder.Entity<Topic>().HasQueryFilter(x => !x.IsDeleted);
+        builder.Entity<Blog>().HasQueryFilter(x => !x.IsDeleted);
     }
 
     private static void AddedAdminUser(ModelBuilder builder)

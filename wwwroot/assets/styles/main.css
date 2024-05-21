@@ -413,6 +413,7 @@
 }
 #News-detail .container .row .left-part .detail-img {
   margin-bottom: 25px;
+  width: 100%;
 }
 #News-detail .container .row .left-part .detail-img a img {
   display: block;
@@ -1395,8 +1396,13 @@ footer #Footer-main .container .footer-bottom ul li a {
   padding-bottom: 100px;
   padding-left: 35px;
 }
+.menu #Menu .row .menu1, .menu #Menu .row .menu2 {
+  display: flex;
+  gap: 25px;
+}
 .menu #Menu .row .menu-left {
   position: relative;
+  margin-bottom: 60px;
 }
 .menu #Menu .row .menu-left .wrapper-img {
   position: relative;
@@ -1456,6 +1462,9 @@ footer #Footer-main .container .footer-bottom ul li a {
   text-transform: uppercase;
   text-align: center;
 }
+.menu #Menu .row .menu-right {
+  margin-bottom: 60px;
+}
 .menu #Menu .row .menu-right .inner-content {
   margin-bottom: 60px;
   margin-top: 0px;
@@ -1477,6 +1486,7 @@ footer #Footer-main .container .footer-bottom ul li a {
 .menu #Menu .row .menu-right .menu-starter ul {
   display: flex;
   flex-wrap: wrap;
+  padding: 0;
 }
 .menu #Menu .row .menu-right .menu-starter ul li {
   width: 50%;
@@ -1526,6 +1536,10 @@ footer #Footer-main .container .footer-bottom ul li a {
   }
   main #Menu {
     padding: 100px 0px !important;
+  }
+  main #Menu .container .row .menu1, main #Menu .container .row .menu2 {
+    display: block;
+    margin-bottom: 20px;
   }
   main #Menu .container .row .menu-left .wrapper-img {
     height: 400px;
@@ -2033,7 +2047,7 @@ footer #Footer-main .container .footer-bottom ul li a {
 .reservation #News-banner .banner-part {
   min-height: 500px;
   position: relative;
-  background-image: url(/assets/images/home/product-img1.jpg);
+  background-image: url(/assets/images/home/reservation-img.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

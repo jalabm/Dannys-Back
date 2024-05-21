@@ -25,10 +25,10 @@
                                     <p>@Model.Blog.CreatedAt by <a href="#">@Model.Blog.Author.Name </a>in PHOTOGRAPHY</p>
                                 </div>
                             </div>
-                            <div class="detail-img">
+                            <div class="detail-img" style="width:100%; height:auto;">
                                 <a href=""><img src="@Model.Blog.ImageUrl" alt=""></a>
                             </div>
-                            <div class="detail-content">
+                            <div class="detail-content" >
                                 <p> @Model.Blog.LongDescription </p>
 
                             </div>
@@ -36,13 +36,13 @@
                                 <div class="nav-prev">
                                     <a href="">
                                         <span class="nav-subtitle">prev</span>
-                                        <span class="nav-detail">@Model.Blogs.Where(x=>x.Id<Model.Blog.Id)</span>
+                                        <span class="nav-detail">@(Model.Blogs.FirstOrDefault(x=>x.Id<Model.Blog.Id)?.Title ?? "empty")</span>
                                     </a>
                                 </div>
                                 <div class="nav-next">
                                     <a href="">
                                         <span class="nav-subtitle">next</span>
-                                        <span class="nav-detail">@Model.Blogs.Where(x => x.Id > Model.Blog.Id)</span>
+                                        <span class="nav-detail">@(Model.Blogs.FirstOrDefault(x => x.Id > Model.Blog.Id)?.Title ?? "empty")</span>
                                     </a>
                                 </div>
                             </div>
@@ -50,17 +50,15 @@
                                 <div class="row">
                                     <div class="col-sm-2 col-md-3 col-lg-2">
                                         <div class="author-img">
-                                            <img src="/assets/images/blog/authour-img.jpg" alt="">
+                                            <img src="@Model.Blog.Author.ImageUrl" alt="">
                                         </div>
                                     </div>
                                     <div class="col-sm-10 col-md-9 col-lg-8">
                                         <div class="author-detail">
-                                            <h5>Pam Andersson</h5>
-                                            <a href="#" class="author-link">http://pamandersson.com</a>
+                                            <h5>@Model.Blog.Author.Fullname</h5>
+                                            <a href="#" class="author-link">@Model.Blog.Author.Biographia</a>
                                             <p>
-                                                Quisque placerat risus non ornare posuere. Cras pretium volutpat
-                                                pulvinar. Morbi imperdiet lectus vitae lorem semper, non iaculis nulla
-                                                finibus. Suspendisse iaculis orci enim, ut posuere magna sodales ut.
+                                            @Model.Blog.Author.Description
                                             </p>
                                             <div class="author-sosials">
                                                 <ul>
@@ -97,32 +95,18 @@
                     <div class="col-12 col-md-3 col-lg-4 col-xs-12">
                         <div class="right-part">
                             <div class="categories-part">
-                                <h3>Categories</h3>
+                                <h3>Topics</h3>
                                 <ul>
                                     <li>
-                                        <a href="">All</a>
+                                        <a asp-action="index" style="text-transform:uppercase"> All</a>
                                     </li>
-                                    <li>
-                                        <a href="">CHEF'S SPECIALITY</a>
-                                    </li>
-                                    <li>
-                                        <a href="">DRINKS</a>
-                                    </li>
-                                    <li>
-                                        <a href="">DESERT</a>
-                                    </li>
-                                    <li>
-                                        <a href="">MAIN</a>
-                                    </li>
-                                    <li>
-                                        <a href="">OFFERS</a>
-                                    </li>
-                                    <li>
-                                        <a href="">STARTERS</a>
-                                    </li>
-                                    <li>
-                                        <a href="">DAILY MENU</a>
-                                    </li>
+                                    @foreach (var item in Model.Topics)
+                                    {
+                                        <li>
+                                            <a asp-action="index" style="text-transform:uppercase"> @item.Name</a>
+                                        </li>
+
+                                    }
                                 </ul>
                             </div>
                             <div class="kallyas-part">

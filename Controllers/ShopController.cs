@@ -26,9 +26,10 @@ public class ShopController : Controller
     }
 
 
-    public async Task<IActionResult> AddToBasket(int id, string? returnUrl)
+    public async Task<IActionResult> AddToBasket(int id, string? returnUrl,int count)
     {
         var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+        
 
         if (product is null)
             return NotFound();

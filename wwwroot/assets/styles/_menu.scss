@@ -79,9 +79,14 @@
     padding-left: 35px;
 
     .row {
+      .menu1, .menu2{
+        display: flex;
+        gap: 25px;
+      }
       .menu-left {
         position: relative;
-
+        
+        margin-bottom: 60px ;
         .wrapper-img {
           position: relative;
           overflow: hidden;
@@ -150,8 +155,8 @@
       }
 
       .menu-right {
-        
-   
+       
+   margin-bottom: 60px ;
         .inner-content {
           margin-bottom: 60px;
           margin-top: 0px;
@@ -177,6 +182,7 @@
           ul {
             display: flex;
             flex-wrap: wrap;
+            padding: 0;
 
             li {
               width: 50%;
@@ -252,6 +258,11 @@ a{
 
       .container {
         .row {
+          
+            .menu1, .menu2{
+              display: block;
+              margin-bottom: 20px;
+            }
           .menu-left {
             // padding: 0px 35px;
 

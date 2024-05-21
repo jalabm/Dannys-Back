@@ -41,9 +41,8 @@ public class BlogController : Controller
         ViewBag.Topics = await _context.Topics.ToListAsync();
         ViewBag.Author = await _context.Authors.ToListAsync();
         if (!ModelState.IsValid)
-        {
-            return View();
-        }
+            return View(dto);
+        
 
         if (!dto.Image.CheckFileSize(2))
         {
@@ -84,6 +83,17 @@ public class BlogController : Controller
 
         blog.ImageUrl = await _cloudinaryService.FileCreateAsync(dto.Image);
 
+        blog.BlogTopics = new List<BlogTopic>();
+
+        foreach (var topicId in dto.TopicIds)
+        {
+            BlogTopic blogTopic = new()
+            {
+                Blog = blog,
+                TopicId = topicId
+            };
+            blog.BlogTopics.Add(blogTopic);
+        }
 
         await _context.Blogs.AddAsync(blog);
 
@@ -110,6 +120,7 @@ public class BlogController : Controller
         if (blog == null) return NotFound();
 
         BlogUpdatedto dto = _mapper.Map<BlogUpdatedto>(blog);
+        dto.TopicIds = blog.BlogTopics.Select(x => x.TopicId).ToList();
         return View(dto);
     }
 

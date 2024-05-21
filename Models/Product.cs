@@ -8,7 +8,7 @@ namespace Dannys.Models
 		public string Name { get; set; } = null!;
 		public string Description { get; set; } = null!;
         public string Ingredients { get; set; } = null!;
-        public string Porsion { get; set; } = null!;
+        public int Porsion { get; set; }
         public decimal Discount { get; set; }
 		public decimal Price { get; set; }
 		public int CategoryId { get; set; }

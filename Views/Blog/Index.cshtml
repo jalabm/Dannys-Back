@@ -63,12 +63,15 @@
                 <div class="col-sm-4 col-md-4" style="width: 31%; margin: 0 !important;">
                     <div class="right-part">
                         <div class="categories-part">
-                            <h3>Categories</h3>
+                            <h3>Topics</h3>
                             <ul>
+                                <li>
+                                    <a asp-action="index" asp-route-topicId="@null" style="text-transform:uppercase"> All</a>
+                                </li>
                                 @foreach (var item in Model.Topics)
                                 {
                                     <li>
-                                        <a href="">@item.Name</a>
+                                        <a asp-action="index" asp-route-topicId="@item.Id">@item.Name</a>
                                     </li>
                                 }
 
