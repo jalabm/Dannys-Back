@@ -75,8 +75,8 @@ namespace Dannys.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Checkout(string stripeToken)
+        
+        public async Task<IActionResult> Checkout(string stripeToken,string stripeEmail)
         {
 
             var basketItems =await GetBasketAsync();
@@ -90,7 +90,7 @@ namespace Dannys.Controllers
 
             var optionCust = new CustomerCreateOptions
             {
-                Email = "jalee",
+                Email = stripeEmail,
                 Name = "jale",
                 Phone = "000000"
             };
