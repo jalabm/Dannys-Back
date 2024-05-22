@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ceEHtvRzdxgpqf122gedc3MW5E5K2JHZWav1Kkx7jwU=",
+  "Hash": "w3ztXiJzuBHsC/EBgUnmPFB6YTPCLcDtx+jUoIum5sE=",
   "Source": "Dannys",
   "BasePath": "_content/Dannys",
   "Mode": "Default",
@@ -15538,6 +15538,23 @@
       "OriginalItemSpec": "wwwroot/assets/styles/_cart.scss"
     },
     {
+      "Identity": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_checkout.scss",
+      "SourceId": "Dannys",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/",
+      "BasePath": "_content/Dannys",
+      "RelativePath": "assets/styles/_checkout.scss",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/styles/_checkout.scss"
+    },
+    {
       "Identity": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_common.scss",
       "SourceId": "Dannys",
       "SourceType": "Discovered",
@@ -15589,6 +15606,23 @@
       "OriginalItemSpec": "wwwroot/assets/styles/_home.scss"
     },
     {
+      "Identity": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_login.scss",
+      "SourceId": "Dannys",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/",
+      "BasePath": "_content/Dannys",
+      "RelativePath": "assets/styles/_login.scss",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/styles/_login.scss"
+    },
+    {
       "Identity": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_menu.scss",
       "SourceId": "Dannys",
       "SourceType": "Discovered",
@@ -15604,6 +15638,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/styles/_menu.scss"
+    },
+    {
+      "Identity": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_register.scss",
+      "SourceId": "Dannys",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/",
+      "BasePath": "_content/Dannys",
+      "RelativePath": "assets/styles/_register.scss",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/styles/_register.scss"
     },
     {
       "Identity": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/_reservation.scss",
@@ -15655,6 +15706,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/styles/_shop.scss"
+    },
+    {
+      "Identity": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/.DS_Store",
+      "SourceId": "Dannys",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/",
+      "BasePath": "_content/Dannys",
+      "RelativePath": "assets/styles/.DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/styles/.DS_Store"
     },
     {
       "Identity": "/Users/jalememmedli/Desktop/Dannys/Dannys/wwwroot/assets/styles/main.css",

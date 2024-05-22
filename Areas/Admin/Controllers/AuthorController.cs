@@ -1,6 +1,5 @@
 ﻿using Dannys.Data;
 using Dannys.Extensions;
-using Dannys.Models;
 using Dannys.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Dannys.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[AutoValidateAntiforgeryToken]
 public class AuthorController : Controller
 {
     private readonly AppDbContext _context;

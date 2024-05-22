@@ -8,6 +8,7 @@ using Dannys.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Stripe;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,25 +23,10 @@ namespace Dannys.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            var basketItems =await GetBasketAsync();
 
-
-            if (User.Identity.IsAuthenticated)
-            {
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-                var basketItems = await _context.Basketitems.Include(x => x.Product).ThenInclude(x => x.ProductImgs).Where(x => x.AppUserId == userId).ToListAsync();
-                return View(basketItems);
-
-            }
-
-            var basktItms = _getBasket();
-            foreach (var item in basktItms)
-            {
-                var product = await _context.Products.Include(x=>x.ProductImgs).FirstOrDefaultAsync(x => x.Id == item.ProductId);
-                item.Product = product;
-
-            }
-            return View(basktItms);
+          
+            return View(basketItems);
 
         }
 
@@ -80,6 +66,57 @@ namespace Dannys.Controllers
             return RedirectToAction("index");
         }
 
+      
+
+        public async Task<IActionResult> Checkout()
+        {
+            var basketItems =await GetBasketAsync();
+            return View(basketItems);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Checkout(string stripeToken)
+        {
+
+            var basketItems =await GetBasketAsync();
+
+            decimal total = 0;
+
+            basketItems.ForEach(bi =>
+            {
+                total += bi.Count * bi.Product.Price;
+            });
+
+            var optionCust = new CustomerCreateOptions
+            {
+                Email = "jalee",
+                Name = "jale",
+                Phone = "000000"
+            };
+            var serviceCust = new CustomerService();
+            Customer customer = serviceCust.Create(optionCust);
+
+            total = total * 100;
+            var optionsCharge = new ChargeCreateOptions
+            {
+
+                Amount = (long)total,
+                Currency = "USD",
+                Description = "Dannys order",
+                Source = stripeToken,
+                ReceiptEmail = "jalabm@code.edu.az"
+
+
+            };
+            var serviceCharge = new ChargeService();
+            Charge charge = serviceCharge.Create(optionsCharge);
+
+
+            return RedirectToAction("Index", "Home");
+
+        }
+
         private List<Basketitem> _getBasket()
         {
             List<Basketitem> basketItems = new();
@@ -89,6 +126,30 @@ namespace Dannys.Controllers
             }
 
             return basketItems;
+        }
+
+
+        private async Task<List<Basketitem>> GetBasketAsync()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                var basketItems = await _context.Basketitems.Include(x => x.Product).ThenInclude(x => x.ProductImgs).Where(x => x.AppUserId == userId).ToListAsync();
+                return basketItems;
+
+            }
+
+            var basktItms = _getBasket();
+            foreach (var item in basktItms)
+            {
+                var product = await _context.Products.Include(x => x.ProductImgs).FirstOrDefaultAsync(x => x.Id == item.ProductId);
+                item.Product = product;
+
+
+            }
+
+            return basktItms;
         }
     }
 }

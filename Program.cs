@@ -4,6 +4,7 @@ using Dannys.Interceptors;
 using Dannys.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<BaseEntityInterceptor>();
 builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddScoped<LayoutService>();
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
+
 builder.Services.AddHttpContextAccessor();
 
 
@@ -32,6 +35,9 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
 }).AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
+
+
+StripeConfiguration.ApiKey = builder.Configuration["StripeSettings:SecretKey"];
 
 
 var app = builder.Build();

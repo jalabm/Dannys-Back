@@ -26,7 +26,7 @@
                         <div class="@(i%2==0 ? "menu1" : "menu2")">
                             <div class="menu-left col-lg-4 col-12">
                                 <div class="wrapper-img">
-                                    <img src="@topProduct.ProductImgs.FirstOrDefault(x=>x.IsMain).Url" alt="" />
+                                    <img src="@topProduct.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url" alt="" />
                                     <div class="overlay"></div>
                                 </div>
                                 <div class="wrapper-content">

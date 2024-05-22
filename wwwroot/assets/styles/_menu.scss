@@ -73,19 +73,21 @@
   }
 
   #Menu {
-    padding-top: 100px;
-    padding-right: 35px;
-    padding-bottom: 100px;
-    padding-left: 35px;
+    padding: 100px 35px;
+    width: 100%;
 
     .row {
       .menu1, .menu2{
         display: flex;
-        gap: 25px;
+        gap: 30px;
+        padding: 0;
+      }
+      .menu2{
+        flex-direction: row-reverse;
       }
       .menu-left {
         position: relative;
-        
+     
         margin-bottom: 60px ;
         .wrapper-img {
           position: relative;
@@ -259,8 +261,11 @@ a{
       .container {
         .row {
           
-            .menu1, .menu2{
-              display: block;
+           
+            .menu1 , .menu2{
+              display: flex;
+              // justify-content: flex-end;
+              flex-direction:column-reverse;
               margin-bottom: 20px;
             }
           .menu-left {
