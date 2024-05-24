@@ -1,156 +1,191 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using System.Security.Claims;
 using Dannys.Data;
-using Dannys.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Stripe;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Dannys.Controllers
+namespace Dannys.Controllers;
+
+public class BasketController : Controller
 {
-    public class BasketController : Controller
+    private readonly AppDbContext _context;
+    private readonly UserManager<AppUser> _userManager;
+
+    public BasketController(AppDbContext context, UserManager<AppUser> userManager)
     {
-        private readonly AppDbContext _context;
-        public BasketController(AppDbContext context)
-        {
-            _context = context;
-        }
-        public async Task<IActionResult> Index()
-        {
-            var basketItems =await GetBasketAsync();
+        _context = context;
+        _userManager = userManager;
+    }
 
-          
-            return View(basketItems);
+    public async Task<IActionResult> Index()
+    {
+        var basketItems = await GetBasketAsync();
 
-        }
 
-        public async Task<IActionResult> RemoveToBasket(int id, string? returnUrl)
+        return View(basketItems);
+
+    }
+
+    public async Task<IActionResult> RemoveToBasket(int id, string? returnUrl)
+    {
+        if (User.Identity.IsAuthenticated)
         {
-            if (User.Identity.IsAuthenticated)
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var basketItem = await _context.Basketitems.FirstOrDefaultAsync(x => x.ProductId == id && x.AppUserId == userId);
+            if (basketItem is null)
             {
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-                var basketItem = await _context.Basketitems.FirstOrDefaultAsync(x => x.ProductId == id && x.AppUserId == userId);
-                if (basketItem is null)
-                {
-                    return NotFound();
-                }
-
-                _context.Basketitems.Remove(basketItem);
-                await _context.SaveChangesAsync();
-
-                if (returnUrl is not null)
-                    return Redirect(returnUrl);
-
-                return RedirectToAction("index");
-            }
-            var basketItms = _getBasket();
-
-            var basketItm = basketItms.FirstOrDefault(x => x.ProductId == id);
-            if (basketItm is null)
                 return NotFound();
+            }
 
-            basketItms.Remove(basketItm);
-            var json = JsonConvert.SerializeObject(basketItms);
-            Response.Cookies.Append("basket", json);
+            _context.Basketitems.Remove(basketItem);
+            await _context.SaveChangesAsync();
 
             if (returnUrl is not null)
                 return Redirect(returnUrl);
 
             return RedirectToAction("index");
         }
+        var basketItms = _getBasket();
 
-      
+        var basketItm = basketItms.FirstOrDefault(x => x.ProductId == id);
+        if (basketItm is null)
+            return NotFound();
 
-        public async Task<IActionResult> Checkout()
+        basketItms.Remove(basketItm);
+        var json = JsonConvert.SerializeObject(basketItms);
+        Response.Cookies.Append("basket", json);
+
+        if (returnUrl is not null)
+            return Redirect(returnUrl);
+
+        return RedirectToAction("index");
+    }
+
+
+
+    public async Task<IActionResult> Checkout()
+    {
+        var basketItems = await GetBasketAsync();
+        return View(basketItems);
+    }
+
+    [HttpPost]
+    [Authorize]
+
+    public async Task<IActionResult> Checkout(string stripeToken, string stripeEmail)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (userId is null)
+            return Unauthorized();
+
+
+        var user = await _userManager.FindByIdAsync(userId);
+
+        if (user is null)
+            return BadRequest();
+
+        var basketItems = await GetBasketAsync();
+
+        decimal total = 0;
+
+        basketItems.ForEach(bi =>
         {
-            var basketItems =await GetBasketAsync();
-            return View(basketItems);
+            total += bi.Count * bi.Product.Price;
+        });
+
+        var optionCust = new CustomerCreateOptions
+        {
+            Email = stripeEmail,
+            Name = user.Fullname,
+            Phone = "000000"
+        };
+        var serviceCust = new CustomerService();
+        Customer customer = serviceCust.Create(optionCust);
+
+        total = total * 100;
+        var optionsCharge = new ChargeCreateOptions
+        {
+
+            Amount = (long)total,
+            Currency = "USD",
+            Description = "Dannys order",
+            Source = stripeToken,
+            ReceiptEmail = "jalabm@code.edu.az"
+
+
+        };
+        var serviceCharge = new ChargeService();
+        Charge charge = serviceCharge.Create(optionsCharge);
+
+
+        Order order = new()
+        {
+            AppUser = user,
+            Status = false,
+            OrderItems = new List<OrderItem>()
+        };
+
+        foreach (var bItem in basketItems)
+        {
+            OrderItem orderItem = new()
+            {
+                 Order=order,
+                 Product=bItem.Product,
+                 Count=bItem.Count,
+                 StaticPrice=bItem.Product.Price,
+                 
+            };
+            order.OrderItems.Add(orderItem);
+
+            _context.Basketitems.Remove(bItem);
+        }
+        await _context.Orders.AddAsync(order);
+        await _context.SaveChangesAsync();
+
+
+        return RedirectToAction("Index", "Home");
+
+    }
+
+    private List<Basketitem> _getBasket()
+    {
+        List<Basketitem> basketItems = new();
+        if (Request.Cookies["basket"] != null)
+        {
+            basketItems = JsonConvert.DeserializeObject<List<Basketitem>>(Request.Cookies["basket"]) ?? new();
         }
 
-        [HttpPost]
-        
-        public async Task<IActionResult> Checkout(string stripeToken,string stripeEmail)
+        return basketItems;
+    }
+
+
+    private async Task<List<Basketitem>> GetBasketAsync()
+    {
+        if (User.Identity.IsAuthenticated)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var basketItems =await GetBasketAsync();
-
-            decimal total = 0;
-
-            basketItems.ForEach(bi =>
-            {
-                total += bi.Count * bi.Product.Price;
-            });
-
-            var optionCust = new CustomerCreateOptions
-            {
-                Email = stripeEmail,
-                Name = "jale",
-                Phone = "000000"
-            };
-            var serviceCust = new CustomerService();
-            Customer customer = serviceCust.Create(optionCust);
-
-            total = total * 100;
-            var optionsCharge = new ChargeCreateOptions
-            {
-
-                Amount = (long)total,
-                Currency = "USD",
-                Description = "Dannys order",
-                Source = stripeToken,
-                ReceiptEmail = "jalabm@code.edu.az"
-
-
-            };
-            var serviceCharge = new ChargeService();
-            Charge charge = serviceCharge.Create(optionsCharge);
-
-
-            return RedirectToAction("Index", "Home");
-
-        }
-
-        private List<Basketitem> _getBasket()
-        {
-            List<Basketitem> basketItems = new();
-            if (Request.Cookies["basket"] != null)
-            {
-                basketItems = JsonConvert.DeserializeObject<List<Basketitem>>(Request.Cookies["basket"]) ?? new();
-            }
-
+            var basketItems = await _context.Basketitems.Include(x => x.Product).ThenInclude(x => x.ProductImgs).Where(x => x.AppUserId == userId).ToListAsync();
             return basketItems;
+
         }
 
-
-        private async Task<List<Basketitem>> GetBasketAsync()
+        var basktItms = _getBasket();
+        foreach (var item in basktItms)
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-                var basketItems = await _context.Basketitems.Include(x => x.Product).ThenInclude(x => x.ProductImgs).Where(x => x.AppUserId == userId).ToListAsync();
-                return basketItems;
-
-            }
-
-            var basktItms = _getBasket();
-            foreach (var item in basktItms)
-            {
-                var product = await _context.Products.Include(x => x.ProductImgs).FirstOrDefaultAsync(x => x.Id == item.ProductId);
-                item.Product = product;
+            var product = await _context.Products.Include(x => x.ProductImgs).FirstOrDefaultAsync(x => x.Id == item.ProductId);
+            item.Product = product;
 
 
-            }
-
-            return basktItms;
         }
+
+        return basktItms;
     }
 }
 

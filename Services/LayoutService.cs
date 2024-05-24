@@ -38,6 +38,9 @@ namespace Dannys.Services
             }
 
             var basktItms = _getBasket();
+            if (basktItms is null || basktItms.Count == 0)
+                basktItms = new();
+                
             foreach (var item in basktItms)
             {
                 var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == item.ProductId);

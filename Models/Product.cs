@@ -1,16 +1,17 @@
-﻿using System;
-using Dannys.Models.Common;
+﻿using Dannys.Models.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace Dannys.Models
 {
-	public class Product:BaseAuditableEntity
+    public class Product:BaseAuditableEntity
 	{
 		public string Name { get; set; } = null!;
 		public string Description { get; set; } = null!;
         public string Ingredients { get; set; } = null!;
         public int Porsion { get; set; }
         public decimal Discount { get; set; }
-		public decimal Price { get; set; }
+        
+        public decimal Price { get; set; }
 		public int CategoryId { get; set; }
 		public Category Category { get; set; } = null!;
         public int SalesCount { get; set; }

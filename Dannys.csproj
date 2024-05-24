@@ -42,6 +42,9 @@
     <None Remove="Views\Reservation\" />
     <None Remove="Views\Blog\" />
     <None Remove="ViewModels\" />
+    <None Remove="Areas\Admin\Views\Coupon\" />
+    <None Remove="Dtos\CouponDtos\" />
+    <None Remove="Configurations\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -92,6 +95,9 @@
     <Folder Include="Views\Reservation\" />
     <Folder Include="Views\Blog\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Areas\Admin\Views\Coupon\" />
+    <Folder Include="Dtos\CouponDtos\" />
+    <Folder Include="Configurations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

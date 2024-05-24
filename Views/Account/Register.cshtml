@@ -1,0 +1,67 @@
+﻿@model RegisterDto
+
+<main class="register">
+    <section>
+        <div class="loginBlack" style="height: 150px; background: #000;"></div>
+    </section>
+    <div class="content">
+        <div class="booking-content">
+            <div class="booking-image">
+                <img class="booking-img" src="/assets/images/menu/img_11.jpg" alt="Booking Image">
+            </div>
+            <div class="booking-form">
+                <form method="post" id="booking-form">
+                    <h2>Register</h2>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group form-input">
+                        <input asp-for="Name" required />
+                        <label asp-for="Name" class="form-label"> Name</label>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group form-input">
+                        <input asp-for="Surname" required />
+                        <label asp-for="Surname" class="form-label">Surname</label>
+                        <span asp-validation-for="Surname" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group form-input">
+                        <input asp-for="Username" required />
+                        <label asp-for="Username" class="form-label">Username</label>
+                        <span asp-validation-for="Username" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group form-input">
+                        <input asp-for="Email" value="" required />
+                        <label asp-for="Email" class="form-label"> Email</label>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-input">
+                        <input asp-for="Password" required />
+                        <label asp-for="Password" class="form-label">Password</label>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group form-input">
+                        <input asp-for="ConfirmPassword" required />
+                        <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                    </div>
+
+
+
+                    <div class="form-submit">
+                        <input type="submit" value="Register" class="submit" id="submit" name="submit" />
+                        <a href="#" class="vertify-booking">Verify your booking info from your phone</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</main>
+

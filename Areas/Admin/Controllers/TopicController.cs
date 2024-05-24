@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Dannys.Data;
-using Dannys.Models;
+﻿using Dannys.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

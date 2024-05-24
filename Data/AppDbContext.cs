@@ -1,4 +1,6 @@
-﻿using Dannys.Interceptors;
+﻿using System.Reflection;
+using Dannys.Configurations;
+using Dannys.Interceptors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +20,7 @@ public class AppDbContext : IdentityDbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.ApplyConfiguration(new ProductConfiguration());
         base.OnModelCreating(builder);
 
         AddedQueryFilter(builder);
@@ -48,6 +51,7 @@ public class AppDbContext : IdentityDbContext
     public DbSet<OrderItem> OrderItems { get; set; } = null!;
     public DbSet<Reservation> Reservations { get; set; } = null!;
     public DbSet<Table> Tables { get; set; } = null!;
+    public DbSet<Coupon> Coupons { get; set; } = null!;
 
 
 
@@ -59,6 +63,11 @@ public class AppDbContext : IdentityDbContext
         builder.Entity<Author>().HasQueryFilter(x => !x.IsDeleted);
         builder.Entity<Topic>().HasQueryFilter(x => !x.IsDeleted);
         builder.Entity<Blog>().HasQueryFilter(x => !x.IsDeleted);
+        builder.Entity<Coupon>().HasQueryFilter(x => !x.IsDeleted);
+        builder.Entity<Basketitem>().HasQueryFilter(x => !x.IsDeleted);
+        builder.Entity<Comment>().HasQueryFilter(x => !x.IsDeleted);
+        builder.Entity<Order>().HasQueryFilter(x => !x.IsDeleted);
+        builder.Entity<Reservation>().HasQueryFilter(x => !x.IsDeleted);
     }
 
     private static void AddedAdminUser(ModelBuilder builder)

@@ -1,4 +1,4 @@
-﻿@model List<Topic>
+﻿@model List<Coupon>
 @{
     int count = 1;
 }
@@ -8,7 +8,7 @@
 <div class="main-panel" style="padding:0px">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> Topic</h3>
+            <h3 class="page-title"> Coupon</h3>
             
         </div>
         <div class="row">
@@ -26,6 +26,7 @@
                                     <tr>
                                         <th> # </th>
                                         <th> Name </th>
+                                        <th> Discount </th>
                                         <th> Created Time </th>
                                         <th> Created By </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Position: activate to sort column ascending">Actions</th>
@@ -33,16 +34,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var topic in Model)
+                                    @foreach (var coupon in Model)
                                     {
                                         <tr>
 
                                             <td> @(count++) </td>
-                                            <td> @topic.Name</td>
-                                            <td> @topic.CreatedAt</td>
-                                            <td> @topic.CreatedBy</td>
-                                            <td><a class="btn deleteBtn btn-danger" data-id="@topic.Id" asp-action="Delete" asp-route-id="@topic.Id">Delete</a></td>
-                                            <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@topic.Id">Update</a></td>
+                                            <td> @coupon.Name</td>
+                                            <td> @coupon.Discount</td>
+                                            <td> @coupon.CreatedAt</td>
+                                            <td> @coupon.CreatedBy</td>
+                                            <td><a class="btn deleteBtn btn-danger" data-id="@coupon.Id" asp-action="Delete" asp-route-id="@coupon.Id">Delete</a></td>
+                                            <td><a class="btn btn-warning" asp-action="Update" asp-route-id="@coupon.Id">Update</a></td>
                                         </tr>
                                     }
 
@@ -67,4 +69,6 @@
     </footer>
     <!-- partial -->
 </div>
+
+
 

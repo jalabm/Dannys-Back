@@ -3,7 +3,7 @@ using Dannys.Models.Common;
 
 namespace Dannys.Models
 {
-	public class ProductImg:BaseAuditableEntity
+	public class ProductImg:BaseEntity
 	{
         public string Url { get; set; } = null!;
         public bool IsMain { get; set; }

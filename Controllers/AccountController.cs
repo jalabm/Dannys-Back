@@ -1,4 +1,5 @@
-﻿using Dannys.Data;
+﻿using System.IO;
+using Dannys.Data;
 using Dannys.Enums;
 using Dannys.Services;
 using Microsoft.AspNetCore.Identity;
@@ -55,8 +56,9 @@ public class AccountController : Controller
 
         string url = Url.Action("ConfirmEmail", "Account", new { userId = appUser.Id, token = token }, HttpContext.Request.Scheme) ?? "";
 
-
-        _emailService.SendEmail(appUser.Email, "Confirm Email", url);
+        string body = emailConfirmationTemplate.Replace("[ConfirmationLink]", url);
+        body = body.Replace("[Username]", appUser.UserName);
+        _emailService.SendEmail(appUser.Email, "Confirm Email", body);
 
         await _userManager.AddToRoleAsync(appUser, Roles.Member.ToString());
 
@@ -173,5 +175,89 @@ public class AccountController : Controller
 
         return basketItems;
     }
+
+
+    string emailConfirmationTemplate = @"
+<!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""UTF-8"">
+    <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <title>Email Confirmation</title>
+    <style>
+        /* Reset CSS */
+        body, html {{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }}
+        /* Wrapper */
+        .wrapper {{
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }}
+        /* Header */
+        .header {{
+            text-align: center;
+            margin-bottom: 30px;
+        }}
+        .header h1 {{
+            margin-top: 0;
+            color: #c93;
+        }}
+        /* Content */
+        .content {{
+            margin-bottom: 30px;
+            text-align: center; /* Center-align content */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }}
+        .content p {{
+            margin: 0 auto; /* Center-align paragraphs */
+            color: #000;
+        }}
+        /* Button */
+        .btn {{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #c93;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }}
+        /* Footer */
+        .footer {{
+            text-align: center;
+            color: #666;
+        }}
+    </style>
+</head>
+<body>
+    <div class=""wrapper"">
+        <div class=""header"">
+            <h1>Email Confirmation</h1>
+        </div>
+        <div class=""content"">
+            <p>Dear [Username],</p>
+            <p>Welcome to our platform! Please click the button below to confirm your email address:</p>
+            <p class=""btnParent""><a class=""btn"" href=""[ConfirmationLink]"">Confirm Email</a></p>
+            <p>If you did not sign up for this service, you can safely ignore this email.</p>
+        </div>
+        <div class=""footer"">
+            <p>Regards,<br>Your Company</p>
+        </div>
+    </div>
+</body>
+</html>
+";
+
+
 }
 
