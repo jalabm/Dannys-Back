@@ -1,0 +1,98 @@
+﻿@model List<Order>
+@{
+    int count = 1;
+}
+
+
+<!-- partial -->
+<div class="main-panel" style="padding:0px">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title"> Order</h3>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th> # </th>
+                                        <th> Id </th>
+                                        <th> Username </th>
+                                        <th>Status</th>
+                                        <th> Ordered Time </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="3" aria-label="Position: activate to sort column ascending">Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var order in Model)
+                                    {
+                                        <tr>
+
+                                            <td> @(count++) </td>
+                                            <td> @order.Id</td>
+                                            <td> @order.AppUser.UserName </td>
+                                            <td>
+                                                @{
+                                                    if (order.IsCanceled == false)
+                                                    {
+                                                        if (order.Status == true)
+                                                        {
+                                                            <p class="btn btn-success">Is done</p>
+                                                        }
+                                                        else if (order.Status == false)
+                                                        {
+                                                            <p class="btn btn-secondary">Is ordered</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p class="btn btn-warning">On the way</p>
+
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <p class="btn btn-danger">Is canceled</p>
+                                                    }
+
+                                                }
+                                            </td>
+                                            <td> @order.CreatedAt.ToShortDateString()</td>
+                                            <td><a class="btn btn-secondary" data-id="@order.Id" asp-action="Prev" asp-route-id="@order.Id">Prev status</a></td>
+                                            <td><a class="btn btn-primary" data-id="@order.Id" asp-action="Next" asp-route-id="@order.Id">Next status</a></td>
+                                            @if (!order.IsCanceled)
+                                            {
+                                                <td><a class="btn btn-danger" data-id="@order.Id" asp-action="CancelOrRepair" asp-route-id="@order.Id">Cancel Order</a></td>
+                                            }
+                                            else
+                                            {
+                                                <td><a class="btn btn-primary" data-id="@order.Id"  asp-action="CancelOrRepair" asp-route-id="@order.Id">Repair Order</a></td>
+                                            }
+
+                                            @*<td><a class="btn btn-warning" asp-action="Update" asp-route-id="@order.Id">Update</a></td>*@
+                                        </tr>
+                                    }
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:../../partials/_footer.html -->
+    
+    <!-- partial -->
+</div>
+
+

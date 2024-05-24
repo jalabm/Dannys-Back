@@ -68,7 +68,7 @@ namespace Dannys.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Basketitem", b =>
@@ -111,7 +111,7 @@ namespace Dannys.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Basketitems");
+                    b.ToTable("Basketitems", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Blog", b =>
@@ -161,7 +161,7 @@ namespace Dannys.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("Blogs");
+                    b.ToTable("Blogs", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.BlogTopic", b =>
@@ -200,7 +200,7 @@ namespace Dannys.Migrations
 
                     b.HasIndex("TopicId");
 
-                    b.ToTable("BlogTopics");
+                    b.ToTable("BlogTopics", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Category", b =>
@@ -240,7 +240,7 @@ namespace Dannys.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Comment", b =>
@@ -291,7 +291,7 @@ namespace Dannys.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Coupon", b =>
@@ -327,7 +327,7 @@ namespace Dannys.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Coupons");
+                    b.ToTable("Coupons", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Order", b =>
@@ -373,7 +373,7 @@ namespace Dannys.Migrations
 
                     b.HasIndex("CouponId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.OrderItem", b =>
@@ -402,7 +402,7 @@ namespace Dannys.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItems", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Product", b =>
@@ -460,7 +460,7 @@ namespace Dannys.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.ProductImg", b =>
@@ -485,7 +485,7 @@ namespace Dannys.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductImgs");
+                    b.ToTable("ProductImgs", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Reservation", b =>
@@ -528,7 +528,7 @@ namespace Dannys.Migrations
 
                     b.HasIndex("TableId");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Slider", b =>
@@ -549,7 +549,7 @@ namespace Dannys.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sliders");
+                    b.ToTable("Sliders", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Table", b =>
@@ -568,7 +568,7 @@ namespace Dannys.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tables");
+                    b.ToTable("Tables", (string)null);
                 });
 
             modelBuilder.Entity("Dannys.Models.Topic", b =>
@@ -601,7 +601,7 @@ namespace Dannys.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Topics");
+                    b.ToTable("Topics", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -854,7 +854,7 @@ namespace Dannys.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "781a2698-29a1-48c8-9b95-7baf50b220d7",
+                            ConcurrencyStamp = "d660a95b-330a-4a0c-986e-656416443a96",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,

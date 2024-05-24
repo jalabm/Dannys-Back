@@ -45,6 +45,7 @@
     <None Remove="Areas\Admin\Views\Coupon\" />
     <None Remove="Dtos\CouponDtos\" />
     <None Remove="Configurations\" />
+    <None Remove="Areas\Admin\Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -98,6 +99,7 @@
     <Folder Include="Areas\Admin\Views\Coupon\" />
     <Folder Include="Dtos\CouponDtos\" />
     <Folder Include="Configurations\" />
+    <Folder Include="Areas\Admin\Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
