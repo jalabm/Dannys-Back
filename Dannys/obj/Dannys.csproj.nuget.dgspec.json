@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jalememmedli/Desktop/Dannys/Dannys/Dannys.csproj": {}
+    "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Dannys.csproj": {}
   },
   "projects": {
-    "/Users/jalememmedli/Desktop/Dannys/Dannys/Dannys.csproj": {
+    "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Dannys.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jalememmedli/Desktop/Dannys/Dannys/Dannys.csproj",
+        "projectUniqueName": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Dannys.csproj",
         "projectName": "Dannys",
-        "projectPath": "/Users/jalememmedli/Desktop/Dannys/Dannys/Dannys.csproj",
+        "projectPath": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Dannys.csproj",
         "packagesPath": "/Users/jalememmedli/.nuget/packages/",
-        "outputPath": "/Users/jalememmedli/Desktop/Dannys/Dannys/obj/",
+        "outputPath": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/jalememmedli/.nuget/NuGet/NuGet.Config"

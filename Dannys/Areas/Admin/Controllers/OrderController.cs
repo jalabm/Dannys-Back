@@ -39,7 +39,25 @@ public class OrderController : Controller
             
     }
 
+    public async Task<IActionResult> TestData()
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            Order order = new()
+            {
+                 AppUserId= "1",
+                  
+            };
 
+
+            await _context.Orders.AddAsync(order);
+        }
+
+        await _context.SaveChangesAsync();
+
+
+        return Ok();
+    }
     public async Task<IActionResult> Prev(int id)
     {
         var order = await _context.Orders.FirstOrDefaultAsync(x => x.Id == id);

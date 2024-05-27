@@ -15,7 +15,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        
+
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
@@ -43,38 +43,37 @@
                                                     {
                                                         if (order.Status == true)
                                                         {
-                                                            <p class="btn btn-success">Is done</p>
+                                                            <p class="btn btn-success statusOutput">Is done</p>
                                                         }
                                                         else if (order.Status == false)
                                                         {
-                                                            <p class="btn btn-secondary">Is ordered</p>
+                                                            <p class="btn btn-secondary statusOutput">Is ordered</p>
                                                         }
                                                         else
                                                         {
-                                                            <p class="btn btn-warning">On the way</p>
+                                                            <p class="btn btn-warning statusOutput">On the way</p>
 
                                                         }
                                                     }
                                                     else
                                                     {
-                                                        <p class="btn btn-danger">Is canceled</p>
+                                                        <p class="btn btn-danger cancelOutput`">Is canceled</p>
                                                     }
 
                                                 }
                                             </td>
                                             <td> @order.CreatedAt.ToShortDateString()</td>
-                                            <td><a class="btn btn-secondary" data-id="@order.Id" asp-action="Prev" asp-route-id="@order.Id">Prev status</a></td>
-                                            <td><a class="btn btn-primary" data-id="@order.Id" asp-action="Next" asp-route-id="@order.Id">Next status</a></td>
+                                            <td><a class="btn btn-secondary prevBtn" data-status="@order.Status" asp-action="Prev" asp-route-id="@order.Id">Prev status</a></td>
+                                            <td><a class="btn btn-primary nextBtn" data-status="@order.Status" asp-action="Next" asp-route-id="@order.Id">Next status</a></td>
                                             @if (!order.IsCanceled)
                                             {
-                                                <td><a class="btn btn-danger" data-id="@order.Id" asp-action="CancelOrRepair" asp-route-id="@order.Id">Cancel Order</a></td>
+                                                <td><a class="btn btn-danger cancelRepairBtn" data-isCancel="@order.IsCanceled" asp-action="CancelOrRepair" asp-route-id="@order.Id">Cancel Order</a></td>
                                             }
                                             else
                                             {
-                                                <td><a class="btn btn-primary" data-id="@order.Id"  asp-action="CancelOrRepair" asp-route-id="@order.Id">Repair Order</a></td>
+                                                <td><a class="btn btn-primary cancelRepairBtn" data-isCancel="@order.IsCanceled" asp-action="CancelOrRepair" asp-route-id="@order.Id">Repair Order</a></td>
                                             }
 
-                                            @*<td><a class="btn btn-warning" asp-action="Update" asp-route-id="@order.Id">Update</a></td>*@
                                         </tr>
                                     }
 
@@ -91,8 +90,62 @@
     </div>
     <!-- content-wrapper ends -->
     <!-- partial:../../partials/_footer.html -->
-    
     <!-- partial -->
 </div>
 
 
+<script>const prevButtons = document.querySelectorAll('.prevBtn');
+    const nextButtons = document.querySelectorAll('.nextBtn');
+
+    const statusButtons = document.querySelectorAll('.statusOutput');
+
+    prevButtons.forEach((btn, i) => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (btn.dataset.status != 'False') {
+
+                const response = fetch(btn.href)
+                if (btn.dataset.status == 'True') {
+                    statusButtons[i].classList.remove('btn-success')
+                    statusButtons[i].classList.add('btn-warning')
+                    statusButtons[i].innerHTML = 'On the way'
+                    btn.dataset.status = "null"
+                    nextButtons[i].dataset.status = 'null'
+                }
+                else {
+                    statusButtons[i].classList.remove('btn-warning')
+                    statusButtons[i].classList.add('btn-secondary')
+                    statusButtons[i].innerHTML = 'Is ordered'
+                    btn.dataset.status = "False";
+                    nextButtons[i].dataset.status = "False";
+                }
+            }
+
+        })
+    })
+
+
+    nextButtons.forEach((btn, i) => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (btn.dataset.status != 'True') {
+
+                const response = fetch(btn.href)
+                if (btn.dataset.status == 'False') {
+                    statusButtons[i].classList.remove('btn-secondary')
+                    statusButtons[i].classList.add('btn-warning')
+                    statusButtons[i].innerHTML = 'On the way'
+                    btn.dataset.status = "null"
+                    prevButtons[i].dataset.status = 'null'
+                }
+                else {
+                    statusButtons[i].classList.remove('btn-warning')
+                    statusButtons[i].classList.add('btn-success')
+                    statusButtons[i].innerHTML = 'Is done'
+                    btn.dataset.status = "True"
+                    prevButtons[i].dataset.status = 'True'
+                }
+            }
+
+        })
+    })</script>

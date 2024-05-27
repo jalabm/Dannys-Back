@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qz7xcdJ2f9MF7Mo3E3kA75bGfJnUR3mBYzirNNbHKfJsJ6w1lyphcfzJxaVTz1vqAePO82UAYF72UUN0w+9p/Q==",
+  "dgSpecHash": "vv8B2IhP2+GfNVjh+IL+c7gRJ7PXCejjHPWlePluDR9LRnowa6ELozqAzC9YjyW34FcyV+qWnZzqI/L7elZL7A==",
   "success": true,
-  "projectFilePath": "/Users/jalememmedli/Desktop/Dannys/Dannys/Dannys.csproj",
+  "projectFilePath": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Dannys.csproj",
   "expectedPackageFiles": [
     "/Users/jalememmedli/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
     "/Users/jalememmedli/.nuget/packages/automapper.collection/10.0.0/automapper.collection.10.0.0.nupkg.sha512",
