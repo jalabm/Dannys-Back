@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\areas\\admin\\controllers\\slidercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\areas\\admin\\controllers\\slidercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\views\\shop\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\views\\shop\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\wwwroot\\assets\\js\\common.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\wwwroot\\assets\\js\\common.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\areas\\admin\\views\\blog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\areas\\admin\\views\\blog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\controllers\\shopcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\controllers\\shopcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\areas\\admin\\controllers\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\areas\\admin\\controllers\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\areas\\admin\\controllers\\slidercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\areas\\admin\\controllers\\slidercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\areas\\admin\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -65,10 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\areas\\admin\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\areas\\admin\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|c:\\users\\asus\\onedrive\\desktop\\asiman\\dannys-back\\dannys\\areas\\admin\\views\\blog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1019A2E5-0173-4619-B835-56908E768992}|Dannys\\Dannys.csproj|solutionrelative:dannys\\areas\\admin\\views\\blog\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,37 +94,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthorController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\AuthorController.cs",
-              "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\AuthorController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\AuthorController.cs",
-              "RelativeToolTip": "Dannys\\Areas\\Admin\\Controllers\\AuthorController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAqwBgAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T12:46:41.906Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CouponController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\CouponController.cs",
-              "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\CouponController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\CouponController.cs",
-              "RelativeToolTip": "Dannys\\Areas\\Admin\\Controllers\\CouponController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAqwBUAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T13:32:12.032Z",
+              "DocumentIndex": 1,
+              "Title": "common.js",
+              "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\wwwroot\\assets\\js\\common.js",
+              "RelativeDocumentMoniker": "Dannys\\wwwroot\\assets\\js\\common.js",
+              "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\wwwroot\\assets\\js\\common.js",
+              "RelativeToolTip": "Dannys\\wwwroot\\assets\\js\\common.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-05-27T14:57:21.29Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Program.cs",
+              "RelativeDocumentMoniker": "Dannys\\Program.cs",
+              "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Program.cs",
+              "RelativeToolTip": "Dannys\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T14:19:24.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShopController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Controllers\\ShopController.cs",
+              "RelativeDocumentMoniker": "Dannys\\Controllers\\ShopController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Controllers\\ShopController.cs",
+              "RelativeToolTip": "Dannys\\Controllers\\ShopController.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAqwDQAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T13:57:36.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "OrderController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\OrderController.cs",
@@ -121,46 +150,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\ProductController.cs",
               "RelativeToolTip": "Dannys\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAmwBsAAABEAAAA",
+              "ViewState": "AQIAAIsAAAAAAAAAAAAWwJ4AAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-27T13:29:15.43Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Blog\\Index.cshtml",
+              "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Views\\Blog\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Blog\\Index.cshtml",
+              "RelativeToolTip": "Dannys\\Areas\\Admin\\Views\\Blog\\Index.cshtml",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAAAEgAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T12:38:04.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Views\\Shop\\Index.cshtml",
+              "RelativeDocumentMoniker": "Dannys\\Views\\Shop\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Views\\Shop\\Index.cshtml",
+              "RelativeToolTip": "Dannys\\Views\\Shop\\Index.cshtml",
+              "ViewState": "AQIAABcAAAAAAAAAAAAuwEMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T14:03:00.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CouponController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\CouponController.cs",
+              "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\CouponController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\CouponController.cs",
+              "RelativeToolTip": "Dannys\\Areas\\Admin\\Controllers\\CouponController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAqwBUAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T13:32:12.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthorController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\AuthorController.cs",
+              "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\AuthorController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\AuthorController.cs",
+              "RelativeToolTip": "Dannys\\Areas\\Admin\\Controllers\\AuthorController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAqwBgAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T12:46:41.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "SliderController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\SliderController.cs",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\SliderController.cs",
               "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\SliderController.cs",
               "RelativeToolTip": "Dannys\\Areas\\Admin\\Controllers\\SliderController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAA8wCwAAAAAAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAmwBwAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-27T13:34:16.582Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "TopicController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\TopicController.cs",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\TopicController.cs",
               "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\TopicController.cs",
               "RelativeToolTip": "Dannys\\Areas\\Admin\\Controllers\\TopicController.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAmwB8AAAAAAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAmwCAAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-27T13:35:07.039Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\CategoryController.cs",
@@ -173,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "BlogController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\BlogController.cs",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\BlogController.cs",
@@ -186,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Controllers\\DashboardController.cs",
@@ -199,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Topic\\Index.cshtml",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Views\\Topic\\Index.cshtml",
@@ -212,7 +293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Slider\\Index.cshtml",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Views\\Slider\\Index.cshtml",
@@ -225,20 +306,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Views\\Product\\Index.cshtml",
               "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Product\\Index.cshtml",
               "RelativeToolTip": "Dannys\\Areas\\Admin\\Views\\Product\\Index.cshtml",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEoAAAAiAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAIBJwEoAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-27T13:33:59.152Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Coupon\\Index.cshtml",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Views\\Coupon\\Index.cshtml",
@@ -251,20 +332,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Category\\Index.cshtml",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Views\\Category\\Index.cshtml",
               "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Category\\Index.cshtml",
               "RelativeToolTip": "Dannys\\Areas\\Admin\\Views\\Category\\Index.cshtml",
-              "ViewState": "AQIAADIAAAAAAAAAAAAAADUAAAAAAAAA",
+              "ViewState": "AQIAAC8AAAAAAAAAAIBJwDUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-27T12:42:18.837Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\appsettings.json",
               "RelativeDocumentMoniker": "Dannys\\appsettings.json",
@@ -277,7 +358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Order\\Index.cshtml",
               "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Views\\Order\\Index.cshtml",
@@ -285,19 +366,8 @@
               "RelativeToolTip": "Dannys\\Areas\\Admin\\Views\\Order\\Index.cshtml",
               "ViewState": "AQIAAEgAAAAAAAAAAAAuwFMAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-27T12:22:00.648Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Blog\\Index.cshtml",
-              "RelativeDocumentMoniker": "Dannys\\Areas\\Admin\\Views\\Blog\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\OneDrive\\Desktop\\asiman\\Dannys-Back\\Dannys\\Areas\\Admin\\Views\\Blog\\Index.cshtml",
-              "RelativeToolTip": "Dannys\\Areas\\Admin\\Views\\Blog\\Index.cshtml",
-              "ViewState": "AQIAADMAAAAAAAAAAAAAAEgAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-27T12:38:04.96Z"
+              "WhenOpened": "2024-05-27T12:22:00.648Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -20,9 +20,51 @@ public class ShopController : Controller
     }
     public async Task<IActionResult> Index()
     {
-        var query =await _context.Products.Include(x => x.ProductImgs).ToListAsync();
+        int pageCount = (int)Math.Ceiling((decimal)_context.Topics.Count() / 3);
+
+        if (pageCount == 0)
+            pageCount = 1;
+
+        ViewBag.PageCount = pageCount;
+
+       
+
+        var query =await _context.Products.Take(3).Include(x => x.ProductImgs).ToListAsync();
         
         return View(query);
+    }
+
+    public async Task<IActionResult> LoadMore(int page)
+    {
+        int pageCount = (int)Math.Ceiling((decimal)_context.Products.Count() / 3);
+
+        if (pageCount == 0)
+            pageCount = 1;
+
+
+        if (page > pageCount)
+            page = pageCount;
+
+        if (page <= 0)
+            page = 1;
+
+
+
+        var products = await _context.Products.Skip((page-1)*3).Take(3).Include(x => x.ProductImgs).ToListAsync();
+
+
+        foreach (var product in products)
+        {
+            foreach (var img in product.ProductImgs)
+            {
+                img.Product = null;
+            }
+
+        }
+
+
+
+        return Ok(products);
     }
 
 

@@ -141,6 +141,37 @@ public class ProductController : Controller
         };
     }
 
+
+    public async Task<IActionResult> TestData()
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            Product product = new()
+            {
+                CategoryId=1,
+                Description="DSAJKADSNLKDS",
+                Discount=30,
+                Price=30,
+                Ingredients="SAsa",
+                Name="Product",
+                Porsion=1,
+                
+            };
+
+            ProductImg img = new()
+            {
+                Product = product,
+                Url= "https://res.cloudinary.com/dmhklgr4f/image/upload/v1716569721/vlwjtj0pirylshsvidfv.jpg",
+                IsMain=true,
+            };
+
+            product.ProductImgs.Add(img);
+
+            await _context.Products.AddAsync(product);
+        }
+        await _context.SaveChangesAsync();
+        return Ok("Ok");
+    }
     public async Task<IActionResult> Update(int id)
     {
 
