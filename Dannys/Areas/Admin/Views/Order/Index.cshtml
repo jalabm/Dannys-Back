@@ -81,6 +81,23 @@
 
                                 </tbody>
                             </table>
+                            <br />
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item @(ViewBag.CurrentPage==1 ? "disabled" : "")">
+                                        <a class="page-link" asp-action="index" asp-route-page="@(ViewBag.CurrentPage-1)">Previous</a>
+                                    </li>
+                                    @for (int i = 1; i <= ViewBag.PageCount; i++)
+                                    {
+                                        <li class="page-item"><a class="page-link @(ViewBag.CurrentPage==i ? "active" : "")" asp-action="index"asp-route-page="@i">@i</a></li>
+
+                                    }
+
+                                    <li class="page-item @(ViewBag.CurrentPage==ViewBag.PageCount ? "disabled" : "")">
+                                        <a class="page-link" asp-action="index"  asp-route-page="@(ViewBag.CurrentPage+1)">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -94,7 +111,8 @@
 </div>
 
 
-<script>const prevButtons = document.querySelectorAll('.prevBtn');
+<script>
+    const prevButtons = document.querySelectorAll('.prevBtn');
     const nextButtons = document.querySelectorAll('.nextBtn');
 
     const statusButtons = document.querySelectorAll('.statusOutput');

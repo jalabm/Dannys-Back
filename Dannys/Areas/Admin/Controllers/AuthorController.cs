@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 namespace Dannys.Areas.Admin.Controllers;
 
 [Area("Admin")]
-[AutoValidateAntiforgeryToken]
 public class AuthorController : Controller
 {
     private readonly AppDbContext _context;
@@ -21,9 +20,24 @@ public class AuthorController : Controller
         _cloudinaryService = cloudinaryService;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page = 1)
     {
-        var authors = await _context.Authors.Where(x => !x.IsDeleted).ToListAsync();
+        int pageCount = (int)Math.Ceiling((decimal)_context.Authors.Count() / 10);
+
+        if (pageCount == 0)
+            pageCount = 1;
+
+        ViewBag.PageCount = pageCount;
+
+        if (page > pageCount)
+            page = pageCount;
+
+        if (page <= 0)
+            page = 1;
+
+        ViewBag.CurrentPage = page;
+
+        var authors = await _context.Authors.OrderByDescending(x=>x.Id).Skip((page-1)*10).Take(10).ToListAsync();
         return View(authors);
     }
 
@@ -43,7 +57,7 @@ public class AuthorController : Controller
         var isExistDescription = await _context.Authors.AnyAsync(x => x.Description.ToLower() == dto.Description.ToLower());
         var isExistBiographia = await _context.Authors.AnyAsync(x => x.Biographia.ToLower() == dto.Biographia.ToLower());
 
-       
+
         if (isExistDescription)
         {
             ModelState.AddModelError("Description", "Description already exist");
@@ -98,7 +112,7 @@ public class AuthorController : Controller
         if (!ModelState.IsValid)
             return View(dto);
 
-        var isExistBiographia = await _context.Authors.AnyAsync(x => x.Biographia.ToLower() == dto.Biographia.ToLower()&&x.Id != id);
+        var isExistBiographia = await _context.Authors.AnyAsync(x => x.Biographia.ToLower() == dto.Biographia.ToLower() && x.Id != id);
 
         if (isExistBiographia)
         {

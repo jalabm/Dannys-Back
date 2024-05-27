@@ -17,9 +17,27 @@ public class CategoryController : Controller
         _mapper = mapper;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page=1)
     {
-        var categories = await _context.Categories.Include(x => x.Products).OrderBy(x=>x.Order).Where(x => !x.IsDeleted).ToListAsync();
+        int pageCount = (int)Math.Ceiling((decimal)_context.Categories.Count() / 10);
+
+
+        if (pageCount == 0)
+            pageCount = 1;
+        
+        ViewBag.PageCount = pageCount;
+
+
+        if (page > pageCount)
+            page = pageCount;
+
+        if (page <= 0)
+            page = 1;
+
+        ViewBag.CurrentPage = page;
+
+        var categories = await _context.Categories.Skip((page-1)*10).Take(10).Include(x => x.Products).OrderBy(x=>x.Order).ToListAsync();
+
         return View(categories);
     }
 

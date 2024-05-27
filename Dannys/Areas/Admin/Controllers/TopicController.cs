@@ -15,9 +15,24 @@ public class TopicController : Controller
         _mapper = mapper;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page=1)
     {
-        var topics = await _context.Topics.Where(x => !x.IsDeleted).ToListAsync()   ;
+        int pageCount = (int)Math.Ceiling((decimal)_context.Topics.Count() / 10);
+
+        if (pageCount == 0)
+            pageCount = 1;
+
+        ViewBag.PageCount = pageCount;
+
+        if (page > pageCount)
+            page = pageCount;
+
+        if (page <= 0)
+            page = 1;
+
+        ViewBag.CurrentPage = page;
+
+        var topics = await _context.Topics.OrderByDescending(x=>x.Id).Skip((page-1)*10).Take(10).ToListAsync()   ;
         return View(topics);
     }
     public IActionResult Create()

@@ -22,9 +22,25 @@ public class ProductController : Controller
         _cloudinaryService = cloudinaryService;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page=1)
     {
-        List<Product> products = await _context.Products
+
+        int pageCount = (int)Math.Ceiling((decimal)_context.Products.Count() / 10);
+
+        if (pageCount == 0)
+            pageCount = 1;
+
+        ViewBag.PageCount = pageCount;
+
+        if (page > pageCount)
+            page = pageCount;
+
+        if (page <= 0)
+            page = 1;
+
+        ViewBag.CurrentPage = page;
+
+        List<Product> products = await _context.Products.OrderByDescending(x=>x.Id).Skip((page-1)*10)
                                                .Include(x => x.ProductImgs)
                                                .Include(x => x.Category)
                                                .ToListAsync();

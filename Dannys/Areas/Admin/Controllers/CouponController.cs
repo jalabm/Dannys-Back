@@ -16,9 +16,25 @@ public class CouponController : Controller
         _mapper = mapper;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page=1)
     {
-        var coupon = await _context.Coupons.ToListAsync();
+
+        int pageCount = (int)Math.Ceiling((decimal)_context.Coupons.Count() / 10);
+
+        if (pageCount == 0)
+            pageCount = 1;
+
+        ViewBag.PageCount = pageCount;
+
+        if (page > pageCount)
+            page = pageCount;
+
+        if (page <= 0)
+            page = 1;
+
+        ViewBag.CurrentPage = page;
+
+        var coupon = await _context.Coupons.Skip((page-1)*10).Take(10).ToListAsync();
         return View(coupon);
     }
 

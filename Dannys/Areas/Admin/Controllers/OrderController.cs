@@ -13,10 +13,28 @@ public class OrderController : Controller
         _context = context;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page = 1)
     {
+        int pageCount = (int)Math.Ceiling((decimal)_context.Orders.Count() / 10);
 
-        var orders = await _context.Orders.OrderByDescending(x => x.Status).Include(x=>x.AppUser).ToListAsync();
+        if (pageCount == 0)
+            pageCount = 1;
+
+        ViewBag.PageCount = pageCount;
+
+        if (page > pageCount)
+            page = pageCount;
+
+        if (page <= 0)
+            page = 1;
+
+        ViewBag.CurrentPage = page;
+
+
+        var orders = await _context.Orders.OrderByDescending(x => x.CreatedAt).Skip((page - 1) * 10).Take(10).Include(x => x.AppUser).ToListAsync();
+
+
+
         return View(orders);
     }
 
@@ -36,7 +54,7 @@ public class OrderController : Controller
         await _context.SaveChangesAsync();
 
         return RedirectToAction("Index");
-            
+
     }
 
     public async Task<IActionResult> TestData()
@@ -45,8 +63,8 @@ public class OrderController : Controller
         {
             Order order = new()
             {
-                 AppUserId= "1",
-                  
+                AppUserId = "1",
+
             };
 
 

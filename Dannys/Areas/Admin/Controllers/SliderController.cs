@@ -26,10 +26,24 @@ public class SliderController : Controller
         _cloudinaryService = cloudinaryService;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page=1)
     {
+        int pageCount = (int)Math.Ceiling((decimal)_context.Sliders.Count() / 10);
 
-        var sliders = await _context.Sliders.ToListAsync();
+        if (pageCount == 0)
+            pageCount = 1;
+
+        ViewBag.PageCount = pageCount;
+
+        if (page > pageCount)
+            page = pageCount;
+
+        if (page <= 0)
+            page = 1;
+
+        ViewBag.CurrentPage = page;
+
+        var sliders = await _context.Sliders.OrderByDescending(x=>x.Id).Skip((page-1)*10).Take(10).ToListAsync();
         return View(sliders);
     }
 

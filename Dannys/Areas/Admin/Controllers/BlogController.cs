@@ -20,9 +20,28 @@ public class BlogController : Controller
         _cloudinaryService = cloudinaryService;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page=1)
     {
-        var blogs = await _context.Blogs.Include(x => x.Author).Where(x => !x.IsDeleted).ToListAsync();
+
+        int pageCount = (int)Math.Ceiling((decimal)_context.Blogs.Count() / 10);
+
+        if (pageCount == 0)
+            pageCount = 1;
+
+        ViewBag.PageCount = pageCount;
+
+        if (page > pageCount)
+            page = pageCount;
+
+        if (page <= 0)
+            page = 1;
+
+        ViewBag.CurrentPage = page;
+
+
+
+        var blogs = await _context.Blogs.OrderByDescending(x=>x.Id).Skip((page-1)*10).Take(10).Include(x => x.Author).ToListAsync();
+
         return View(blogs);
     }
 
