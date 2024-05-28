@@ -1,20 +1,61 @@
 ﻿<Properties StartupConfiguration="{1019A2E5-0173-4619-B835-56908E768992}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Dannys PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Dannys/Views/Reservation/Index.cshtml">
+    <Files>
+      <File FileName="Dannys/appsettings.json" Line="10" Column="131" />
+      <File FileName="Dannys/Views/Shop/Index.cshtml" Line="120" Column="48" />
+      <File FileName="Dannys/Configurations/ProductConfiguration.cs" Line="7" Column="2" />
+      <File FileName="Dannys/Controllers/AccountController.cs" Line="18" Column="38" />
+      <File FileName="Dannys/Controllers/ContactController.cs" Line="9" Column="1" />
+      <File FileName="Dannys/Views/Contact/Index.cshtml" Line="3" Column="1" />
+      <File FileName="Dannys/Views/Shared/_Layout.cshtml" Line="1" Column="1" />
+      <File FileName="Dannys/Controllers/BasketController.cs" Line="1" Column="1" />
+      <File FileName="Dannys/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="Dannys/Controllers/MenuController.cs" Line="1" Column="1" />
+      <File FileName="Dannys/Controllers/ReservationController.cs" Line="29" Column="52" />
+      <File FileName="Dannys/Controllers/ShopController.cs" Line="29" Column="29" />
+      <File FileName="Dannys/Areas/Admin/Controllers/TableController.cs" Line="43" Column="1" />
+      <File FileName="Dannys/Dtos/TableDtos/TableCreateDto.cs" Line="4" Column="22" />
+      <File FileName="Dannys/Models/Table.cs" Line="8" Column="39" />
+      <File FileName="Dannys/Migrations/20240528123235_editedTables.cs" Line="1" Column="1" />
+      <File FileName="Dannys/Areas/Admin/Views/Table/Create.cshtml" Line="13" Column="47" />
+      <File FileName="Dannys/Areas/Admin/Views/Coupon/Create.cshtml" Line="15" Column="66" />
+      <File FileName="Dannys/Dtos/ReservationDto/ReservationCreateDto.cs" Line="10" Column="37" />
+      <File FileName="Dannys/Data/AppDbContext.cs" Line="10" Column="14" />
+      <File FileName="Dannys/Dtos/TableDtos/TableGetDto.cs" Line="1" Column="22" />
+      <File FileName="Dannys/AutoMappers/TableAutoMapper.cs" Line="8" Column="28" />
+      <File FileName="Dannys/Views/Reservation/Index.cshtml" Line="115" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Dannys" selected="True">
-            <Node name="Dannys" expanded="True" />
+          <Node name="Dannys">
+            <Node name="Dannys">
+              <Node name="Areas" expanded="True" />
+              <Node name="Configurations" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Dtos" expanded="True">
+                <Node name="ReservationDto" expanded="True" />
+                <Node name="TableDtos" expanded="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Contact" expanded="True" />
+                <Node name="Reservation">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+                <Node name="Shared" expanded="True" />
+                <Node name="Shop" expanded="True" />
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
