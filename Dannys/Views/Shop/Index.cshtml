@@ -1,4 +1,9 @@
-﻿@model List<Product>
+﻿
+
+@model List<Product>
+@{
+    string returnUrl = Context.Request.Path.Value ?? "null";
+}
 
 
 <main class="shop">
@@ -49,88 +54,104 @@
                                         <img class="img-responsive" src="@product.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url" alt="">
                                         <div class="info-wrapper">
                                             <div class="btn-add-to-cart">
-                                                <a asp-action="AddToBasket" asp-route-id="@product.Id" asp-route-returnUrl="@Context.Request.Path.Value" class="btn cart-btn"> Add to cart</a>
+                                                <a asp-action="AddToBasket" asp-route-page="@ViewBag.Page" asp-route-id="@product.Id" asp-route-returnUrl="@Context.Request.Path.Value" class="btn cart-btn"> Add to cart</a>
                                             </div>
                                             <h2 class="product-title">@product.Name</h2>
-                                                @if (product.Discount > 0)
-                                                {
-                                                <span class="price">$@(product.Price - product.Price * product.Discount / 100)</span>
-                                                }
-                                                else
-                                                {
+                                            @if (product.Discount > 0)
+                                            {
+                                                <span class="price">$@((product.Price - product.Price * product.Discount / 100))</span>
+                                            }
+                                            else
+                                            {
                                                 <span class="price">$@product.Price</span>
-                                                }
+                                            }
                                         </div>
                                     </a>
                                 </li>
 
-                                }
+                            }
 
-                    </div>
-                    <li class="products-block fancy-pag visible-lg visible-md">
-                        <div class="fancy-inner-block">
-                            <div class="pag-arrows">
-                                <a data-page="1" asp-action="LoadMore" class="nextBtn">
-                                    <h2>NEXT</h2>
-
-                                </a>
-                            </div>
                         </div>
-                    </li>
-                        }
-                        else
-                        {
-                    <h2>Product Not Found</h2>
-                        }
+                        <li style="margin:10px auto" class="products-block fancy-pag visible-lg visible-md">
+                            <div class="fancy-inner-block">
+                                <div class="pag-arrows">
+                                    <a data-page="@ViewBag.Page" asp-action="LoadMore" class="nextBtn">
+                                        <h2>NEXT</h2>
 
-                </ul>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <h2>Product Not Found</h2>
+                    }
+
+                        </ul>
+                    </div>
+                </div>
+
             </div>
-        </div>
-
-    </div>
 
 
 
-    </div>
-</main>
+            </div>
+        </main>
 
 
 
 
 
 
-<script>
+        <script>
+            const nextBtn = document.querySelector('.nextBtn');
+            const productArea = document.querySelector('.products');
 
 
-    const nextBtn = document.querySelector('.nextBtn')
-    const productArea = document.querySelector('.products')
 
-    nextBtn.addEventListener('click', async (e) => {
-        e.preventDefault();
+            nextBtn.addEventListener('click', async (e) => {
+                e.preventDefault();
 
-        nextBtn.dataset.page++;
-        const response = await fetch(nextBtn.href + `?page=${nextBtn.dataset.page}`)
+                nextBtn.dataset.page++;
+                const response = await fetch(nextBtn.href+`?page=${nextBtn.dataset.page}`);
 
 
-        const products = await response.json()
+                const products = await response.json();
 
 
-        products.forEach(product => {
-            const mainImg = product.productImgs.find(x => x.isMain == true)
-            productArea.innerHTML += `
+                products.forEach(product => {
+                    const mainImg = product.productImgs.find(x => x.isMain == true);
+
+                    const price = product.discount > 0
+                        ? product.price - (product.price * product.discount / 100)
+                        : product.price;
 
 
-                                        <li class="products-block">
-                                            <a asp-action="Detail" asp-route-id="${product.id}" class="product-link">
-                                                <img class="img-responsive" src="${mainImg.url}" alt="">
-                                                <div class="info-wrapper">
-                                                    <div class="btn-add-to-cart">
-                                                        <a asp-action="AddToBasket" asp-route-id="${product.id}" asp-route-returnUrl="@Context.Request.Path.Value" class="btn cart-btn"> Add to cart</a>
+                    const fixedPrice = price.toFixed(2);
+
+
+                    productArea.innerHTML += `
+                                            <li class="products-block">
+                                                <a href="Shop/Detail/${product.id}" class="product-link">
+                                                    <img class="img-responsive" src="${mainImg.url}" alt="">
+                                                    <div class="info-wrapper">
+                                                        <div class="btn-add-to-cart">
+                                                            <a href="/Shop/AddToBasket/${product.id}?page=${nextBtn.dataset.page}" class="btn cart-btn">Add to cart</a>
+                                                        </div>
+                                                        <h2 class="product-title">${product.name}</h2>
+                                                        <span class="price">${fixedPrice}</span>
                                                     </div>
-                                                    <h2 class="product-title">${product.name}</h2>
+                                                </a>
+                                            </li>
+                                        `;
+                });
+            });
 
-                                                            <span class="price">${product.Price - product.Price * product.Discount} </span></div></a></li>`
-        })
-    })
-</script>
 
+
+
+
+
+
+        </script>

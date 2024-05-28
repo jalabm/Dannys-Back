@@ -5,8 +5,7 @@ namespace Dannys.Models
 {
 	public class Table:BaseEntity
 	{
-		public int Persons { get; set; }
-		public int IsReservated { get; set; }
+		public int PersonCount { get; set; }
         public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
 
     }

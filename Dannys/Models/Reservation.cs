@@ -5,10 +5,10 @@ namespace Dannys.Models
 {
 	public class Reservation:BaseAuditableEntity
 	{
+		public string Name { get; set; } = null!;
+		public string Email { get; set; } = null!;
 		public int TableId { get; set; }
-		public string AppUserId { get; set; } = null!;
 		public Table Table { get; set; } = null!;
-		public AppUser AppUser { get; set; } = null!;
 		public DateTime Date { get; set; }
 	}
 }

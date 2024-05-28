@@ -46,6 +46,10 @@
     <None Remove="Dtos\CouponDtos\" />
     <None Remove="Configurations\" />
     <None Remove="Areas\Admin\Views\Order\" />
+    <None Remove="Views\Contact\" />
+    <None Remove="Dtos\TableDtos\" />
+    <None Remove="Areas\Admin\Views\Table\" />
+    <None Remove="Dtos\ReservationDto\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -100,6 +104,10 @@
     <Folder Include="Dtos\CouponDtos\" />
     <Folder Include="Configurations\" />
     <Folder Include="Areas\Admin\Views\Order\" />
+    <Folder Include="Views\Contact\" />
+    <Folder Include="Dtos\TableDtos\" />
+    <Folder Include="Areas\Admin\Views\Table\" />
+    <Folder Include="Dtos\ReservationDto\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

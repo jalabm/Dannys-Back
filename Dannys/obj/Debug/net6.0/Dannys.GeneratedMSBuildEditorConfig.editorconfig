@@ -9,175 +9,181 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Dannys
 build_property.RootNamespace = Dannys
-build_property.ProjectDir = C:\Users\ASUS\OneDrive\Desktop\asiman\Dannys-Back\Dannys\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = /Users/jalememmedli/Desktop/Dannys-Back/Dannys/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ASUS\OneDrive\Desktop\asiman\Dannys-Back\Dannys
+build_property.MSBuildProjectDirectory = /Users/jalememmedli/Desktop/Dannys-Back/Dannys
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Author/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXV0aG9yXENyZWF0ZS5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Author/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQXV0aG9yL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Author/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXV0aG9yXEluZGV4LmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Author/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQXV0aG9yL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Author/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXV0aG9yXFVwZGF0ZS5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Author/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQXV0aG9yL1VwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Blog/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xDcmVhdGUuY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Blog/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Blog/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Blog/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xVcGRhdGUuY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Blog/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZy9VcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Category/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Category/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ2F0ZWdvcnkvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Category/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ2F0ZWdvcnkvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Category/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcVXBkYXRlLmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Category/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ2F0ZWdvcnkvVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Coupon/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ291cG9uXENyZWF0ZS5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Coupon/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ291cG9uL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Coupon/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ291cG9uXEluZGV4LmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Coupon/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ291cG9uL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Coupon/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ291cG9uXFVwZGF0ZS5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Coupon/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ291cG9uL1VwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Dashboard/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Order/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvT3JkZXIvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Product/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHVjdC9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Product/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxEZXRhaWwuY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Product/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHVjdC9EZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Product/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHVjdC9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Product/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxVcGRhdGUuY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Product/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHVjdC9VcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Slider/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2xpZGVyXENyZWF0ZS5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Slider/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2xpZGVyL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Slider/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2xpZGVyXEluZGV4LmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Slider/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2xpZGVyL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Slider/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2xpZGVyXFVwZGF0ZS5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Slider/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2xpZGVyL1VwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Topic/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVG9waWNcQ3JlYXRlLmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Table/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvVGFibGUvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Topic/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVG9waWNcSW5kZXguY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Topic/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvVG9waWMvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Topic/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVG9waWNcVXBkYXRlLmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Topic/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvVG9waWMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Topic/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvVG9waWMvVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Basket/Checkout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0XENoZWNrb3V0LmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Basket/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0XEluZGV4LmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Basket/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFza2V0L0NoZWNrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Blog/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZXRhaWwuY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Basket/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFza2V0L0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Blog/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Blog/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmxvZy9EZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmxvZy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Menu/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxJbmRleC5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdC9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Reservation/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cSW5kZXguY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Shop/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxEZXRhaWwuY3NodG1s
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Menu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWVudS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Shop/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxJbmRleC5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Reservation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Shop/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvcC9EZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Shop/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvcC9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Areas/Admin/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-95dgnluzwl
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/OneDrive/Desktop/asiman/Dannys-Back/Dannys/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-1ool1x64py
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Areas/Admin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-9jmagg602c
+
+[/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-3t17gpwnsv

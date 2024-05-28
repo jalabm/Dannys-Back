@@ -18,25 +18,26 @@ public class ShopController : Controller
         _context = context;
         _userManager = userManager;
     }
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page=1)
     {
-        int pageCount = (int)Math.Ceiling((decimal)_context.Topics.Count() / 3);
+        int pageCount = (int)Math.Ceiling((decimal)_context.Topics.Count() / 4);
 
         if (pageCount == 0)
             pageCount = 1;
 
         ViewBag.PageCount = pageCount;
+        ViewBag.Page = page;
 
        
 
-        var query =await _context.Products.Take(3).Include(x => x.ProductImgs).ToListAsync();
+        var query =await _context.Products.Take(page*4).Include(x => x.ProductImgs).ToListAsync();
         
         return View(query);
     }
 
     public async Task<IActionResult> LoadMore(int page)
     {
-        int pageCount = (int)Math.Ceiling((decimal)_context.Products.Count() / 3);
+        int pageCount = (int)Math.Ceiling((decimal)_context.Products.Count() / 4);
 
         if (pageCount == 0)
             pageCount = 1;
@@ -50,7 +51,7 @@ public class ShopController : Controller
 
 
 
-        var products = await _context.Products.Skip((page-1)*3).Take(3).Include(x => x.ProductImgs).ToListAsync();
+        var products = await _context.Products.Skip((page-1)*4).Take(4).Include(x => x.ProductImgs).ToListAsync();
 
 
         foreach (var product in products)
@@ -68,7 +69,7 @@ public class ShopController : Controller
     }
 
 
-    public async Task<IActionResult> AddToBasket(int id, string? returnUrl,int count)
+    public async Task<IActionResult> AddToBasket(int id, string? returnUrl,int count,int page=1)
     {
         var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
         
@@ -127,7 +128,8 @@ public class ShopController : Controller
         if (returnUrl is not null)
             return Redirect(returnUrl);
 
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction("Index", new { page = page });
+
 
     }
 

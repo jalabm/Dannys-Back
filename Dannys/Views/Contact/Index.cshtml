@@ -1,0 +1,73 @@
+﻿
+
+<main class="contact">
+    <section id="News-banner">
+        <div class="banner-part">
+            <div class="banner-content">
+                <h3>Restaurant</h3>
+                <h1>Contact</h1>
+                <p class="connection">
+                    juicy flavours
+                </p>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </section>
+
+    <div class="content inner-pg contact-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-md-8 col-centered">
+                    <h5>contact details</h5>
+
+                    <form class="dn__contact-form" action="http://localhost:3000/form.php" method="post">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleInputtext1">name</label>
+                                    <input type="text" class="form-control" name="input_username" id="exampleInputtext1">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email</label>
+                                    <input type="email" class="form-control" name="input_email" id="exampleInputEmail1">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleInputtext2">phone</label>
+                                    <input type="text" class="form-control" name="input_phone" id="exampleInputtext2">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="js-cf-message"></div>
+                                <div class="form-group">
+                                    <label for="exampleInputtext3">message</label>
+                                    <textarea class="form-control" rows="7" name="input_message" id="exampleInputtext3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--// Redirect on success (maybe to a Thank you page, whatever) It will only happen if you provide a URL in the value field -->
+                        <input type="hidden" value="YOUR_REDIRECT_LINK" class="ky__redirect-to">
+
+                        <div class="send-message">
+                            <button type="submit" class="btn btn-default js-submit-form-button">send message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</main>

@@ -1,5 +1,9 @@
-﻿
-
+﻿@model ReservationCreateDto
+<style>
+    .displayNone{
+        display:none;
+    }
+</style>
 <main class="reservation">
     <section id="News-banner">
         <div class="banner-part">
@@ -25,57 +29,73 @@
                         <img class="booking-img" src="/assets/images/reservation/form-img.jpg" alt="Booking Image">
                     </div>
                     <div class="booking-form">
-                        <form id="booking-form">
+                        <form asp-action="Reserve" id="booking-form">
                             <h2>Booking place for your dinner!</h2>
                             <div class="form-group form-input">
-                                <input type="text" name="name" id="name" value="" required />
-                                <label for="name" class="form-label">Your name</label>
+                                <input asp-for="Name" required />
+                                <label asp-for="Name" class="form-label">Your name</label>
                             </div>
                             <div class="form-group form-input">
-                                <input type="number" name="phone" id="phone" value="" required />
-                                <label for="phone" class="form-label">Your phone number</label>
+                                <input asp-for="PhoneNumber" required />
+                                <label asp-for="PhoneNumber" class="form-label">Your phone number</label>
                             </div>
                             <div class="form-group">
                                 <div class="select-list">
-                                    <select name="time" id="time" required>
-                                        <option value="">Time</option>
-                                        <option value="6pm">6:00 PM</option>
-                                        <option value="7pm">7:00 PM</option>
+                                    <select asp-for="Time" required>
+                                        <option disabled selected value="">Time</option>
+                                     @{
+                                         for (int i = 10; i < 20; i++)
+                                         {
+
+                                        <option value="@i">@i:00 </option>
+
+                                         }
+                                     }
                                     </select>
                                 </div>
                             </div>
                             @*<div class="form-group">
-                                <div class="select-list">
-                                    <select name="food" id="food" required>
-                                        <option value="">Food</option>
-                                        <option value="seasonalfish">Seasonal steamed fish</option>
-                                        <option value="assortedmushrooms">Assorted mushrooms</option>
-                                    </select>
-                                </div>
-                            </div>*@
+                                    <div class="select-list">
+                                        <select name="food" id="food" required>
+                                            <option value="">Food</option>
+                                            <option value="seasonalfish">Seasonal steamed fish</option>
+                                            <option value="assortedmushrooms">Assorted mushrooms</option>
+                                        </select>
+                                    </div>
+                                </div>*@
                             <div class="form-radio">
                                 <label class="label-radio"> Select Your Dining Space</label>
                                 <div class="radio-item-list">
                                     <span class="radio-item">
-                                        <input type="radio" name="number_people" value="2" id="number_people_2" />
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="2" value="2" id="number_people_2" />
                                         <label for="number_people_2">2</label>
                                     </span>
-                                    <span class="radio-item active">
-                                        <input type="radio" name="number_people" value="4" id="number_people_4" checked="checked" />
+                                    <span class="radio-item">
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="4" value="4" id="number_people_4"  />
                                         <label for="number_people_4">4</label>
                                     </span>
                                     <span class="radio-item">
-                                        <input type="radio" name="number_people" value="6" id="number_people_6" />
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="6" value="6" id="number_people_6" />
                                         <label for="number_people_6">6</label>
                                     </span>
                                     <span class="radio-item">
-                                        <input type="radio" name="number_people" value="8" id="number_people_8" />
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="8" value="8" id="number_people_8" />
                                         <label for="number_people_8">8</label>
                                     </span>
                                     <span class="radio-item">
-                                        <input type="radio" name="number_people" value="10" id="number_people_10" />
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="10" value="10" id="number_people_10" />
                                         <label for="number_people_10">10</label>
                                     </span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group displayNone">
+                                <div class="select-list">
+                                    <select asp-for="TableId" class="tableForm" required>
+                                        <option disabled selected value="">Table</option>
+
+                                    </select>
                                 </div>
                             </div>
 
@@ -93,4 +113,32 @@
 
 
 </main>
+
+<script>countInputs = document.querySelectorAll('.personCountInput');
+    tableArea = document.querySelector('.tableForm');
+
+    countInputs.forEach(x => {
+        x.addEventListener('click', async () => {
+            tableArea.parentElement.parentElement.classList.remove('displayNone')
+
+            const response = await fetch(`https://localhost:7029/reservation/GetTablesByPersonCount?count=${x.dataset.count}`);
+
+            const tables = await response.json();
+
+          
+
+            tableArea.innerHTML =`<option disabled selected value="">Table</option>`; 
+
+            tables.forEach(table => {
+                tableArea.innerHTML += `
+                    <option value="${table.id}"> Table №${table.id}</option>
+
+                `;
+            });
+            if (tables.length == 0) {
+
+                tableArea.innerHTML+=`<option disabled  value="">Please select other variants</option>`; 
+            }
+        });
+    });</script>
 
