@@ -1,7 +1,15 @@
 ﻿@model ReservationCreateDto
 <style>
-    .displayNone{
-        display:none;
+    .displayNone {
+        display: none;
+    }
+
+    input::placeholder {
+        color: white;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(100%) !important;
     }
 </style>
 <main class="reservation">
@@ -41,17 +49,19 @@
                             </div>
                             <div class="form-group">
                                 <div class="select-list">
-                                    <select asp-for="Time" required>
-                                        <option disabled selected value="">Time</option>
-                                     @{
-                                         for (int i = 10; i < 20; i++)
-                                         {
+                                    @*<select asp-for="Time" required>
+                                            <option disabled selected value="">Time</option>
+                                         @{
+                                             for (int i = 10; i < 20; i++)
+                                             {
 
-                                        <option value="@i">@i:00 </option>
+                                            <option value="@i">@i:00 </option>
 
+                                             }
                                          }
-                                     }
-                                    </select>
+                                        </select>*@
+                                    <input class="dateTimeInput" asp-for="Time" required />
+                                    <label asp-for="Time"></label>
                                 </div>
                             </div>
                             @*<div class="form-group">
@@ -71,7 +81,7 @@
                                         <label for="number_people_2">2</label>
                                     </span>
                                     <span class="radio-item">
-                                        <input type="radio" name="number_people" class="personCountInput" data-count="4" value="4" id="number_people_4"  />
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="4" value="4" id="number_people_4" />
                                         <label for="number_people_4">4</label>
                                     </span>
                                     <span class="radio-item">
@@ -117,17 +127,19 @@
 <script>countInputs = document.querySelectorAll('.personCountInput');
     tableArea = document.querySelector('.tableForm');
 
+    dateTimeInput = document.querySelector('.dateTimeInput')
+
     countInputs.forEach(x => {
         x.addEventListener('click', async () => {
             tableArea.parentElement.parentElement.classList.remove('displayNone')
 
-            const response = await fetch(`https://localhost:7029/reservation/GetTablesByPersonCount?count=${x.dataset.count}`);
+            const response = await fetch(`https://localhost:7029/reservation/GetTablesByPersonCount?count=${x.dataset.count}&time=${dateTimeInput.value}`);
 
             const tables = await response.json();
 
-          
 
-            tableArea.innerHTML =`<option disabled selected value="">Table</option>`; 
+
+            tableArea.innerHTML = `<option disabled selected value="">Table</option>`;
 
             tables.forEach(table => {
                 tableArea.innerHTML += `
@@ -137,8 +149,35 @@
             });
             if (tables.length == 0) {
 
-                tableArea.innerHTML+=`<option disabled  value="">Please select other variants</option>`; 
+                tableArea.innerHTML += `<option disabled  value="">Please select other variants</option>`;
             }
         });
+
+
+        dateTimeInput.addEventListener('blur', async () => {
+            activeElement = document.querySelector('.active');
+
+            if (activeElement != undefined) {
+
+                const response = await fetch(`https://localhost:7029/reservation/GetTablesByPersonCount?count=${activeElement.children[0].dataset.count}&time=${dateTimeInput.value}`);
+
+                const tables = await response.json();
+
+
+
+                tableArea.innerHTML = `<option disabled selected value="">Table</option>`;
+
+                tables.forEach(table => {
+                    tableArea.innerHTML += `
+                    <option value="${table.id}"> Table №${table.id}</option>
+
+                `;
+                });
+                if (tables.length == 0) {
+
+                    tableArea.innerHTML += `<option disabled  value="">Please select other variants</option>`;
+                }
+            }
+        })
     });</script>
 

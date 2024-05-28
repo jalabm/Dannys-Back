@@ -8,7 +8,7 @@ public class ReservationCreateDto
     public int TableId { get; set; }
 
     [Required(ErrorMessage = "Time is required")]
-    public string Time { get; set; } = null!;
+    public DateTime Time { get; set; }
 
     [Required(ErrorMessage = "Name is required")]
     [StringLength(100, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 100 characters")]

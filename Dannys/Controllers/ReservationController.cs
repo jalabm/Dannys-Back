@@ -20,15 +20,30 @@ public class ReservationController : Controller
         return View();
     }
 
-    public async Task<List<TableGetDto>> GetTablesByPersonCount(int count)
+    public async Task<List<TableGetDto>> GetTablesByPersonCount(int count, DateTime time)
     {
-        var todayDate = DateTime.UtcNow.Date;
-
+        var date = time.Date;
         var tables = await _context.Tables
             .Include(x => x.Reservations)
-            .Where(x => x.PersonCount == count && !x.Reservations.Any(y => y.Date.Date == todayDate))
+            .Where(x => x.PersonCount == count && !x.Reservations.Any(y => y.Date.Date == date ))
             .ToListAsync();
 
+
+        var reservedTables = await _context.Tables.Include(x => x.Reservations).Where(x => x.PersonCount == count && x.Reservations.Any(y => y.Date.Date == date)).ToListAsync();
+
+
+        foreach (var table in reservedTables)
+        {
+            var reservation = table.Reservations.FirstOrDefault(y => y.Date.Date == date);
+
+            if (reservation is null)
+                continue;
+
+            if (time.AddHours(2) < reservation.Date)
+            {
+                tables.Add(table);
+            }
+        }
 
         var dtos = _mapper.Map<List<TableGetDto>>(tables);
 
@@ -42,10 +57,10 @@ public class ReservationController : Controller
 
         Reservation reservation = new()
         {
-            Name=dto.Name,
-            Email=dto.PhoneNumber,
-            Date=DateTime.UtcNow,
-             TableId=dto.TableId
+            Name = dto.Name,
+            Email = dto.PhoneNumber,
+            Date = dto.Time,
+            TableId = dto.TableId
         };
         await _context.Reservations.AddAsync(reservation);
         await _context.SaveChangesAsync();
