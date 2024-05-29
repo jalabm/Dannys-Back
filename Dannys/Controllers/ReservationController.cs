@@ -43,17 +43,63 @@ public class ReservationController : Controller
             {
                 tables.Add(table);
             }
+
+            if (reservation.IsDone)
+                tables.Add(table);
         }
 
         var dtos = _mapper.Map<List<TableGetDto>>(tables);
 
+
+        for (int i = 0; i < dtos.Count; i++)
+        {
+            var table = tables[i];
+
+
+            var reservation = table.Reservations.OrderBy(x=>x.Date).FirstOrDefault(y => y.Date.Date == date);
+
+
+            if(reservation is not null && !reservation.IsDone)
+            {
+                dtos[i].ReservInfo = $"{reservation.Date.Hour}:{reservation.Date.Minute} reserved";
+            }
+
+        }
+
         return dtos;
     }
     [HttpPost]
-    public async Task<IActionResult> Reserve(ReservationCreateDto dto)
+    public async Task<IActionResult> Index(ReservationCreateDto dto)
     {
         if (!ModelState.IsValid)
-            return RedirectToAction("Index");
+            return View(dto);
+
+        if (dto.Time < DateTime.UtcNow.AddHours(2))
+        {
+            ModelState.AddModelError("Time", "You can only reservate 2 hours ago");
+            return View(dto);
+        }
+
+        var existTable = await _context.Tables.Include(x=>x.Reservations).FirstOrDefaultAsync(x => x.Id == dto.TableId);
+
+        if(existTable is null)
+        {
+            ModelState.AddModelError("TableId", "Table is not found");
+            return View(dto);
+        }
+
+
+        var existReservation = existTable.Reservations.OrderBy(x => x.Date).FirstOrDefault(x => x.Date.Date == dto.Time.Date);
+
+        if(existReservation is not null)
+        {
+            if (existReservation.Date < dto.Time.AddHours(2))
+            {
+                ModelState.AddModelError("", "Table is not found pls choose correct table");
+                return View(dto);
+            }
+        }
+
 
         Reservation reservation = new()
         {

@@ -11,6 +11,10 @@
     input[type="date"]::-webkit-calendar-picker-indicator {
         filter: invert(100%) !important;
     }
+
+    ul{
+        color:red;
+    }
 </style>
 <main class="reservation">
     <section id="News-banner">
@@ -37,42 +41,50 @@
                         <img class="booking-img" src="/assets/images/reservation/form-img.jpg" alt="Booking Image">
                     </div>
                     <div class="booking-form">
-                        <form asp-action="Reserve" id="booking-form">
+                        <form method="post" id="booking-form">
                             <h2>Booking place for your dinner!</h2>
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
                             <div class="form-group form-input">
                                 <input asp-for="Name" required />
                                 <label asp-for="Name" class="form-label">Your name</label>
+                                <span class="text-danger" asp-validation-for="Name"></span>
                             </div>
                             <div class="form-group form-input">
                                 <input asp-for="PhoneNumber" required />
                                 <label asp-for="PhoneNumber" class="form-label">Your phone number</label>
+                                <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+
                             </div>
                             <div class="form-group">
                                 <div class="select-list">
                                     @*<select asp-for="Time" required>
-                                            <option disabled selected value="">Time</option>
-                                         @{
-                                             for (int i = 10; i < 20; i++)
-                                             {
+                    <option disabled selected value="">Time</option>
+                 @{
+                     for (int i = 10; i < 20; i++)
+                     {
 
-                                            <option value="@i">@i:00 </option>
+                    <option value="@i">@i:00 </option>
 
-                                             }
-                                         }
-                                        </select>*@
+                     }
+                 }
+                </select>*@
                                     <input class="dateTimeInput" asp-for="Time" required />
                                     <label asp-for="Time"></label>
+                                    <br />
+                                    <span class="text-danger errorMessage" asp-validation-for="Time"></span>
+
                                 </div>
                             </div>
                             @*<div class="form-group">
-                                    <div class="select-list">
-                                        <select name="food" id="food" required>
-                                            <option value="">Food</option>
-                                            <option value="seasonalfish">Seasonal steamed fish</option>
-                                            <option value="assortedmushrooms">Assorted mushrooms</option>
-                                        </select>
-                                    </div>
-                                </div>*@
+            <div class="select-list">
+                <select name="food" id="food" required>
+                    <option value="">Food</option>
+                    <option value="seasonalfish">Seasonal steamed fish</option>
+                    <option value="assortedmushrooms">Assorted mushrooms</option>
+                </select>
+            </div>
+        </div>*@
                             <div class="form-radio">
                                 <label class="label-radio"> Select Your Dining Space</label>
                                 <div class="radio-item-list">
@@ -104,6 +116,8 @@
                                 <div class="select-list">
                                     <select asp-for="TableId" class="tableForm" required>
                                         <option disabled selected value="">Table</option>
+                                        <span class="text-danger" asp-validation-for="TableId"></span>
+
 
                                     </select>
                                 </div>
@@ -124,10 +138,52 @@
 
 </main>
 
-<script>countInputs = document.querySelectorAll('.personCountInput');
-    tableArea = document.querySelector('.tableForm');
+<script>
+    const countInputs = document.querySelectorAll('.personCountInput');
+    const tableArea = document.querySelector('.tableForm');
+    const errorMessage = document.querySelector('.errorMessage')
+    const dateTimeInput = document.querySelector('.dateTimeInput')
 
-    dateTimeInput = document.querySelector('.dateTimeInput')
+    function setMinDateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()+2).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+
+        const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+        dateTimeInput.min = currentDateTime;
+    }
+
+    setMinDateTime();
+
+
+
+    function validateDateTime() {
+
+        const selectedDateTime = new Date(dateTimeInput.value);
+        const currentDateTime = new Date();
+        const selectedHours = selectedDateTime.getHours();
+
+        // Check if selected date and time is in the past
+        if (selectedDateTime < currentDateTime) {
+            errorMessage.innerHTML = "You cannot select a past date and time.";
+            dateTimeInput.value = "";
+            return;
+        }
+
+        // Check if selected time is within the allowed range (10 AM to 8 PM)
+        if (selectedHours < 10 || selectedHours > 20 || (selectedHours === 20 && selectedDateTime.getMinutes() > 0)) {
+            errorMessage.innerHTML = "You can only select a time between 10:00 AM and 8:00 PM.";
+            dateTimeInput.value = "";
+        } else {
+            errorMessage.textContent = "";
+        }
+    }
+
+
+    dateTimeInput.addEventListener('input', validateDateTime)
 
     countInputs.forEach(x => {
         x.addEventListener('click', async () => {
@@ -143,7 +199,7 @@
 
             tables.forEach(table => {
                 tableArea.innerHTML += `
-                    <option value="${table.id}"> Table №${table.id}</option>
+                    <option value="${table.id}"> Table №${table.id} ${table.reservInfo != null ? "   -" +table.reservInfo : ""} </option>
 
                 `;
             });
@@ -152,6 +208,9 @@
                 tableArea.innerHTML += `<option disabled  value="">Please select other variants</option>`;
             }
         });
+
+
+
 
 
         dateTimeInput.addEventListener('blur', async () => {
@@ -169,7 +228,7 @@
 
                 tables.forEach(table => {
                     tableArea.innerHTML += `
-                    <option value="${table.id}"> Table №${table.id}</option>
+                    <option value="${table.id}"> Table №${table.id} ${table.reservInfo != null ? "   -"+table.reservInfo : ""}</option>
 
                 `;
                 });
