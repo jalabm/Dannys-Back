@@ -16,47 +16,178 @@
     <section id="News" class="content blog-pages main-blog-page">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-12 col-lg-8">
-                    <div class="left-part">
-                        <div class="all-news">
-                            <div class="col-lg-12 col-12 article">
-                                <div class="article-header">
-                                    <h2><a href="">Special deal if you order 3 or more pizza’s</a></h2>
-                                    <div class="header-bottom">
-                                        <p>JUNE 15, 2016 by <a href="#">MARIUS H </a>in PHOTOGRAPHY</p>
-                                    </div>
-                                </div>
-                                <div class="article-img">
-                                    <a href=""><img src="/assets/images/blog/postimg_07.jpg" alt=""></a>
-                                </div>
-                                <div class="article-content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua.
-                                    </p>
+                @*<div class="col-12 col-md-12 col-lg-8">
+            <div class="left-part">
+                <div class="all-news">
+                    <div class="col-lg-12 col-12 article">
+                        <div class="article-header">
+                            <h2><a href="">Special deal if you order 3 or more pizza’s</a></h2>
+                            <div class="header-bottom">
+                                <p>JUNE 15, 2016 by <a href="#">MARIUS H </a>in PHOTOGRAPHY</p>
+                            </div>
+                        </div>
+                        <div class="article-img">
+                            <a href=""><img src="/assets/images/blog/postimg_07.jpg" alt=""></a>
+                        </div>
+                        <div class="article-content">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                    </div>
+                    @foreach (var item in Model.Blogs)
+                    {
+                        <div class="article col-lg-6 col-12">
+                            <div class="article-header">
+                                <h2><a asp-controller="blog" asp-action="detail" asp-route-id="@item.Id">@item.Title</a></h2>
+                                <div class="header-bottom">
+                                    <p>@item.CreatedAt by <a href="#">@item.Author.Fullname </a>in PHOTOGRAPHY</p>
                                 </div>
                             </div>
-                            @foreach (var item in Model.Blogs)
-                            {
-                                <div class="article col-lg-6 col-12">
+                            <div class="article-img">
+                                <a asp-controller="blog" asp-action="detail" asp-route-id="@item.Id"><img src="@item.ImageUrl" alt=""></a>
+                            </div>
+                            <div class="article-content">
+                                <p>
+                                    @item.ShortDescription
+                                </p>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>*@
+                <div class="col-12 col-md-12 col-lg-8">
+                    <div class="left-part">
+                        <div class="col-lg-12 col-12 article full-width">
+                            <div class="article-header">
+                                <h2><a href="">Special deal if you order 3 or more pizza’s</a></h2>
+                                <div class="header-bottom">
+                                    <p>JUNE 15, 2016 by <a href="#">MARIUS H </a>in PHOTOGRAPHY</p>
+                                </div>
+                            </div>
+                            <div class="article-img">
+                                <a href=""><img src="/assets/images/blog/postimg_07.jpg" alt=""></a>
+                            </div>
+                            <div class="article-content">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="all-news">
+
+                            <div class="left-news">
+                                <div class="article ">
                                     <div class="article-header">
-                                        <h2><a asp-controller="blog" asp-action="detail" asp-route-id="@item.Id">@item.Title</a></h2>
+                                        <h2><a href="">Special deal if you order 3 or more pizza’s</a></h2>
                                         <div class="header-bottom">
-                                            <p>@item.CreatedAt by <a href="#">@item.Author.Fullname </a>in PHOTOGRAPHY</p>
+                                            <p>JUNE 15, 2016 by <a href="#">MARIUS H </a>in PHOTOGRAPHY</p>
                                         </div>
                                     </div>
                                     <div class="article-img">
-                                        <a asp-controller="blog" asp-action="detail" asp-route-id="@item.Id"><img src="@item.ImageUrl" alt=""></a>
+                                        <a href=""><img src="/assets/images/blog/postimg_05-683x1024.jpg" alt=""></a>
                                     </div>
                                     <div class="article-content">
                                         <p>
-                                            @item.ShortDescription
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.
                                         </p>
                                     </div>
                                 </div>
-                            }
+                                <div class="article ">
+                                    <div class="article-header">
+                                        <h2><a href="">Special deal if you order 3 or more pizza’s</a></h2>
+                                        <div class="header-bottom">
+                                            <p>JUNE 15, 2016 by <a href="#">MARIUS H </a>in PHOTOGRAPHY</p>
+                                        </div>
+                                    </div>
+                                    <div class="article-img">
+                                        <a href=""><img src="/assets/images/blog/blog-image-4.jpg" alt=""></a>
+                                    </div>
+                                    <div class="article-content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="article ">
+                                    <div class="article-header">
+                                        <h2><a href="">Special deal if you order 3 or more pizza’s</a></h2>
+                                        <div class="header-bottom">
+                                            <p>JUNE 15, 2016 by <a href="#">MARIUS H </a>in PHOTOGRAPHY</p>
+                                        </div>
+                                    </div>
+                                    <div class="article-img">
+                                        <a href=""><img src="/assets/images/blog/postimg_06.jpg" alt=""></a>
+                                    </div>
+                                    <div class="article-content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-news">
+                                <div class="article ">
+                                    <div class="article-header">
+                                        <h2><a href="">Special deal if you order 3 or more pizza’s</a></h2>
+                                        <div class="header-bottom">
+                                            <p>JUNE 15, 2016 by <a href="#">MARIUS H </a>in PHOTOGRAPHY</p>
+                                        </div>
+                                    </div>
+                                    <div class="article-img">
+                                        <a href=""><img src="/assets/images/blog/postimg_01-840x1024.jpg" alt=""></a>
+                                    </div>
+                                    <div class="article-content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="article ">
+                                    <div class="article-header">
+                                        <h2><a href="">Special deal if you order 3 or more pizza’s</a></h2>
+                                        <div class="header-bottom">
+                                            <p>JUNE 15, 2016 by <a href="#">MARIUS H </a>in PHOTOGRAPHY</p>
+                                        </div>
+                                    </div>
+                                    <div class="article-img">
+                                        <a href=""><img src="/assets/images/blog/postimg_04.jpg" alt=""></a>
+                                    </div>
+                                    <div class="article-content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="article ">
+                                    <div class="article-header">
+                                        <h2><a href="">Special deal if you order 3 or more pizza’s</a></h2>
+                                        <div class="header-bottom">
+                                            <p>JUNE 15, 2016 by <a href="#">MARIUS H </a>in PHOTOGRAPHY</p>
+                                        </div>
+                                    </div>
+                                    <div class="article-img">
+                                        <a href=""><img src="/assets/images/blog/postimg_02-683x1024.jpg" alt=""></a>
+                                    </div>
+                                    <div class="article-content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.
+                                        </p>
+                                    </div>
+                                </div>
 
-
+                            </div>
                         </div>
                     </div>
                 </div>

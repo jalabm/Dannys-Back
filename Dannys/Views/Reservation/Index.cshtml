@@ -12,12 +12,13 @@
         filter: invert(100%) !important;
     }
 
-    ul{
-        color:red;
+    ul {
+        color: red;
     }
 </style>
 <main class="reservation">
     <section id="News-banner">
+
         <div class="banner-part">
             <div class="banner-content">
                 <h3>make an online</h3>
@@ -27,7 +28,7 @@
                     <span>00 40 555 1234</span>
                     any day from
                 </p>
-                <p class="yellow">10:00 AM - 07:00 PM</p>
+                <p class="yellow">10:00 AM - 10:00 PM</p>
             </div>
             <div class="overlay"></div>
         </div>
@@ -59,16 +60,16 @@
                             <div class="form-group">
                                 <div class="select-list">
                                     @*<select asp-for="Time" required>
-                    <option disabled selected value="">Time</option>
-                 @{
-                     for (int i = 10; i < 20; i++)
-                     {
+                                            <option disabled selected value="">Time</option>
+                                         @{
+                                             for (int i = 10; i < 20; i++)
+                                             {
 
-                    <option value="@i">@i:00 </option>
+                                            <option value="@i">@i:00 </option>
 
-                     }
-                 }
-                </select>*@
+                                             }
+                                         }
+                                        </select>*@
                                     <input class="dateTimeInput" asp-for="Time" required />
                                     <label asp-for="Time"></label>
                                     <br />
@@ -77,14 +78,14 @@
                                 </div>
                             </div>
                             @*<div class="form-group">
-            <div class="select-list">
-                <select name="food" id="food" required>
-                    <option value="">Food</option>
-                    <option value="seasonalfish">Seasonal steamed fish</option>
-                    <option value="assortedmushrooms">Assorted mushrooms</option>
-                </select>
-            </div>
-        </div>*@
+                                    <div class="select-list">
+                                        <select name="food" id="food" required>
+                                            <option value="">Food</option>
+                                            <option value="seasonalfish">Seasonal steamed fish</option>
+                                            <option value="assortedmushrooms">Assorted mushrooms</option>
+                                        </select>
+                                    </div>
+                                </div>*@
                             <div class="form-radio">
                                 <label class="label-radio"> Select Your Dining Space</label>
                                 <div class="radio-item-list">
@@ -138,8 +139,7 @@
 
 </main>
 
-<script>
-    const countInputs = document.querySelectorAll('.personCountInput');
+<script>const countInputs = document.querySelectorAll('.personCountInput');
     const tableArea = document.querySelector('.tableForm');
     const errorMessage = document.querySelector('.errorMessage')
     const dateTimeInput = document.querySelector('.dateTimeInput')
@@ -149,7 +149,7 @@
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0');
         const day = String(now.getDate()).padStart(2, '0');
-        const hours = String(now.getHours()+2).padStart(2, '0');
+        const hours = String(now.getHours() + 2).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
 
         const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
@@ -199,7 +199,7 @@
 
             tables.forEach(table => {
                 tableArea.innerHTML += `
-                    <option value="${table.id}"> Table №${table.id} ${table.reservInfo != null ? "   -" +table.reservInfo : ""} </option>
+                    <option value="${table.id}"> Table №${table.id} ${table.reservInfo != null ? "   -" + table.reservInfo : ""} </option>
 
                 `;
             });
@@ -228,7 +228,7 @@
 
                 tables.forEach(table => {
                     tableArea.innerHTML += `
-                    <option value="${table.id}"> Table №${table.id} ${table.reservInfo != null ? "   -"+table.reservInfo : ""}</option>
+                    <option value="${table.id}"> Table №${table.id} ${table.reservInfo != null ? "   -" + table.reservInfo : ""}</option>
 
                 `;
                 });
@@ -238,5 +238,32 @@
                 }
             }
         })
-    });</script>
+    });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var message = '@TempData["message"]'
+
+        if (message) {
+
+        Toastify({
+            text: message,
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "bottom",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "#c93",
+            },
+        
+        }).showToast();
+        }
+
+
+            
+
+    });
+</script>
 

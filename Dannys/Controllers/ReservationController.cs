@@ -111,6 +111,9 @@ public class ReservationController : Controller
         await _context.Reservations.AddAsync(reservation);
         await _context.SaveChangesAsync();
 
+
+        TempData["message"] = "Reservation is successfully done.";
+
         return RedirectToAction("Index");
     }
 }

@@ -5,17 +5,19 @@
   .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin: auto;
+    padding: 30px;
     .col-12 {
       display: flex;
+      flex-wrap: wrap;
+
       flex: 0 0 100%;
       max-width: 100%;
       padding-right: 15px;
       .col2-set {
         padding: 1.5rem;
         flex: 1;
-        border: 1px solid #edeef5;
+        border: 2px solid #c93;
         border-radius: 4px;
         .col-1 {
           max-width: 100% !important;
@@ -151,7 +153,7 @@
       .order-review-wrapper {
         position: sticky;
         top: 100px;
-        border: 2px solid #233a95;
+        border: 2px solid #c93;
         border-radius: 4px;
         padding: 1.875rem;
         height: -webkit-fit-content;
@@ -251,65 +253,11 @@
             }
           }
           #payment {
-            padding-top: 0.9375rem;
-            border-top: 1px solid #edeef5;
-            ul {
-              margin: 0;
-              padding: 0;
-              list-style: none;
-              li {
-                label {
-                  font-size: 0.875rem;
-                  font-weight: 600;
-                  margin-left: 1.25rem;
-                  color: #233a95;
-                }
-                .payment_box {
-                  p {
-                    font-size: 0.6rem;
-                    line-height: 1.6;
-                    color: #71778e;
-                    font-weight: 400;
-                    letter-spacing: 0;
-                    margin: 10px 0px;
-                  }
-                }
-              }
-            }
-            .place-order {
-              margin-left: 0;
-              margin-right: 0;
-              .woocommerce-privacy-policy-text {
-                margin-top: 0.9375rem;
-                p {
-                  font-size: 0.7rem;
-                  line-height: 1.6;
-                  a {
-                    color: #ed174a;
-                    font-weight: 500;
-                    text-decoration: underline;
-                  }
-                }
-              }
-              .validate-required {
-                label {
-                  display: inline-flex;
-                  font-size: 0.69rem;
-                  margin-bottom: 0.5rem;
-                  span {
-                    margin-left: 10px;
-                    a {
-                      color: #ed174a;
-                      font-weight: 500;
-                      text-decoration: underline;
-                    }
-                  }
-                }
-              }
+       
               button {
-                color: #fff;
-                background-color: #ed174a;
-                border-color: #ed174a;
+                color: black;
+                background-color: #fff !important;
+                border: 2px solid #c93 !important;
                 width: 100%;
                 padding: 0 1.25rem;
                 cursor: pointer;
@@ -323,7 +271,7 @@
                 text-decoration: none;
                 padding: 0 0.9375rem;
                 border: 1px solid;
-                color: #fff;
+                // color: #fff;
                 border-radius: 4px;
                 box-shadow: none;
                 outline: none;
@@ -336,14 +284,30 @@
       }
     }
   }
-}
+
 
 @media (max-width: 576px) {
+   
   #Checkout .container .row .col-12 {
-    display: block !important;
-  }
-  #Checkout .container .row .col-12 .order-review-wrapper {
+    // display: block !important;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.order-review-wrapper{
+    margin: 0 auto !important;
+    width: 100% !important;
+    align-self: flex-start;
+}
+#Checkout .container .row .col-12 .order-review-wrapper {
     margin-left: 1rem;
     margin-top: 30px;
+    // position: none ;
+}
+
+.content-primary{
+      gap: 20px !important;
+    padding: 0 !important;
   }
 }

@@ -1,5 +1,5 @@
 ﻿@model SliderUpdateDto
-<form method="post" class="category" style="width: 100%">
+<form method="post" class="category" style="width: 100%" enctype="multipart/form-data">
     <div class="content-wrapper" style=" height:100vh">
         <div class="page-header">
             <h3 class="page-title"> Slider Update </h3>
@@ -9,7 +9,7 @@
             <div class="col-md-6 grid-margin stretch-card" style=" width:100%">
                 <div class="card">
                     <div class="card-body">
-                        <form class="forms-sample">
+                        <form class="forms-sample" >
                             <div class="form-group">
                                 <label asp-for="Name" for="exampleInputUsername1">Name</label>
                                 <input type="text" class="form-control" id="exampleInputName" asp-for="Name" placeholder="Name">

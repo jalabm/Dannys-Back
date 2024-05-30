@@ -775,14 +775,14 @@ margin: auto;
     max-width: 100%;
     background: transparent;
   }
-  .bannerTitle {
-    font-size: 90px;
+  h1 {
+    font-size: 100px;
   }
  
 }
 @media  (max-width: 576px) {
-  .bannerTitle {
-    font-size: 45px !important;
+  h1 {
+    font-size: 70px !important;
     margin: 20px 0 10px !important;
   }
 

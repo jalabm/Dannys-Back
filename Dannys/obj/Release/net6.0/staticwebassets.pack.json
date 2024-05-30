@@ -3641,10 +3641,6 @@
       "PackagePath": "staticwebassets/assets/js/reservation.js"
     },
     {
-      "Id": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/assets/styles/.DS_Store",
-      "PackagePath": "staticwebassets/assets/styles/.DS_Store"
-    },
-    {
       "Id": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/assets/styles/_blog.scss",
       "PackagePath": "staticwebassets/assets/styles/_blog.scss"
     },
@@ -3675,6 +3671,10 @@
     {
       "Id": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/assets/styles/_menu.scss",
       "PackagePath": "staticwebassets/assets/styles/_menu.scss"
+    },
+    {
+      "Id": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/assets/styles/_order.scss",
+      "PackagePath": "staticwebassets/assets/styles/_order.scss"
     },
     {
       "Id": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/assets/styles/_register.scss",

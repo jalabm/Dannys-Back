@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lUZZ+EwnVh4IEp2WByUNnJQe7BcblcKWRA2zlYRWGBs=",
+  "Hash": "aBbWanrjezuIM9uk15JLY+uDxE+wLsrjy2xDasDgnUE=",
   "Source": "Dannys",
   "BasePath": "_content/Dannys",
   "Mode": "Default",
@@ -15640,6 +15640,23 @@
       "OriginalItemSpec": "wwwroot/assets/styles/_menu.scss"
     },
     {
+      "Identity": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/assets/styles/_order.scss",
+      "SourceId": "Dannys",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/",
+      "BasePath": "_content/Dannys",
+      "RelativePath": "assets/styles/_order.scss",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/styles/_order.scss"
+    },
+    {
       "Identity": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/assets/styles/_register.scss",
       "SourceId": "Dannys",
       "SourceType": "Discovered",
@@ -15706,23 +15723,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/styles/_shop.scss"
-    },
-    {
-      "Identity": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/assets/styles/.DS_Store",
-      "SourceId": "Dannys",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/",
-      "BasePath": "_content/Dannys",
-      "RelativePath": "assets/styles/.DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/styles/.DS_Store"
     },
     {
       "Identity": "/Users/jalememmedli/Desktop/Dannys-Back/Dannys/wwwroot/assets/styles/main.css",

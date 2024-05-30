@@ -1,1 +1,361 @@
-﻿
+﻿@model HomeVM
+
+<main class="home">
+    @foreach (var slider in Model.Sliders)
+    {
+        <section id="Home-banner" style="background-image: url(@slider.Url)">
+            <div class="home-slider">
+                <div class="slider-item">
+                    <img src="/assets/images/home/slide_logo.png" alt="" />
+                    <span>@slider.Name</span>
+                </div>
+            </div>
+        </section>
+
+    }
+
+    <!-- Burdan baslayir -->
+    <section id="Restaurant">
+        <div class="container">
+            <div class="row">
+                <div class="part col-sm-12 col-md-6">
+                    <div class="left-part">
+                        <div style="margin-top: 80px;z-index: 99;position:relative"
+                             class="multilayers-item margin-top-80 position-relative">
+                            <div class="img-item">
+                                <img src="/assets/images/home/restaurant-img-1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div style="padding-left: 250px;" class="multilayers-item padding-left-250">
+                            <div class="img-item">
+                                <img src="/assets/images/home/restaurant-img-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="part col-sm-12 col-md-6">
+                    <div class="right-part">
+                        <div class="section-title">
+                            <h2>Welcome at</h2>
+                            <h3>danny’s restaurant</h3>
+                        </div>
+                        <h6 class="small-headline">
+                            “Action ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                            irure dolor in reprehenderit in voluptate”.
+                        </h6>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+                        </p>
+                        <a href="#dannys" class="btn btn-primary scroll">about us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Menu">
+        <div class="container">
+            <div class="row">
+                <div class="menu-left   col-sm-12 col-md-6">
+                    <div class="menu-inner-left padding-right-90">
+                        <div class="section-title">
+                            <h2>Restaurant</h2>
+                            <h3 style="color:white" class="white">menu</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <p class="gray">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                </p>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <p class="gray">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                </p>
+                            </div>
+                        </div>
+                        <a href="menu–stretched.html" class="btn btn-secondary">what’s on the menu</a>
+                    </div>
+                </div>
+
+                <div class="menu-right  col-sm-12 col-md-6">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="Specialties">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="left-part">
+                        <div style="margin-left:-120px;position:relative" class="multilayers-item">
+                            <div class="image-item">
+                                <img class="img-responsive" src="/assets/images/home/specialties-img1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div style="padding-top: 275px;padding-left:80px; z-index:100" class="multilayers-item ">
+                            <div class="image-item">
+                                <img class="img-responsive" src="/assets/images/home/specialties-img2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="right-part">
+                        <div class="section-title">
+                            <h2>Chinese</h2>
+                            <h3>specialties</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                    nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                </p>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                    nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                            </div>
+                        </div>
+                        <a href="" class="btn btn-primary">view all</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Special-banner">
+        <div class="overlay"></div>
+        <div class="specialties-detail">
+            <div class="main-part">
+                <div class="writings">
+                    <div class="section-title">
+                        <h2>La creme de la creme</h2>
+                        <h3 class="white">today’s specialty</h3>
+                    </div>
+                    <div class="specialties-over-detail">
+                        <p>Oven Roasted duck with special sousage</p>
+                        <span class="price">$25.00</span>
+                        <a href="menu–stretched.html" class="btn read-more">read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Menu-list">
+        <div class="container">
+            <div class="row">
+                <div style="z-index: 200;" class="col-sm-12 col-md-3">
+                    <div class="menu-list-left">
+                        <div class="menu-list-title">
+                            <h4>restaurant</h4>
+                            <h2>menu</h2>
+                        </div>
+                        <ul>
+                            <li><a style=" color: #999966 !important;" href="" class="scroll">all</a></li>
+                            <li><a href="" class="scroll">starters</a></li>
+                            <li><a href="" class="scroll">main</a></li>
+                            <li><a href="" class="scroll">DESSERT</a></li>
+                            <li><a href="" class="scroll">drinks</a></li>
+                            <li><a href="" class="scroll">daily menu</a></li>
+                            <li><a href="" class="scroll">chef’s specialty</a></li>
+                            <li><a href="" class="scroll">offers</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-9">
+                    <div class="menu-list-right">
+                        <ul class="products-list">
+                            <li class="products-block">
+                                <a href="/shop-detail.html" class="product-link">
+                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
+                                    <div class="info-wrapper">
+                                        <div class="btn-add-to-cart">
+                                            <a href="" class="btn cart-btn"> Add to cart</a>
+                                        </div>
+                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
+                                        <span class="price">$25.00</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="products-block">
+                                <a href="/shop-detail.html" class="product-link">
+                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
+                                    <div class="info-wrapper">
+                                        <div class="btn-add-to-cart">
+                                            <a href="" class="btn cart-btn"> Add to cart</a>
+                                        </div>
+                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
+                                        <span class="price">$25.00</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="products-block">
+                                <a href="/shop-detail.html" class="product-link">
+                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
+                                    <div class="info-wrapper">
+                                        <div class="btn-add-to-cart">
+                                            <a href="" class="btn cart-btn"> Add to cart</a>
+                                        </div>
+                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
+                                        <span class="price">$25.00</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="products-block">
+                                <a href="/shop-detail.html" class="product-link">
+                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
+                                    <div class="info-wrapper">
+                                        <div class="btn-add-to-cart">
+                                            <a href="" class="btn cart-btn"> Add to cart</a>
+                                        </div>
+                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
+                                        <span class="price">$25.00</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="products-block">
+                                <a href="/shop-detail.html" class="product-link">
+                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
+                                    <div class="info-wrapper">
+                                        <div class="btn-add-to-cart">
+                                            <a href="" class="btn cart-btn"> Add to cart</a>
+                                        </div>
+                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
+                                        <span class="price">$25.00</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="products-block">
+                                <a href="/shop-detail.html" class="product-link">
+                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
+                                    <div class="info-wrapper">
+                                        <div class="btn-add-to-cart">
+                                            <a href="" class="btn cart-btn"> Add to cart</a>
+                                        </div>
+                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
+                                        <span class="price">$25.00</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="products-block">
+                                <a href="/shop-detail.html" class="product-link">
+                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
+                                    <div class="info-wrapper">
+                                        <div class="btn-add-to-cart">
+                                            <a href="" class="btn cart-btn"> Add to cart</a>
+                                        </div>
+                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
+                                        <span class="price">$25.00</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="products-block">
+                                <a href="/shop-detail.html" class="product-link">
+                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
+                                    <div class="info-wrapper">
+                                        <div class="btn-add-to-cart">
+                                            <a href="" class="btn cart-btn"> Add to cart</a>
+                                        </div>
+                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
+                                        <span class="price">$25.00</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="products-block fancy-pag visible-lg visible-md">
+                                <div class="fancy-inner-block">
+                                    <div class="pag-arrows">
+                                        <a href="">
+                                            <h2>NEXT</h2>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-centered">
+                    <div class="testimonial-slider">
+                        <div class="slider-item">
+                            <div class="section-title">
+                                <h2>Clients</h2>
+                                <h3>testimonials</h3>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore magna aliqua.
+                            </p>
+                            <div class="text-center testi-icon">“</div>
+                            <h4>james de franco</h4>
+                        </div>
+                        <div class="slider-item">
+                            <div class="section-title">
+                                <h2>Clients</h2>
+                                <h3>testimonials</h3>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore magna aliqua.
+                            </p>
+                            <div class="text-center testi-icon">“</div>
+                            <h4>james de franco</h4>
+                        </div>
+                        <div class="slider-item">
+                            <div class="section-title">
+                                <h2>Clients</h2>
+                                <h3>testimonials</h3>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore magna aliqua.
+                            </p>
+                            <div class="text-center testi-icon">“</div>
+                            <h4>james de franco</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Reservation">
+        <div class="row">
+            <!-- <div class="col-sm-12 col-md-12 col-lg-12"> -->
+            <div class="reservation-block">
+                <div class="reserv-overlay"></div>
+                <div class="image-block">
+                    <div class="reserv-img">
+                    </div>
+                </div>
+                <div class="detail-block">
+                    <h3 class="white">reservations</h3>
+                    <p class="white">
+                        49 Featherstone Street LONDON EC1Y 8SY UNITED KINGDOM <br>+4 1800 555 1234 <br><a class="white" href="#">bookatable@restaurant.com</a>
+                    </p>
+                    <a href="reservation-form.html" class="btn btn-secondary">ONLINE</a>
+                </div>
+            </div>
+            <!-- </div> -->
+
+        </div>
+    </section>
+
+    <!-- Burda bitir -->
+</main>

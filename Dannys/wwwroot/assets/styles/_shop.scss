@@ -129,14 +129,9 @@
           width: 100%;
           gap: 0;
           padding: 0;
-          // display: flex;
-          //   display: grid;
-          //   grid-template-columns: repeat(4, 1fr);
-          //   grid-gap: 10px;
           display: flex;
           flex-wrap: wrap;
-          justify-content: center;
-          //   justify-content: flex-start;
+          justify-content: flex-start;
 
         //   gap: 2px;//
           li:hover {
