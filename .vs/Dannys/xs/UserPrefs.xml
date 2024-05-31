@@ -1,48 +1,70 @@
 ﻿<Properties StartupConfiguration="{1019A2E5-0173-4619-B835-56908E768992}|Default">
   <MonoDevelop.Ide.ItemProperties.Dannys PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Dannys/Views/Reservation/Index.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Dannys/Views/Home/Index.cshtml">
     <Files>
-      <File FileName="Dannys/appsettings.json" Line="10" Column="131" />
-      <File FileName="Dannys/Views/Shop/Index.cshtml" Line="120" Column="48" />
-      <File FileName="Dannys/Configurations/ProductConfiguration.cs" Line="7" Column="2" />
-      <File FileName="Dannys/Controllers/AccountController.cs" Line="18" Column="38" />
-      <File FileName="Dannys/Controllers/ContactController.cs" Line="9" Column="1" />
-      <File FileName="Dannys/Views/Contact/Index.cshtml" Line="3" Column="1" />
-      <File FileName="Dannys/Views/Shared/_Layout.cshtml" Line="1" Column="1" />
-      <File FileName="Dannys/Controllers/BasketController.cs" Line="1" Column="1" />
-      <File FileName="Dannys/Controllers/HomeController.cs" Line="1" Column="1" />
-      <File FileName="Dannys/Controllers/MenuController.cs" Line="1" Column="1" />
-      <File FileName="Dannys/Controllers/ReservationController.cs" Line="29" Column="52" />
-      <File FileName="Dannys/Controllers/ShopController.cs" Line="29" Column="29" />
+      <File FileName="Dannys/appsettings.json" />
+      <File FileName="Dannys/Views/Shop/Index.cshtml" Line="60" Column="71" />
+      <File FileName="Dannys/Configurations/ProductConfiguration.cs" />
+      <File FileName="Dannys/Controllers/AccountController.cs" />
+      <File FileName="Dannys/Controllers/ContactController.cs" />
+      <File FileName="Dannys/Views/Contact/Index.cshtml" />
+      <File FileName="Dannys/Views/Shared/_Layout.cshtml" Line="256" Column="25" />
+      <File FileName="Dannys/Controllers/BasketController.cs" Line="1" Column="2" />
+      <File FileName="Dannys/Controllers/HomeController.cs" Line="29" Column="1" />
+      <File FileName="Dannys/Controllers/MenuController.cs" />
+      <File FileName="Dannys/Controllers/ReservationController.cs" Line="108" Column="29" />
+      <File FileName="Dannys/Controllers/ShopController.cs" Line="72" Column="94" />
       <File FileName="Dannys/Areas/Admin/Controllers/TableController.cs" Line="43" Column="1" />
-      <File FileName="Dannys/Dtos/TableDtos/TableCreateDto.cs" Line="4" Column="22" />
-      <File FileName="Dannys/Models/Table.cs" Line="8" Column="39" />
-      <File FileName="Dannys/Migrations/20240528123235_editedTables.cs" Line="1" Column="1" />
-      <File FileName="Dannys/Areas/Admin/Views/Table/Create.cshtml" Line="13" Column="47" />
-      <File FileName="Dannys/Areas/Admin/Views/Coupon/Create.cshtml" Line="15" Column="66" />
-      <File FileName="Dannys/Dtos/ReservationDto/ReservationCreateDto.cs" Line="10" Column="37" />
-      <File FileName="Dannys/Data/AppDbContext.cs" Line="10" Column="14" />
-      <File FileName="Dannys/Dtos/TableDtos/TableGetDto.cs" Line="1" Column="22" />
+      <File FileName="Dannys/Dtos/TableDtos/TableCreateDto.cs" />
+      <File FileName="Dannys/Models/Table.cs" />
+      <File FileName="Dannys/Migrations/20240528123235_editedTables.cs" />
+      <File FileName="Dannys/Areas/Admin/Views/Table/Create.cshtml" />
+      <File FileName="Dannys/Areas/Admin/Views/Coupon/Create.cshtml" />
+      <File FileName="Dannys/Dtos/ReservationDto/ReservationCreateDto.cs" Line="11" Column="39" />
+      <File FileName="Dannys/Data/AppDbContext.cs" />
+      <File FileName="Dannys/Dtos/TableDtos/TableGetDto.cs" Line="7" Column="30" />
       <File FileName="Dannys/AutoMappers/TableAutoMapper.cs" Line="8" Column="28" />
-      <File FileName="Dannys/Views/Reservation/Index.cshtml" Line="115" Column="1" />
+      <File FileName="Dannys/Views/Reservation/Index.cshtml" Line="265" Column="13" />
+      <File FileName="Dannys/Models/Reservation.cs" Line="16" Column="1" />
+      <File FileName="Dannys/Views/Blog/Index.cshtml" Line="2" Column="12" />
+      <File FileName="Dannys/Views/Home/Index.cshtml" Line="198" Column="51" />
+      <File FileName="Dannys/ViewModels/BlogVM.cs" Line="4" Column="15" />
+      <File FileName="Dannys/ViewModels/HomeVM.cs" Line="10" Column="2" />
+      <File FileName="Dannys/Controllers/BlogController.cs" Line="39" Column="11" />
+      <File FileName="Dannys/Areas/Admin/Controllers/SliderController.cs" Line="1" Column="1" />
+      <File FileName="Dannys/Areas/Admin/Views/Slider/Create.cshtml" Line="2" Column="87" />
+      <File FileName="Dannys/Areas/Admin/Views/Slider/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Dannys/Areas/Admin/Views/Slider/Update.cshtml" Line="2" Column="87" />
+      <File FileName="Dannys/Areas/Admin/Views/Product/Create.cshtml" Line="2" Column="87" />
+      <File FileName="Dannys/Views/Basket/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Dannys/Areas/Admin/Controllers/ProductController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Dannys">
-            <Node name="Dannys">
-              <Node name="Areas" expanded="True" />
-              <Node name="Configurations" expanded="True" />
-              <Node name="Data" expanded="True" />
+            <Node name="Dannys" expanded="True">
+              <Node name="Areas" expanded="True">
+                <Node name="Admin" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                  <Node name="Views" expanded="True">
+                    <Node name="Product" expanded="True" />
+                    <Node name="Slider" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Dtos" expanded="True">
                 <Node name="ReservationDto" expanded="True" />
                 <Node name="TableDtos" expanded="True" />
               </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Contact" expanded="True" />
-                <Node name="Reservation">
-                  <Node name="Index.cshtml" selected="True" />
-                </Node>
+                <Node name="Basket" expanded="True" />
+                <Node name="Blog" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Reservation" expanded="True" />
                 <Node name="Shared" expanded="True" />
                 <Node name="Shop" expanded="True" />
               </Node>

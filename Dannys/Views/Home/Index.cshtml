@@ -1,20 +1,20 @@
 ﻿@model HomeVM
 
+@{
+    string returnUrl = Context.Request.Path.Value ?? "null";
+}
+
+
 <main class="home">
-    @foreach (var slider in Model.Sliders)
-    {
-        <section id="Home-banner" style="background-image: url(@slider.Url)">
-            <div class="home-slider">
-                <div class="slider-item">
-                    <img src="/assets/images/home/slide_logo.png" alt="" />
-                    <span>@slider.Name</span>
-                </div>
+
+    <section id="Home-banner" style="background-image: url(/assets/images/home/slide_02.jpg)">
+        <div class="home-slider">
+            <div class="slider-item">
+                <img src="/assets/images/home/slide_logo.png" alt="" />
+                <span>Apple pie a la creme</span>
             </div>
-        </section>
-
-    }
-
-    <!-- Burdan baslayir -->
+        </div>
+    </section>
     <section id="Restaurant">
         <div class="container">
             <div class="row">
@@ -48,7 +48,7 @@
                             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                             ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
                         </p>
-                        <a href="#dannys" class="btn btn-primary scroll">about us</a>
+                        <a asp-action="" class="btn btn-primary scroll">about us</a>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                                 </p>
                             </div>
                         </div>
-                        <a href="menu–stretched.html" class="btn btn-secondary">what’s on the menu</a>
+                        <a asp-controller="Menu" asp-action="index" class="btn btn-secondary">what’s on the menu</a>
                     </div>
                 </div>
 
@@ -128,7 +128,7 @@
                                 </p>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary">view all</a>
+                        <a asp-controller="Menu" asp-action="index" class="btn btn-primary">view all</a>
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@
                     <div class="specialties-over-detail">
                         <p>Oven Roasted duck with special sousage</p>
                         <span class="price">$25.00</span>
-                        <a href="menu–stretched.html" class="btn read-more">read more</a>
+                        <a asp-controller="Menu" asp-action="index" class="btn read-more">read more</a>
                     </div>
                 </div>
             </div>
@@ -162,121 +162,39 @@
                             <h2>menu</h2>
                         </div>
                         <ul>
-                            <li><a style=" color: #999966 !important;" href="" class="scroll">all</a></li>
-                            <li><a href="" class="scroll">starters</a></li>
-                            <li><a href="" class="scroll">main</a></li>
-                            <li><a href="" class="scroll">DESSERT</a></li>
-                            <li><a href="" class="scroll">drinks</a></li>
-                            <li><a href="" class="scroll">daily menu</a></li>
-                            <li><a href="" class="scroll">chef’s specialty</a></li>
-                            <li><a href="" class="scroll">offers</a></li>
+                            <li><a style=" color: #999966 !important;" asp-action="index" asp-route-categoryId="@null"  class="scroll">all</a></li>
+                            @foreach (var category in Model.Categories)
+                            {
+                                <li><a asp-action="index" asp-route-categoryId="@category.Id" class="scroll">@category.Title</a></li>
+                            }
+
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-9">
                     <div class="menu-list-right">
                         <ul class="products-list">
-                            <li class="products-block">
-                                <a href="/shop-detail.html" class="product-link">
-                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
-                                    <div class="info-wrapper">
-                                        <div class="btn-add-to-cart">
-                                            <a href="" class="btn cart-btn"> Add to cart</a>
+                            @foreach (var product in Model.Products)
+                            {
+                                <li class="products-block">
+                                    <a asp-controller="Shop" asp-action="Detail" asp-route-id="@product.Id" class="product-link">
+                                        <img class="img-responsive" src="@product.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url" alt="">
+                                        <div class="info-wrapper">
+                                            <div class="btn-add-to-cart">
+                                                <a asp-action="AddToBasket" asp-route-id="@product.Id" asp-route-returnUrl="@Context.Request.Path.Value" class="btn cart-btn"> Add to cart</a>
+                                            </div>
+                                            <h2 class="product-title">@product.Name</h2>
+                                            <span class="price">$@(product.Price - (product.Price * product.Discount / 100))</span>
                                         </div>
-                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
-                                        <span class="price">$25.00</span>
-                                    </div>
-                                </a>
-                            </li>
+                                    </a>
+                                </li>
+                            }
 
-                            <li class="products-block">
-                                <a href="/shop-detail.html" class="product-link">
-                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
-                                    <div class="info-wrapper">
-                                        <div class="btn-add-to-cart">
-                                            <a href="" class="btn cart-btn"> Add to cart</a>
-                                        </div>
-                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
-                                        <span class="price">$25.00</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="products-block">
-                                <a href="/shop-detail.html" class="product-link">
-                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
-                                    <div class="info-wrapper">
-                                        <div class="btn-add-to-cart">
-                                            <a href="" class="btn cart-btn"> Add to cart</a>
-                                        </div>
-                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
-                                        <span class="price">$25.00</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="products-block">
-                                <a href="/shop-detail.html" class="product-link">
-                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
-                                    <div class="info-wrapper">
-                                        <div class="btn-add-to-cart">
-                                            <a href="" class="btn cart-btn"> Add to cart</a>
-                                        </div>
-                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
-                                        <span class="price">$25.00</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="products-block">
-                                <a href="/shop-detail.html" class="product-link">
-                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
-                                    <div class="info-wrapper">
-                                        <div class="btn-add-to-cart">
-                                            <a href="" class="btn cart-btn"> Add to cart</a>
-                                        </div>
-                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
-                                        <span class="price">$25.00</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="products-block">
-                                <a href="/shop-detail.html" class="product-link">
-                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
-                                    <div class="info-wrapper">
-                                        <div class="btn-add-to-cart">
-                                            <a href="" class="btn cart-btn"> Add to cart</a>
-                                        </div>
-                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
-                                        <span class="price">$25.00</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="products-block">
-                                <a href="/shop-detail.html" class="product-link">
-                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
-                                    <div class="info-wrapper">
-                                        <div class="btn-add-to-cart">
-                                            <a href="" class="btn cart-btn"> Add to cart</a>
-                                        </div>
-                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
-                                        <span class="price">$25.00</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="products-block">
-                                <a href="/shop-detail.html" class="product-link">
-                                    <img class="img-responsive" src="/assets/images/home/product-img1.jpg" alt="">
-                                    <div class="info-wrapper">
-                                        <div class="btn-add-to-cart">
-                                            <a href="" class="btn cart-btn"> Add to cart</a>
-                                        </div>
-                                        <h2 class="product-title"> Oven Roasted duck with special sousage</h2>
-                                        <span class="price">$25.00</span>
-                                    </div>
-                                </a>
-                            </li>
+
                             <li class="products-block fancy-pag visible-lg visible-md">
                                 <div class="fancy-inner-block">
                                     <div class="pag-arrows">
-                                        <a href="">
+                                        <a asp-controller="Shop" asp-action="index">
                                             <h2>NEXT</h2>
                                         </a>
                                     </div>
@@ -349,7 +267,7 @@
                     <p class="white">
                         49 Featherstone Street LONDON EC1Y 8SY UNITED KINGDOM <br>+4 1800 555 1234 <br><a class="white" href="#">bookatable@restaurant.com</a>
                     </p>
-                    <a href="reservation-form.html" class="btn btn-secondary">ONLINE</a>
+                    <a asp-controller="reservation " asp-action="index" class="btn btn-secondary">ONLINE</a>
                 </div>
             </div>
             <!-- </div> -->
@@ -357,5 +275,4 @@
         </div>
     </section>
 
-    <!-- Burda bitir -->
 </main>

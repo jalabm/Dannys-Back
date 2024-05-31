@@ -46,15 +46,7 @@
                         <h3>
                             @Model.Name
                         </h3>
-                        @if (Model.Discount > 0)
-                        {
-                            <span class="price"> $@(Model.Price*Model.Discount/100)</span>
-                        }
-                        else
-                        {
-                            <span class="price"> $@Model.Price</span>
-
-                        }
+                            <span class="price"> $@(Model.Price-(Model.Price*Model.Discount/100))</span>
 
                         <div class="single-shop-item-detail">
                             <h6>Ingredients</h6>
@@ -63,8 +55,8 @@
                             </p>
                         </div>
                         <div class="single-cart">
-                            <input type="number" />
-                            <a asp-action="AddToBasket" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value" class="btn btn-default"> add to cart</a>
+                            <input type="number" value="1" min="1" id="itemCount" />
+                            <a id="addToCartLink" href="@Url.Action("AddToBasket", new { count = 1, id = Model.Id, returnUrl = Context.Request.Path.Value })" class="btn btn-default" onclick="updateRouteCount()">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -111,3 +103,14 @@
     </div>
 </main>
 
+<script>
+    function updateRouteCount() {
+        var itemCount = document.getElementById('itemCount').value;
+        var addToCartLink = document.getElementById('addToCartLink');
+        var baseUrl = '@Url.Action("AddToBasket", new { count = "__count__", id = Model.Id, returnUrl = Context.Request.Path.Value })';
+
+        // Replace the placeholder with the actual item count
+        var updatedUrl = baseUrl.replace('__count__', itemCount);
+        addToCartLink.href = updatedUrl;
+    }
+</script>

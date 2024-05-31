@@ -69,14 +69,17 @@ public class ShopController : Controller
     }
 
 
-    public async Task<IActionResult> AddToBasket(int id, string? returnUrl,int count,int page=1)
+    public async Task<IActionResult> AddToBasket(int id, string? returnUrl,int count=1,int page=1)
     {
         var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
         
 
         if (product is null)
             return NotFound();
-
+        if (count < 1)
+            count = 1;
+        if (page < 1)
+            page = 1;
 
         if (User.Identity.IsAuthenticated)
         {
@@ -92,12 +95,14 @@ public class ShopController : Controller
             var existBItem = dbBasketItems.FirstOrDefault(x => x.ProductId == id);
             if (existBItem is not null)
             {
-                existBItem.Count++;
+                existBItem.Count+=count;
                 _context.Basketitems.Update(existBItem);
             }
             else
             {
-                Basketitem bItem = new() { AppUserId = userId, ProductId = id, Count = 1 };
+                Basketitem bItem = new() { AppUserId = userId, ProductId = id, Count = count };
+
+
                 await _context.Basketitems.AddAsync(bItem);
             }
 
@@ -111,11 +116,11 @@ public class ShopController : Controller
 
             var existItem = basketItems.FirstOrDefault(x => x.ProductId == id);
 
-            if (existItem is not null)
-                existItem.Count++;
+            if (existItem is not null) 
+                existItem.Count+=count;
             else
             {
-                Basketitem vm = new() { ProductId = id, Count = 1 };
+                Basketitem vm = new() { ProductId = id, Count = count };
                 basketItems.Add(vm);
             }
 

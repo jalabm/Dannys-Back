@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using Dannys.Data;
+using Dannys.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -150,6 +151,39 @@ public class BasketController : Controller
 
 
         return RedirectToAction("Index", "Home");
+
+    }
+
+
+    public async Task<IActionResult> EditBasketItem(int id,int count)
+    {
+        if (count < 1)
+            return RedirectToAction("Index");
+
+
+        var basketItems =await GetBasketAsync();
+
+
+        var basketItem = basketItems.FirstOrDefault(x => x.Id == id);
+
+        if (basketItem is null)
+            return NotFound();
+
+        basketItem.Count = count;
+
+
+        if (User.Identity.IsAuthenticated)
+        {
+            _context.Basketitems.Update(basketItem);
+            await _context.SaveChangesAsync();
+        }
+        else
+        {
+            var json = JsonConvert.SerializeObject(basketItems);
+            Response.Cookies.Append("basket", json);
+        }
+
+        return RedirectToAction("Index");
 
     }
 

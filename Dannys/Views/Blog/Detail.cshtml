@@ -1,4 +1,4 @@
-﻿@model BlogVM
+﻿@model BlogDetailVM
 
     <main class="blog-detail">
         <section id="News-banner">
@@ -34,15 +34,15 @@
                             </div>
                             <div class="detail-navigation">
                                 <div class="nav-prev">
-                                    <a href="">
+                                    <a  asp-action="Detail" asp-route-id="@Model.PrevBlog?.Id" >
                                         <span class="nav-subtitle">prev</span>
-                                        <span class="nav-detail">@(Model.Blogs.FirstOrDefault(x=>x.Id<Model.Blog.Id)?.Title ?? "empty")</span>
+                                        <span class="nav-detail">@(Model.PrevBlog?.Title ?? "empty")</span>
                                     </a>
                                 </div>
                                 <div class="nav-next">
-                                    <a href="">
-                                        <span class="nav-subtitle">next</span>
-                                        <span class="nav-detail">@(Model.Blogs.FirstOrDefault(x => x.Id > Model.Blog.Id)?.Title ?? "empty")</span>
+                                    <a asp-action="Detail" asp-route-id="@Model.NextBlog?.Id">
+                                        <span  class="nav-subtitle">next</span>
+                                        <span class="nav-detail">@(Model.NextBlog?.Title ?? "empty")</span>
                                     </a>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                     @foreach (var item in Model.Topics)
                                     {
                                         <li>
-                                            <a asp-action="index" style="text-transform:uppercase"> @item.Name</a>
+                                            <a asp-action="index" asp-route-topicId="@item.Id" style="text-transform:uppercase"> @item.Name</a>
                                         </li>
 
                                     }

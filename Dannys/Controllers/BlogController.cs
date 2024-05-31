@@ -45,12 +45,27 @@ public class BlogController : Controller
     {
         var topics = await _context.Topics.ToListAsync();
         var blog = await _context.Blogs.Include(x => x.Author).Include(x => x.BlogTopics).ThenInclude(x => x.Topic).FirstOrDefaultAsync(x => x.Id == id);
-        BlogVM blogVm = new BlogVM()
+
+
+        if (blog is null)
+            return NotFound();
+
+        BlogDetailVM blogVm = new()
         {
             Blog = blog,
             Topics = topics
 
         };
+
+        blogVm.NextBlog = await _context.Blogs.FirstOrDefaultAsync(x => x.Id > id);
+        blogVm.PrevBlog = await _context.Blogs.OrderByDescending(x=>x.Id).FirstOrDefaultAsync(x => x.Id < id);
+
+        if(blogVm.NextBlog is null)
+            blogVm.NextBlog= await _context.Blogs.FirstOrDefaultAsync(x => x.Id < id);
+
+        if(blogVm.PrevBlog is null)
+            blogVm.PrevBlog= await _context.Blogs.OrderByDescending(x=>x.Id).FirstOrDefaultAsync(x => x.Id > id);
+
         return View(blogVm);
     }
 }

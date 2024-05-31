@@ -116,7 +116,7 @@
           margin-left: -20px;
           margin-right: -20px;
           gap: 40px;
-          align-items: center;
+          align-items: start;
           display: flex;
           // flex-wrap: wrap;
           justify-content: space-between;
@@ -193,7 +193,8 @@
   
                 img {
                   display: block;
-                  max-width: 100%;
+                  width: 100%;
+                  object-fit: cover;
                   height: auto;
                 }
               }
@@ -641,7 +642,8 @@ width: 100% !important;
           a {
             img {
               display: block;
-              max-width: 100%;
+              width: 100%;
+              object-fit: cover;
               height: auto;
             }
           }
