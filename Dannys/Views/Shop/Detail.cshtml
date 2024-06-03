@@ -46,7 +46,7 @@
                         <h3>
                             @Model.Name
                         </h3>
-                            <span class="price"> $@(Model.Price-(Model.Price*Model.Discount/100))</span>
+                        <span class="price"> $@(Model.Price-(Model.Price*Model.Discount/100))</span>
 
                         <div class="single-shop-item-detail">
                             <h6>Ingredients</h6>
@@ -61,18 +61,17 @@
                     </div>
                 </div>
             </div>
-
             <div class="feedback">
                 <div class="cont">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation">
+                        <li class="active descriptionSectionBtn" role="presentation">
                             <a href="#description"
                                aria-controls="description"
                                role="tab"
                                data-toggle="tab"
                                aria-expanded="false">description</a>
                         </li>
-                        <li class="active" role="presentation">
+                        <li class="reviewsSectionBtn" role="presentation">
                             <a href="#reviews"
                                aria-controls="reviews"
                                role="tab"
@@ -81,15 +80,60 @@
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane" id="description">
+                        <div role="tabpanel" class="tab-pane active descriptionSection" id="description">
                             <h5>Product Description</h5>
                         </div>
-                        <div role="tabpanel" class="tab-pane active" id="reviews">
+                        <div role="tabpanel" class="tab-pane reviewsSection" id="reviews">
+                            <ul>
+                                @foreach (var comment in Model.Comments)
+                                    {
+                                        <li>@comment.AppUser.UserName - @comment.Text</li>
+                                    }
+                            </ul>
                             <h5>Leave a Reply</h5>
-                            <form>
+                            <form asp-action="PostComment" asp-route-ProductId="@ViewBag.Id">
                                 <div class="form-group">
                                     <label>Comment</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <style>
+                                        .rating {
+                                            display: flex;
+                                            flex-direction: row;
+                                            justify-content: center;
+                                        }
+
+                                        input[type="radio"] {
+                                            display: none;
+                                        }
+
+                                        .star {
+                                            font-size: 2rem;
+                                            cursor: pointer;
+                                            color: gray;
+                                        }
+
+                                        input[type="radio"]:checked ~ .star {
+                                            color: gold;
+                                        }
+
+                                            input[type="radio"]:checked ~ .star ~ .star {
+                                                color: gray;
+                                            }
+
+
+                                    </style>
+                                    <div class="rating">
+                                        <input type="radio" name="Rating" id="star1" value="1">
+                                        <label for="star1" class="star">&#9733;</label>
+                                        <input type="radio" name="Rating" id="star2" value="2">
+                                        <label for="star2" class="star">&#9733;</label>
+                                        <input type="radio" name="Rating" id="star3" value="3">
+                                        <label for="star3" class="star">&#9733;</label>
+                                        <input type="radio" name="Rating" id="star4" value="4">
+                                        <label for="star4" class="star">&#9733;</label>
+                                        <input type="radio" name="Rating" id="star5" value="5">
+                                        <label for="star5" class="star">&#9733;</label>
+                                    </div>
+                                    <textarea class="form-control" name="text" rows="3"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-default">
                                     post comment
@@ -113,4 +157,24 @@
         var updatedUrl = baseUrl.replace('__count__', itemCount);
         addToCartLink.href = updatedUrl;
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const stars = document.querySelectorAll('.star');
+        const radios = document.querySelectorAll('input[name="Rating"]');
+
+        radios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                stars.forEach(star => star.style.color = 'gray');
+                for (let i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        for (let j = 0; j <= i; j++) {
+                            stars[j].style.color = 'gold';
+                        }
+                    }
+                }
+            });
+        });
+    });
+
+
 </script>

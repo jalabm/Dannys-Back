@@ -199,7 +199,7 @@
 
             tables.forEach(table => {
                 tableArea.innerHTML += `
-                    <option value="${table.id}"> Table №${table.id} ${table.reservInfo != null ? "   -" + table.reservInfo : ""} </option>
+                    <option value="${table.tableNo}"> Table №${table.tableNo} ${table.reservInfo != null ? "   -" + table.reservInfo : ""} </option>
 
                 `;
             });
@@ -228,7 +228,7 @@
 
                 tables.forEach(table => {
                     tableArea.innerHTML += `
-                    <option value="${table.id}"> Table №${table.id} ${table.reservInfo != null ? "   -" + table.reservInfo : ""}</option>
+                    <option value="${table.tableNo}"> Table №${table.tableNo} ${table.reservInfo != null ? "   -" + table.reservInfo : ""}</option>
 
                 `;
                 });

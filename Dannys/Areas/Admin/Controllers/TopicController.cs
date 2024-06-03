@@ -102,7 +102,7 @@ public class TopicController : Controller
 
 
 
-        _context.Update(existTopic);
+        _context.Topics.Update(existTopic);
         await _context.SaveChangesAsync();
 
         return RedirectToAction("Index");

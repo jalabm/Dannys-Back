@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Dannys.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Dannys.Controllers;
 
@@ -141,14 +142,51 @@ public class ShopController : Controller
 
     public async Task<IActionResult> Detail(int id)
     {
-        var existProduct = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
-        if (existProduct is null) return BadRequest();
+       
 
 
-        var product = await _context.Products.Include(x => x.ProductImgs)
+        var product = await _context.Products.Include(x => x.ProductImgs).Include(x=>x.Comments).ThenInclude(x=>x.AppUser)
                                              .FirstOrDefaultAsync(x => x.Id == id);
+
         if (product is null) return NotFound();
+
+        ViewBag.Id = id;
+
         return View(product);
+    }
+    [Authorize]
+    public async Task<IActionResult> PostComment(CommentCreateDto dto)
+    {
+        if (!ModelState.IsValid)
+            return RedirectToAction("Detail", new {id=dto.ProductId});
+
+
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        var user = await _userManager.FindByIdAsync(userId);
+
+        if (user is null)
+            return BadRequest();
+
+        var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == dto.ProductId);
+
+        if (product is null)
+            return NotFound();
+
+        Comment comment = new()
+        {
+            AppUserId = userId,
+            ProductId = dto.ProductId,
+            Text = dto.Text,
+            Rating = dto.Rating
+
+        };
+
+        await _context.Comments.AddAsync(comment);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction("Detail", new { id = dto.ProductId });
+
     }
 
         private List<Basketitem> GetBasket()

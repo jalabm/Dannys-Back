@@ -4,6 +4,7 @@ using Dannys.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dannys.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240601215040_comments2")]
+    partial class comments2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -566,9 +568,6 @@ namespace Dannys.Migrations
                     b.Property<int>("PersonCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("TableNo")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Tables");
@@ -857,7 +856,7 @@ namespace Dannys.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "37eed7bb-9efb-466c-b231-28fab71507a7",
+                            ConcurrencyStamp = "aaf925d0-8cdb-45b7-96b0-b9b69e3c0e86",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
