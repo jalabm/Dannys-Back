@@ -82,24 +82,16 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active descriptionSection" id="description">
                             <h5>Product Description</h5>
+                            <p>@Model.Description</p>
                         </div>
                         <div role="tabpanel" class="tab-pane reviewsSection" id="reviews">
-                            <ul>
-                                @foreach (var comment in Model.Comments)
-                                    {
-                                        <li>@comment.AppUser.UserName - @comment.Text</li>
-                                    }
-                            </ul>
+
                             <h5>Leave a Reply</h5>
                             <form asp-action="PostComment" asp-route-ProductId="@ViewBag.Id">
                                 <div class="form-group">
                                     <label>Comment</label>
                                     <style>
-                                        .rating {
-                                            display: flex;
-                                            flex-direction: row;
-                                            justify-content: center;
-                                        }
+                                        
 
                                         input[type="radio"] {
                                             display: none;
@@ -118,8 +110,6 @@
                                             input[type="radio"]:checked ~ .star ~ .star {
                                                 color: gray;
                                             }
-
-
                                     </style>
                                     <div class="rating">
                                         <input type="radio" name="Rating" id="star1" value="1">
@@ -139,6 +129,15 @@
                                     post comment
                                 </button>
                             </form>
+                            <ul style="padding: 0; margin-top: 50px; display: flex; flex-direction: column; gap: 15px;">
+                                @foreach (var comment in Model.Comments)
+                                {
+                                    <li style="list-style:none; border:1px solid #ccc ; width:100%; padding:30px;">
+                                        <p> @comment.AppUser.UserName</p>
+                                        <p style="padding-left:30px; margin:0;"> @comment.Text</p>
+                                    </li>
+                                }
+                            </ul>
                         </div>
                     </div>
                 </div>
