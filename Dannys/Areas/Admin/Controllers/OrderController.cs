@@ -115,5 +115,11 @@ public class OrderController : Controller
 
 
     }
+
+    public async Task<IActionResult> Detail(int id)
+    {
+        var order = await _context.Orders.Include(x => x.OrderItems).ThenInclude(x=>x.Product).ThenInclude(x=>x.ProductImgs).FirstOrDefaultAsync(x => x.Id == id);
+        return View(order);
+    }
 }
 

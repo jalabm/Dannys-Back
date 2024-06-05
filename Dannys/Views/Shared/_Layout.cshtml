@@ -100,7 +100,7 @@
 
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <a href="#" class="btn-login">@User.Identity.Name</a>
+                                <a asp-controller="Order" asp-action="Index" class="btn-login">@User.Identity.Name</a>
                                 <a asp-controller="account" asp-action="logOut" class="btn-register">Log Out</a>
                             }
                             else

@@ -35,31 +35,34 @@
                                         <a>
                                             <p>Order Id @orderItem.Id</p>
                                             <p>Ordered Date - @orderItem.CreatedAt.ToShortDateString()</p>
-                                            @{
-                                                if (orderItem.IsCanceled == false)
-                                                {
-                                                    if (orderItem.Status == true)
+                                            <p>
+                                                Status :
+                                                @{
+                                                    if (orderItem.IsCanceled == false)
                                                     {
-                                                        <p class="btn statusOutput">Delivered</p>
+                                                        if (orderItem.Status == true)
+                                                        {
+                                                        <span class="btn statusOutput"  style="padding:10px; border:1px solid #ccc ; border-radius:5px;">Delivered</span>
                                                     }
                                                     else if (orderItem.Status == false)
                                                     {
-                                                        <p class="btn  statusOutput" style="padding:10px; border:1px solid #ccc ; border-radius:5px;">Is Ordered</p>
+                                                        <span class="btn  statusOutput" style="padding:10px; border:1px solid #ccc ; border-radius:5px;">Is Ordered</span>
                                                     }
                                                     else
                                                     {
-                                                        <p class="btn  statusOutput">On The Way</p>
+                                                        <span class="btn  statusOutput"  style="padding:10px; border:1px solid #ccc ; border-radius:5px;">On The Way</span>
 
                                                     }
                                                 }
                                                 else
                                                 {
-                                                    <p class="btn  cancelOutput`" style="padding:10px; border:1px solid #ccc ; border-radius:5px;">Is Canceled</p>
+                                                    <span class="btn  cancelOutput`" style="padding:10px; border:1px solid #ccc ; border-radius:5px;">Is Canceled</span>
                                                 }
 
 
-                                            }
-                                        </a>
+                                                }
+                                            </p>
+                                            </a>
                                     </div>
                                 </div>
                                 <div id="collapse1"
@@ -91,7 +94,7 @@
                                                                          alt="" />
                                                                 </a>
                                                             </td>
-                                                            <td><a href="/shop-detail.html">@item.Product.Name</a></td>
+                                                            <td><a asp-action="detail" asp-controller="shop" asp-route-id="@item.Product.Id">@item.Product.Name</a></td>
                                                             <td>@item.Count</td>
                                                             <td>$ @item.StaticPrice</td>
                                                         </tr>
