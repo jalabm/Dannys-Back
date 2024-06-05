@@ -16,7 +16,7 @@ public class MenuController : Controller
     public async  Task<IActionResult> Index()
     {
 
-        var category = await _context.Categories.Include(x => x.Products).ThenInclude(x=>x.ProductImgs).ToListAsync();
+        var category = await _context.Categories.Include(x => x.Products).ThenInclude(x=>x.ProductImgs).Where(x => x.Products.Count > 0).ToListAsync();
         return View(category);
     }
 }

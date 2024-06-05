@@ -218,9 +218,7 @@ public class AccountController : Controller
         .content {{
             margin-bottom: 30px;
             text-align: center; /* Center-align content */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+         
         }}
         .content p {{
             margin: 0 auto; /* Center-align paragraphs */

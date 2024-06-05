@@ -1,5 +1,5 @@
 ﻿
-
+@model ContactVM
 <main class="contact">
     <section id="News-banner">
         <div class="banner-part">
@@ -20,26 +20,26 @@
                 <div class="col-sm-10 col-md-8 col-centered">
                     <h5>contact details</h5>
 
-                    <form class="dn__contact-form" action="http://localhost:3000/form.php" method="post">
+                    <form class="dn__contact-form"  method="post">
                         <div class="row">
                             <div class="col-sm-4 col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputtext1">name</label>
-                                    <input type="text" class="form-control" name="input_username" id="exampleInputtext1">
+                                    <label for="exampleInputtext1">Fullname</label>
+                                    <input type="text" class="form-control" asp-for="Fullname" id="exampleInputtext1">
                                 </div>
                             </div>
 
                             <div class="col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" class="form-control" name="input_email" id="exampleInputEmail1">
+                                    <input type="email" class="form-control" asp-for="Email" id="exampleInputEmail1">
                                 </div>
                             </div>
 
                             <div class="col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputtext2">phone</label>
-                                    <input type="text" class="form-control" name="input_phone" id="exampleInputtext2">
+                                    <input type="text" class="form-control" asp-for="PhoneNumber" id="exampleInputtext2">
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                 <div class="js-cf-message"></div>
                                 <div class="form-group">
                                     <label for="exampleInputtext3">message</label>
-                                    <textarea class="form-control" rows="7" name="input_message" id="exampleInputtext3"></textarea>
+                                    <textarea class="form-control" rows="7" asp-for="Message" id="exampleInputtext3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -71,3 +71,32 @@
 
 
 </main>
+
+
+<script>
+     document.addEventListener('DOMContentLoaded', (event) => {
+        var message = '@TempData["message"]'
+
+        if (message) {
+
+        Toastify({
+            text: message,
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "bottom",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "#c93",
+            },
+
+        }).showToast();
+        }
+
+
+
+
+    });
+</script>

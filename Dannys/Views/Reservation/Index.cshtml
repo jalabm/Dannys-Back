@@ -58,7 +58,8 @@
 
                             </div>
                             <div class="form-group">
-                                <div class="select-list">
+                                    <label asp-for="Time"style=" color: #bebebe;"></label>
+                                <div class="select-list" style="margin:0;">
                                     @*<select asp-for="Time" required>
                                             <option disabled selected value="">Time</option>
                                          @{
@@ -70,8 +71,9 @@
                                              }
                                          }
                                         </select>*@
-                                    <input class="dateTimeInput" asp-for="Time" required />
-                                    <label asp-for="Time"></label>
+                                    <input type="datetime-local"
+                                           id="meeting-time"
+                                           name="meeting-time" style=" color-scheme: dark;"/>
                                     <br />
                                     <span class="text-danger errorMessage" asp-validation-for="Time"></span>
 
@@ -87,7 +89,7 @@
                                     </div>
                                 </div>*@
                             <div class="form-radio">
-                                <label class="label-radio"> Select Your Dining Space</label>
+                                <label class="label-radio" style="color: #bebebe;"> Select Your Dining Space</label>
                                 <div class="radio-item-list">
                                     <span class="radio-item">
                                         <input type="radio" name="number_people" class="personCountInput" data-count="2" value="2" id="number_people_2" />

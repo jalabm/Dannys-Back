@@ -86,7 +86,6 @@
         flex-direction: row-reverse;
       }
       .menu-left {
-        position: relative;
      
         margin-bottom: 60px ;
         .wrapper-img {
@@ -108,7 +107,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             /* Adjust alpha to control darkness */
           }
-        }
+     
 
         .wrapper-content {
           position: absolute;
@@ -154,6 +153,7 @@
             text-align: center;
           }
         }
+      }
       }
 
       .menu-right {

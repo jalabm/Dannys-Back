@@ -26,25 +26,26 @@
                         <div class="@(i%2==0 ? "menu1" : "menu2")">
                             <div class="menu-left col-lg-4 col-12">
                                 <div class="wrapper-img">
-                                    <img src="@topProduct.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url" alt="" />
+                                    <img src="@topProduct?.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url" alt="" />
                                     <div class="overlay"></div>
-                                </div>
-                                <div class="wrapper-content">
-                                    <h3>@topProduct.Name</h3>
-                                    <div class="empty">(@topProduct.Porsion G)</div>
-                                    <p>
-                                        @topProduct.Ingredients
-                                    </p>
-                                    @if (topProduct.Discount > 0)
-                                    {
-                                        <div class="price">$@(topProduct.Price-topProduct.Price*topProduct.Discount/100)</div>
-                                     
-                                    }
-                                    else
-                                    {
-                                <div class="price">$@topProduct.Price</div>
-                                    }
 
+                                    <div class="wrapper-content">
+                                        <h3>@topProduct?.Name</h3>
+                                        <div class="empty">(@topProduct?.Porsion G)</div>
+                                        <p>
+                                            @topProduct.Ingredients
+                                        </p>
+                                        @if (topProduct.Discount > 0)
+                                        {
+                                            <div class="price">$@(topProduct.Price-topProduct.Price*topProduct.Discount/100)</div>
+
+                                        }
+                                        else
+                                        {
+                                            <div class="price">$@topProduct.Price</div>
+                                        }
+
+                                    </div>
                                 </div>
                             </div>
                             <div class="menu-right col-lg-8 col-12">

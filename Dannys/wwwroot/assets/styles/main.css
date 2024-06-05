@@ -2136,7 +2136,6 @@ footer #Footer-main .container .footer-bottom ul li a {
   flex-direction: row-reverse;
 }
 .menu #Menu .row .menu-left {
-  position: relative;
   margin-bottom: 60px;
 }
 .menu #Menu .row .menu-left .wrapper-img {
@@ -2157,7 +2156,7 @@ footer #Footer-main .container .footer-bottom ul li a {
   background-color: rgba(0, 0, 0, 0.5);
   /* Adjust alpha to control darkness */
 }
-.menu #Menu .row .menu-left .wrapper-content {
+.menu #Menu .row .menu-left .wrapper-img .wrapper-content {
   position: absolute;
   text-align: center;
   position: absolute;
@@ -2166,7 +2165,7 @@ footer #Footer-main .container .footer-bottom ul li a {
   z-index: 1;
   transform: translate(-50%, -50%);
 }
-.menu #Menu .row .menu-left .wrapper-content h3 {
+.menu #Menu .row .menu-left .wrapper-img .wrapper-content h3 {
   background: transparent;
   color: #ffffff;
   font-size: 24px;
@@ -2175,21 +2174,21 @@ footer #Footer-main .container .footer-bottom ul li a {
   text-transform: uppercase;
   text-align: center;
 }
-.menu #Menu .row .menu-left .wrapper-content .empty {
+.menu #Menu .row .menu-left .wrapper-img .wrapper-content .empty {
   color: #ffffff;
   font-size: 18px;
   line-height: 28px;
   text-transform: uppercase;
   text-align: center;
 }
-.menu #Menu .row .menu-left .wrapper-content p {
+.menu #Menu .row .menu-left .wrapper-img .wrapper-content p {
   color: #ffffff;
   font-size: 12px;
   line-height: 24px;
   font-weight: 400;
   text-align: center;
 }
-.menu #Menu .row .menu-left .wrapper-content .price {
+.menu #Menu .row .menu-left .wrapper-img .wrapper-content .price {
   color: #ffcc66;
   font-size: 18px;
   line-height: 28px;
