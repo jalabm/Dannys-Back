@@ -51,6 +51,8 @@
     <None Remove="Areas\Admin\Views\Table\" />
     <None Remove="Dtos\ReservationDto\" />
     <None Remove="Dtos\CommentDtos\" />
+    <None Remove="Areas\Admin\Views\Reservation\" />
+    <None Remove="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -110,6 +112,8 @@
     <Folder Include="Areas\Admin\Views\Table\" />
     <Folder Include="Dtos\ReservationDto\" />
     <Folder Include="Dtos\CommentDtos\" />
+    <Folder Include="Areas\Admin\Views\Reservation\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

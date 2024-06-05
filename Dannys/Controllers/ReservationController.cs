@@ -1,4 +1,5 @@
 ﻿using Dannys.Data;
+using Dannys.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,11 +9,14 @@ public class ReservationController : Controller
 {
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
+    private readonly IEmailService _emailService;
 
-    public ReservationController(AppDbContext context, IMapper mapper)
+
+    public ReservationController(AppDbContext context, IMapper mapper, IEmailService emailService)
     {
         _context = context;
         _mapper = mapper;
+        _emailService = emailService;
     }
 
     public IActionResult Index()
@@ -76,7 +80,7 @@ public class ReservationController : Controller
 
         if (dto.Time < DateTime.UtcNow.AddHours(2))
         {
-            ModelState.AddModelError("Time", "You can only reservate 2 hours ago");
+            ModelState.AddModelError("Time", "You can only reserve 2 hours ago");
             return View(dto);
         }
 
@@ -95,7 +99,7 @@ public class ReservationController : Controller
         {
             if (existReservation.Date < dto.Time.AddHours(2))
             {
-                ModelState.AddModelError("", "Table is not found pls choose correct table");
+                ModelState.AddModelError("", "Table is not found please choose correct table");
                 return View(dto);
             }
         }
@@ -104,13 +108,109 @@ public class ReservationController : Controller
         Reservation reservation = new()
         {
             Name = dto.Name,
-            Email = dto.PhoneNumber,
+            Email = dto.Email,
             Date = dto.Time,
             TableId = dto.TableId
         };
         await _context.Reservations.AddAsync(reservation);
         await _context.SaveChangesAsync();
+        string body = $@"
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Reservation Confirmation</title>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }}
+        .email-container {{
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }}
+        .email-header, .email-footer {{
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }}
+        .email-body {{
+            padding: 20px;
+            color: #333;
+        }}
+        .email-body h2 {{
+            color: #333;
+        }}
+        .reservation-details {{
+            margin: 20px 0;
+        }}
+        .reservation-details table {{
+            width: 100%;
+            border-collapse: collapse;
+        }}
+        .reservation-details th, .reservation-details td {{
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }}
+        .reservation-details th {{
+            background-color: #f2f2f2;
+        }}
+    </style>
+</head>
+<body>
+    <div class='email-container'>
+        <div class='email-header'>
+            <h1>Reservation Confirmation</h1>
+        </div>
+        <div class='email-body'>
+            <h2>Dear {dto.Name},</h2>
+            <p>Thank you for your reservation. Here are your booking details:</p>
+            <div class='reservation-details'>
+                <table>
+                    <tr>
+                        <th>Reservation Number</th>
+                        <td>{reservation.Id}</td>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <td>{reservation.Date.ToShortDateString()}</td>
+                    </tr>
+                    <tr>
+                        <th>Time</th>
+                        <td>{reservation.Date.ToShortTimeString()}</td>
+                    </tr>
+                    <tr>
+                        <th>Table</th>
+                        <td>{existTable.TableNo}</td>
+                    </tr>
+                    <tr>
+                        <th>Guests</th>
+                        <td>{existTable.PersonCount}</td>
+                    </tr>
+                </table>
+            </div>
+            <p>We look forward to serving you!</p>
+            <p>Best regards,<br>The Dannys Team</p>
+        </div>
+        <div class='email-footer'>
+            <p>&copy; 2003 Dannys Restaurant. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
+";
 
+        // Send the email
+        _emailService.SendEmail(dto.Email, "Reservation detail", body);
 
         TempData["message"] = "Reservation is successfully done.";
 

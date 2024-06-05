@@ -9,7 +9,7 @@ namespace Dannys.Models
 		public int TableId { get; set; }
 		public Table Table { get; set; } = null!;
 		public DateTime Date { get; set; }
-		public bool IsDone = false;
+		public bool IsDone { get; set; } =false;
 	}
 }
 

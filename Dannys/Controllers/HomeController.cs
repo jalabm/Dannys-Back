@@ -26,7 +26,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         //ViewBag.Page = page;
-        var products = await _context.Products.Include(x => x.ProductImgs).Include(x => x.Category).ToListAsync();
+        var products = await _context.Products.Include(x => x.ProductImgs).Include(x => x.Category).Take(8).ToListAsync();
         var categories = await _context.Categories.ToListAsync();
         var sliders =await _context.Sliders.ToListAsync();
 

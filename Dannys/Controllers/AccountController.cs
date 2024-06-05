@@ -155,6 +155,9 @@ public class AccountController : Controller
             }
 
         }
+        var json = JsonConvert.SerializeObject(new List<Basketitem>());
+
+        Response.Cookies.Append("basket", json);
         await _context.SaveChangesAsync();
     }
 

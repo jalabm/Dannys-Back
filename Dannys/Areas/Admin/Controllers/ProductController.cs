@@ -40,12 +40,9 @@ public class ProductController : Controller
 
         ViewBag.CurrentPage = page;
 
-        List<Product> products = await _context.Products.OrderByDescending(x=>x.Id).Skip((page-1)*10)
-                                               .Include(x => x.ProductImgs)
-                                               .Include(x => x.Category)
-                                               .ToListAsync();
+        var products = await _context.Products.OrderByDescending(x => x.CreatedAt).Skip((page - 1) * 10).Take(10).Include(x=>x.Category).Include(x=>x.ProductImgs).ToListAsync();
 
-
+        //var p = await _context.Products.Include(x => x.Category).Include(x => x.ProductImgs).ToListAsync();
         return View(products);
     }
 

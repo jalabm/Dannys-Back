@@ -1,4 +1,4 @@
-﻿@model List<Order>
+﻿@model List<Reservation>
 @{
     int count = 1;
 }
@@ -8,7 +8,7 @@
 <div class="main-panel" style="padding:0px">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> Order</h3>
+            <h3 class="page-title"> Reservations</h3>
 
         </div>
         <div class="row">
@@ -25,7 +25,8 @@
                                         <th> Username </th>
                                         <th>Status</th>
                                         <th> Ordered Time </th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="4" aria-label="Position: activate to sort column ascending">Actions</th>
+                                        <th>Status</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="3" aria-label="Position: activate to sort column ascending">Actions</th>
 
                                     </tr>
                                 </thead>
@@ -35,47 +36,35 @@
                                         <tr>
 
                                             <td> @(count++) </td>
-                                            <td> @order.Id</td>
-                                            <td> @order.AppUser.UserName </td>
+                                            <td> @order.Name</td>
+                                            <td> @order.Email </td>
+                                            <td> @order.TableId </td>
+                                            <td> @order.Date </td>
                                             <td>
                                                 @{
-                                                    if (order.IsCanceled == false)
+                                                    if (order.IsDone ==true)
                                                     {
-                                                        if (order.Status == true)
-                                                        {
-                                                            <p class="btn btn-success statusOutput">Is done</p>
-                                                        }
-                                                        else if (order.Status == false)
-                                                        {
-                                                            <p class="btn btn-secondary statusOutput">Is ordered</p>
-                                                        }
-                                                        else
-                                                        {
-                                                            <p class="btn btn-warning statusOutput">On the way</p>
+                                                        
+                                                        <p class="btn btn-success statusOutput">Is done</p>  
+                                                        
 
-                                                        }
                                                     }
                                                     else
                                                     {
-                                                        <p class="btn btn-danger cancelOutput`">Is canceled</p>
+                                                        <p class="btn btn-primary cancelOutput`">Hasn't done yet</p>
                                                     }
-
 
                                                 }
                                             </td>
-                                            <td> @order.CreatedAt.ToShortDateString()</td>
-                                            <td><a class="btn btn-secondary prevBtn" data-status="@order.Status" asp-action="Prev" asp-route-id="@order.Id">Prev status</a></td>
-                                            <td><a class="btn btn-primary nextBtn" data-status="@order.Status" asp-action="Next" asp-route-id="@order.Id">Next status</a></td>
-                                            @if (!order.IsCanceled)
+                                            @if (order.IsDone is false)
                                             {
-                                                <td><a class="btn btn-danger cancelRepairBtn" data-isCancel="@order.IsCanceled" asp-action="CancelOrRepair" asp-route-id="@order.Id">Cancel Order</a></td>
-                                            }
-                                            else
-                                            {
-                                                <td><a class="btn btn-primary cancelRepairBtn" data-isCancel="@order.IsCanceled" asp-action="CancelOrRepair" asp-route-id="@order.Id">Repair Order</a></td>
-                                            }
-                                            <td><a class="btn btn-success"  asp-action="Detail" asp-route-id="@order.Id">Detail</a></td>
+                                                <td><a class="btn btn-primary cancelRepairBtn"  asp-action="RepairOrEnd" asp-route-id="@order.Id">End Reservation</a></td> 
 
+                                            }
+                                            else if(order.IsDone is true)
+                                            {
+                                                <td><a class="btn btn-success cancelRepairBtn"   asp-action="RepairOrEnd" asp-route-id="@order.Id">Repair Reservation</a></td>
+                                            }
 
                                         </tr>
                                     }
@@ -92,12 +81,12 @@
                                     </li>
                                     @for (int i = 1; i <= ViewBag.PageCount; i++)
                                     {
-                                        <li class="page-item"><a class="page-link @(ViewBag.CurrentPage==i ? "active" : "")" asp-action="index"asp-route-page="@i">@i</a></li>
+                                        <li class="page-item"><a class="page-link @(ViewBag.CurrentPage==i ? "active" : "")" asp-action="index" asp-route-page="@i">@i</a></li>
 
                                     }
 
                                     <li class="page-item @(ViewBag.CurrentPage==ViewBag.PageCount ? "disabled" : "")">
-                                        <a class="page-link" asp-action="index"  asp-route-page="@(ViewBag.CurrentPage+1)">Next</a>
+                                        <a class="page-link" asp-action="index" asp-route-page="@(ViewBag.CurrentPage+1)">Next</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -114,8 +103,7 @@
 </div>
 
 
-<script>
-    const prevButtons = document.querySelectorAll('.prevBtn');
+@*<script>const prevButtons = document.querySelectorAll('.prevBtn');
     const nextButtons = document.querySelectorAll('.nextBtn');
 
     const statusButtons = document.querySelectorAll('.statusOutput');
@@ -169,4 +157,4 @@
             }
 
         })
-    })</script>
+    })</script>*@

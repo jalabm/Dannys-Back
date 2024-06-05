@@ -6,7 +6,134 @@
 .order {
   background-color: #efefef !important;
 
+  #News-banner {
+    height: 500px;
+  
+    .banner-part {
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Adjust alpha to control darkness */
+      }
+  
+      min-height: 500px;
+      position: relative;
+      // background-image: url(/assets/images/home/product-img1.jpg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: scroll;
+  
+      .banner-content {
+        z-index: 100;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+  
+        h3 {
+          color: #cc9933;
+          font-size: 18px;
+          line-height: 28px;
+          font-weight: 600;
+          letter-spacing: 4px;
+          text-transform: uppercase;
+          text-align: center;
+        }
+  
+        .bannerTitle {
+          font-family: 'Great Vibes';
+          margin: 40px 0px 40px 0px;
+          font-size: 128px;
+          line-height: 86px;
+          font-weight: 400;
+          text-align: center;
+          color: white;
+        }
+  
+        .connection {
+          font-family: "Playfair Display", serif;
+          font-size: 24px;
+          line-height: 24px;
+          color: #999;
+          margin-bottom: 15px;
+          font-weight: 400;
+          letter-spacing: 2px;
+          text-align: center;
+          word-break:keep-all !important;
+          span {
+            color: #fff;
+          }
+        }
+  
+        .yellow {
+          color: #cc9933;
+          font-size: 24px;
+          line-height: 34px;
+          letter-spacing: 2px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .content {
+    padding: 150px 0 100px;
+.accordion{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.accordion-item  {
+  border: 1px solid #c93;
+  
+ 
+}
+    .accordion-header {
+      .accordion-button {
+        width: 100%;
+        a{
+          display: flex !important;
+          align-items: center;
+         justify-content: space-evenly;
+         width: 100%;
+         p{
+          padding: 0;
+          margin: 0;
+         }
 
-
-
+        }
+        
+      }
+      
+    }
+    .accordion-body{
+      .table th, .table td {
+        text-align: center; 
+        vertical-align: middle; 
+    }
+      .table-responsive{
+        tbody{
+          a{
+            text-decoration: none;
+            color: black;
+          }
+        .orderImg{
+          width: 60px;
+          // border-radius: 100%;
+          height: 60px;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+      }
+      .accordion-button {
+        background-color: #c93 !important;
+      }
+    }
+  }
 }

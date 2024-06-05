@@ -1,0 +1,114 @@
+﻿@model List<Order>
+@{
+    int count = 1;      
+
+
+}
+
+    <main class="order">
+        <section id="News-banner">
+
+        <div class="banner-part">
+            <div class="banner-content">
+                <h3>Danny's</h3>
+                <h1 class="bannerTitle">Orders</h1>
+                <h3>Restaurant</h3>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </section>
+        <div class="content">
+            <div class="container">
+                <div class="accordion" id="accordionExample">
+                    @for (int i = 0; i < Model.Count; i++)
+                                {
+                                    var orderItem = Model[i];
+
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="headingOne">
+                                    <div class="accordion-button collapsed"
+                                         type="button"
+                                         data-bs-toggle="collapse"
+                                         data-bs-target="#collapse1"
+                                         aria-expanded="true"
+                                         aria-controls="collapse1">
+                                        <a>
+                                            <p>Order Id @orderItem.Id</p>
+                                            <p>Ordered Date - @orderItem.CreatedAt.ToShortDateString()</p>
+                                            @{
+                                                if (orderItem.IsCanceled == false)
+                                                {
+                                                    if (orderItem.Status == true)
+                                                    {
+                                                        <p class="btn statusOutput">Delivered</p>
+                                                    }
+                                                    else if (orderItem.Status == false)
+                                                    {
+                                                        <p class="btn  statusOutput" style="padding:10px; border:1px solid #ccc ; border-radius:5px;">Is Ordered</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p class="btn  statusOutput">On The Way</p>
+
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <p class="btn  cancelOutput`" style="padding:10px; border:1px solid #ccc ; border-radius:5px;">Is Canceled</p>
+                                                }
+
+
+                                            }
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="collapse1"
+                                     class="accordion-collapse collapse "
+                                     aria-labelledby="headingOne"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Image</th>
+                                                        <th>Name</th>
+                                                        <th>Count</th>
+                                                        <th>Price</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in orderItem.OrderItems)
+                                                    {
+                                                        <tr class="orderRow">
+                                                            <td>@(count++)</td>
+                                                            <td>
+                                                                <a asp-controller="Shop" asp-action="Detail" asp-route-id="@item.Product.Id" >
+
+                                                                    <img class="orderImg"
+                                                                         src="@item.Product.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url"
+                                                                         alt="" />
+                                                                </a>
+                                                            </td>
+                                                            <td><a href="/shop-detail.html">@item.Product.Name</a></td>
+                                                            <td>@item.Count</td>
+                                                            <td>$ @item.StaticPrice</td>
+                                                        </tr>
+
+
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
