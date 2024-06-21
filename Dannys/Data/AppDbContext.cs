@@ -52,6 +52,7 @@ public class AppDbContext : IdentityDbContext
     public DbSet<Reservation> Reservations { get; set; } = null!;
     public DbSet<Table> Tables { get; set; } = null!;
     public DbSet<Coupon> Coupons { get; set; } = null!;
+    public DbSet<Subscribe> Subscribes { get; set; } = null!;
 
 
 

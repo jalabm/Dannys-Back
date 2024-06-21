@@ -153,23 +153,23 @@
             <div class="container">
                 <div class="row">
                     <div class="section-title">
-                        <div class="discount">
-                            <h5>15% <br />OFF</h5>
+                        <div style="display:flex; align-items:center;justify-content:center;" class="discount">
+                            <h5 style="margin:5px;" >NEW</h5>
                         </div>
                         <h2>Subscribe to our</h2>
                         <h3>newsletter</h3>
                     </div>
                     <h5>
-                        Subscribe to our newsletter and receive 15% discount from your
-                        order.
+                        Subscribe to our newsletter and get information about the newest products.
                     </h5>
-                    <form method="post"
-                          name="mc-embedded-subscribe-form"
-                          novalidate=""
+                    <form asp-action="Subscribe" asp-controller="Home" asp-route-returnUrl="@Context.Request.Path.Value" 
+                         
+                         
                           class="mail-box clearfix">
                         <div class="input-group stylish-input-group">
-                            <input type="text"
+                            <input required type="text"
                                    class="form-control"
+                                   name="email"
                                    placeholder="Your@mail.com" />
                             <div class="btn-default">
                                 <button type="submit">subscribe</button>

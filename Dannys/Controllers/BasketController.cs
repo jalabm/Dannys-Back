@@ -78,8 +78,14 @@ public class BasketController : Controller
     [HttpPost]
     [Authorize]
 
-    public async Task<IActionResult> Checkout(string stripeToken, string stripeEmail)
+    public async Task<IActionResult> Checkout(OrderCreateDto dto)
     {
+
+
+        if (!ModelState.IsValid)
+            return RedirectToAction("Checkout");
+
+
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
         if (userId is null)
@@ -102,7 +108,7 @@ public class BasketController : Controller
 
         var optionCust = new CustomerCreateOptions
         {
-            Email = stripeEmail,
+            Email = dto.stripeEmail,
             Name = user.Fullname,
             Phone = "000000"
         };
@@ -116,7 +122,7 @@ public class BasketController : Controller
             Amount = (long)total,
             Currency = "USD",
             Description = "Dannys order",
-            Source = stripeToken,
+            Source = dto.stripeToken,
             ReceiptEmail = "jalabm@code.edu.az"
 
 
@@ -129,18 +135,23 @@ public class BasketController : Controller
         {
             AppUser = user,
             Status = false,
-            OrderItems = new List<OrderItem>()
+            OrderItems = new List<OrderItem>(),
+            PhoneNumber = dto.PhoneNumber,
+            City = dto.City,
+            Apartment = dto.Apartment,
+            StreetAdrees=dto.StreetAdrees
         };
 
         foreach (var bItem in basketItems)
         {
             OrderItem orderItem = new()
             {
-                 Order=order,
-                 Product=bItem.Product,
-                 Count=bItem.Count,
-                 StaticPrice=bItem.Product.Price,
-                 
+                Order = order,
+                Product = bItem.Product,
+                Count = bItem.Count,
+                StaticPrice = bItem.Product.Price,
+
+
             };
             order.OrderItems.Add(orderItem);
 
@@ -155,13 +166,13 @@ public class BasketController : Controller
     }
 
 
-    public async Task<IActionResult> EditBasketItem(int id,int count)
+    public async Task<IActionResult> EditBasketItem(int id, int count)
     {
         if (count < 1)
             return RedirectToAction("Index");
 
 
-        var basketItems =await GetBasketAsync();
+        var basketItems = await GetBasketAsync();
 
 
         var basketItem = basketItems.FirstOrDefault(x => x.Id == id);

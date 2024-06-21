@@ -1,12 +1,15 @@
 ﻿using Dannys.Data;
+using Dannys.Enums;
 using Dannys.Extensions;
 using Dannys.Models;
 using Dannys.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dannys.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class BlogController : Controller
 {
     private readonly AppDbContext _context;

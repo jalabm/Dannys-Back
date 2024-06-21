@@ -810,15 +810,14 @@
 
 
 
-
 @media (max-width: 576px) {
-  main {
+  .home {
     #Home-banner {
       .home-slider {
         .slider-item {
           img {
-            width: 220px;
-            height: 220px;
+            width: 220px !important;
+            height: 220px !important;
           }
         }
       }
@@ -826,7 +825,7 @@
 
     #Specialties {
       .container {
-        width: 100%;
+        width: 100% ;
 
         .row {
           .left-part {
@@ -850,7 +849,7 @@
 
           .part {
             .left-part {
-              display: none;
+              display: none !important;
             }
 
             .right-part {
@@ -905,8 +904,7 @@
     }
   }
 
-  #Reservation {
-    // display: none;
-    // text-align: center;
-  }
+
 }
+
+

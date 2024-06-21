@@ -53,6 +53,7 @@
     <None Remove="Dtos\CommentDtos\" />
     <None Remove="Areas\Admin\Views\Reservation\" />
     <None Remove="Views\Order\" />
+    <None Remove="Dtos\OrderDtos\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -87,7 +88,6 @@
     <Folder Include="Dtos\SliderDtos\" />
     <Folder Include="Extensions\" />
     <Folder Include="Areas\Admin\Views\Slider\" />
-    <Folder Include="wwwroot\assets\" />
     <Folder Include="wwwroot\assets\image\" />
     <Folder Include="wwwroot\assets\image\sliderIcons\" />
     <Folder Include="Views\Account\" />
@@ -114,6 +114,7 @@
     <Folder Include="Dtos\CommentDtos\" />
     <Folder Include="Areas\Admin\Views\Reservation\" />
     <Folder Include="Views\Order\" />
+    <Folder Include="Dtos\OrderDtos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -124,7 +125,6 @@
     <Content Remove="wwwroot\Admin\Assets\js\" />
     <Content Remove="wwwroot\Admin\Assets\scss\" />
     <Content Remove="wwwroot\Admin\Assets\vendors\" />
-    <Content Remove="wwwroot\assets\" />
     <Content Remove="wwwroot\assets\image\" />
     <Content Remove="wwwroot\assets\image\sliderIcons\" />
     <Content Remove="wwwroot\assets\image\productImgs\" />

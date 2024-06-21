@@ -13,11 +13,20 @@ public class MenuController : Controller
         _context = context;
     }
 
-    public async  Task<IActionResult> Index()
+    public async  Task<IActionResult> Index(int? categoryId)
     {
+        if(categoryId is not null)
+        {
+            var category = await _context.Categories.Include(x => x.Products).ThenInclude(x => x.ProductImgs).FirstOrDefaultAsync(x => x.Id == categoryId);
 
-        var category = await _context.Categories.Include(x => x.Products).ThenInclude(x=>x.ProductImgs).Where(x => x.Products.Count > 0).ToListAsync();
-        return View(category);
+            if (category is null || category.Products.Count() == 0)
+                return NotFound();
+
+            return View(new List<Category>() { category });
+
+        }
+        var categories = await _context.Categories.Include(x => x.Products).ThenInclude(x=>x.ProductImgs).Where(x => x.Products.Count > 0).ToListAsync();
+        return View(categories);
     }
 }
 

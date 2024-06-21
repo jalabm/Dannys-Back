@@ -2025,42 +2025,42 @@ footer #Footer-main .container .footer-bottom ul li a {
 }
 
 @media (max-width: 576px) {
-  main #Home-banner .home-slider .slider-item img {
-    width: 220px;
-    height: 220px;
+  .home #Home-banner .home-slider .slider-item img {
+    width: 220px !important;
+    height: 220px !important;
   }
-  main #Specialties .container {
+  .home #Specialties .container {
     width: 100%;
   }
-  main #Specialties .container .row .left-part {
+  .home #Specialties .container .row .left-part {
     display: none;
   }
-  main #Specialties .container .row .right-part {
+  .home #Specialties .container .row .right-part {
     padding: 0px;
   }
-  main #Restaurant .container {
+  .home #Restaurant .container {
     width: 100%;
   }
-  main #Restaurant .container .row {
+  .home #Restaurant .container .row {
     padding: 0px;
   }
-  main #Restaurant .container .row .part .left-part {
-    display: none;
+  .home #Restaurant .container .row .part .left-part {
+    display: none !important;
   }
-  main #Restaurant .container .row .part .right-part {
+  .home #Restaurant .container .row .part .right-part {
     padding: 0px;
   }
-  main #Menu .container {
+  .home #Menu .container {
     width: 100%;
   }
-  main #Menu .container .menu-left {
+  .home #Menu .container .menu-left {
     width: 100%;
     padding: 0px !important;
   }
-  main #Menu .container .menu-left a {
+  .home #Menu .container .menu-left a {
     margin-bottom: 30px;
   }
-  main #Menu .container .menu-right {
+  .home #Menu .container .menu-right {
     width: 100%;
     height: 400px;
     position: relative;
@@ -2071,10 +2071,10 @@ footer #Footer-main .container .footer-bottom ul li a {
     font-family: "object-fit:cover";
     background-position: center center;
   }
-  main #Menu-list .container {
+  .home #Menu-list .container {
     width: 100%;
   }
-  main #Menu-list .container .menu-list-right .products-list li {
+  .home #Menu-list .container .menu-list-right .products-list li {
     display: block !important;
     width: 100% !important;
   }

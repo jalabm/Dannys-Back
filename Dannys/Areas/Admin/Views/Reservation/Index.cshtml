@@ -21,13 +21,11 @@
                                 <thead>
                                     <tr>
                                         <th> # </th>
-                                        <th> Id </th>
-                                        <th> Username </th>
-                                        <th>Status</th>
+                                        <th> Name</th>
+                                        <th> Email </th>
+                                        <th>Table</th>
                                         <th> Ordered Time </th>
-                                        <th>Status</th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="3" aria-label="Position: activate to sort column ascending">Actions</th>
-
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,34 +36,9 @@
                                             <td> @(count++) </td>
                                             <td> @order.Name</td>
                                             <td> @order.Email </td>
-                                            <td> @order.TableId </td>
+                                            <td> @order.Table.TableNo </td>
                                             <td> @order.Date </td>
-                                            <td>
-                                                @{
-                                                    if (order.IsDone ==true)
-                                                    {
-                                                        
-                                                        <p class="btn btn-success statusOutput">Is done</p>  
-                                                        
-
-                                                    }
-                                                    else
-                                                    {
-                                                        <p class="btn btn-primary cancelOutput`">Hasn't done yet</p>
-                                                    }
-
-                                                }
-                                            </td>
-                                            @if (order.IsDone is false)
-                                            {
-                                                <td><a class="btn btn-primary cancelRepairBtn"  asp-action="RepairOrEnd" asp-route-id="@order.Id">End Reservation</a></td> 
-
-                                            }
-                                            else if(order.IsDone is true)
-                                            {
-                                                <td><a class="btn btn-success cancelRepairBtn"   asp-action="RepairOrEnd" asp-route-id="@order.Id">Repair Reservation</a></td>
-                                            }
-
+                                          
                                         </tr>
                                     }
 

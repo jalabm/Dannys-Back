@@ -31,13 +31,3 @@ window.addEventListener("scroll", function () {
     header.style.backgroundColor = "transparent"; // Change background color to transparent
   }
 });
-
-
-
-const BasketItemPriceLayout = document.querySelector('.BasketItemPrice')
-
-let priceStringLayout = BasketItemPriceLayout.innerHTML;
-
-let priceLayout = parseFloat(priceStringLayout.slice(1))
-
-BasketItemPriceLayout.innerHTML = `$${priceLayout}`

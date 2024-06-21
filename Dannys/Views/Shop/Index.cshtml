@@ -3,7 +3,7 @@
 @model List<Product>
 @{
     string returnUrl = Context.Request.Path.Value ?? "null";
-  
+
 }
 
 
@@ -28,18 +28,8 @@
             <div class="full-shop-header">
                 <h2>Shop</h2>
                 <div class="filter-section">
-                    <p>SHOWING  OF @Model.Count RESULTS</p>
-                    <div class="right-filter">
-                        <form action="">
-                            <select class="form-control">
-                                <option>Default sorting</option>
-                                <option>Sort by average rating </option>
-                                <option>Sort by price: low to high</option>
-                                <option>Sort by price: high to low </option>
+                    <p>SHOWING <span class="ProductCount">@Model.Count</span>   OF @ViewBag.Count RESULTS</p>
 
-                            </select>
-                        </form>
-                    </div>
                 </div>
             </div>
             <div class="menu-list">
@@ -67,17 +57,19 @@
 
                             }
 
-                        </div>
-                        <li style="margin:10px auto" class="products-block fancy-pag visible-lg visible-md">
-                            <div class="fancy-inner-block">
-                                <div class="pag-arrows">
-                                    <a data-page="@ViewBag.Page" asp-action="LoadMore" class="nextBtn">
-                                        <h2>NEXT</h2>
+                        </div>@if (ViewBag.PageCount > ViewBag.Page)
+                        {
+                            <li style="margin:10px auto" class="products-block paginationBtnSection fancy-pag visible-lg visible-md">
+                                <div class="fancy-inner-block">
+                                    <div class="pag-arrows">
+                                        <a data-page="@ViewBag.Page" asp-action="LoadMore" class="nextBtn">
+                                            <h2>NEXT</h2>
 
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        }
                     }
                     else
                     {
@@ -102,8 +94,8 @@
 
         <script>const nextBtn = document.querySelector('.nextBtn');
             const productArea = document.querySelector('.products');
-
-
+            const ProductCount = document.querySelector('.ProductCount')
+            const paginationSection = document.querySelector('.paginationBtnSection')
 
             nextBtn.addEventListener('click', async (e) => {
                 e.preventDefault();
@@ -127,18 +119,25 @@
 
 
                     productArea.innerHTML += `
-                                                    <li class="products-block">
-                                                        <a href="Shop/Detail/${product.id}" class="product-link">
-                                                            <img class="img-responsive" src="${mainImg.url}" alt="">
-                                                            <div class="info-wrapper">
-                                                                <div class="btn-add-to-cart">
-                                                                    <a href="/Shop/AddToBasket/${product.id}?page=${nextBtn.dataset.page}" class="btn cart-btn">Add to cart</a>
-                                                                </div>
-                                                                <h2 class="product-title">${product.name}</h2>
-                                                                <span class="price">${fixedPrice}</span>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                `;
+                                                            <li class="products-block">
+                                                                <a href="Shop/Detail/${product.id}" class="product-link">
+                                                                    <img class="img-responsive" src="${mainImg.url}" alt="">
+                                                                    <div class="info-wrapper">
+                                                                        <div class="btn-add-to-cart">
+                                                                            <a href="/Shop/AddToBasket/${product.id}?page=${nextBtn.dataset.page}" class="btn cart-btn">Add to cart</a>
+                                                                        </div>
+                                                                        <h2 class="product-title">${product.name}</h2>
+                                                                        <span class="price">${fixedPrice}</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        `;
                 });
+                let count = parseInt(ProductCount.innerHTML)
+                ProductCount.innerHTML = count + products.length
+
+                if (@ViewBag.PageCount== nextBtn.dataset.page) {
+                    paginationSection.innerHTML=''
+                }
+
             });</script>

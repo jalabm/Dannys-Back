@@ -1,28 +1,34 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Text;
 using Dannys.Data;
+using Dannys.Enums;
 using Dannys.Extensions;
 using Dannys.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dannys.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class ProductController : Controller
 {
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
     private readonly CloudinaryService _cloudinaryService;
+    private readonly IEmailService _emailService;
 
-    public ProductController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, CloudinaryService cloudinaryService)
+    public ProductController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, CloudinaryService cloudinaryService, IEmailService emailService)
     {
         _context = context;
         _env = env;
         _mapper = mapper;
         _cloudinaryService = cloudinaryService;
+        _emailService = emailService;
     }
 
-    public async Task<IActionResult> Index(int page=1)
+    public async Task<IActionResult> Index(int page = 1)
     {
 
         int pageCount = (int)Math.Ceiling((decimal)_context.Products.Count() / 10);
@@ -40,7 +46,7 @@ public class ProductController : Controller
 
         ViewBag.CurrentPage = page;
 
-        var products = await _context.Products.OrderByDescending(x => x.CreatedAt).Skip((page - 1) * 10).Take(10).Include(x=>x.Category).Include(x=>x.ProductImgs).ToListAsync();
+        var products = await _context.Products.OrderByDescending(x => x.CreatedAt).Skip((page - 1) * 10).Take(10).Include(x => x.Category).Include(x => x.ProductImgs).ToListAsync();
 
         //var p = await _context.Products.Include(x => x.Category).Include(x => x.ProductImgs).ToListAsync();
         return View(products);
@@ -124,6 +130,109 @@ public class ProductController : Controller
         await _context.Products.AddAsync(product);
         await _context.SaveChangesAsync();
 
+
+
+
+
+
+
+        var subscribes = await _context.Subscribes.ToListAsync();
+
+        string url = Url.Action("Detail", "Shop", new { area = "", id = product.Id }, HttpContext.Request.Scheme) ?? "";
+
+        string emailBody = $@"
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }}
+        .container {{
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }}
+        .header {{
+            background-color: #cc9933;
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+        }}
+        .content {{
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #000000;
+        }}
+        .footer {{
+            background-color: #cc9933;
+            padding: 10px;
+            text-align: center;
+            color: #ffffff;
+        }}
+        .button {{
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            color: #ffffff;
+            background-color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+        }}
+        .product-image {{
+            width: 50%;
+            max-width: 50%;
+            height: auto;
+            margin: 20px auto !important;
+        }}
+        .img {{
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }}
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <div class='header'>
+            <h1>We Have New Product!</h1>
+        </div>
+        <div class='content'>
+            <h2>Dear Subscriber,</h2>
+            <p>We are thrilled to introduce our latest product and we need your valuable feedback to make it even better!</p>
+            <div class='img'>
+                <img src='{mainFileName}' alt='New Product' class='product-image'>
+            </div>
+            <p>{product.Description}</p>
+            <p>Click the button below to get started:</p>
+            <a href='{url}' class='button'>Shop Now</a>
+            <p>Thank you for being a valued subscriber and for your continued support.</p>
+            <p>Best regards,</p>
+            <p>The Danny's Team</p>
+        </div>
+        <div class='footer'>
+            <p>&copy; 2024 Danny's. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
+";
+
+
+        foreach (var subscribe in subscribes)
+        {
+
+            _emailService.SendEmail(subscribe.Email, "New Product", emailBody);
+        }
+
+
         return RedirectToAction("Index");
 
     }
@@ -145,21 +254,21 @@ public class ProductController : Controller
         {
             Product product = new()
             {
-                CategoryId=1,
-                Description="DSAJKADSNLKDS",
-                Discount=30,
-                Price=30,
-                Ingredients="SAsa",
-                Name="Product",
-                Porsion=1,
-                
+                CategoryId = 1,
+                Description = "DSAJKADSNLKDS",
+                Discount = 30,
+                Price = 30,
+                Ingredients = "SAsa",
+                Name = "Product",
+                Porsion = 1,
+
             };
 
             ProductImg img = new()
             {
                 Product = product,
-                Url= "https://res.cloudinary.com/dmhklgr4f/image/upload/v1716569721/vlwjtj0pirylshsvidfv.jpg",
-                IsMain=true,
+                Url = "https://res.cloudinary.com/dmhklgr4f/image/upload/v1716569721/vlwjtj0pirylshsvidfv.jpg",
+                IsMain = true,
             };
 
             product.ProductImgs.Add(img);
@@ -351,4 +460,105 @@ public class ProductController : Controller
         return RedirectToAction("Index");
     }
 
+
+
+    public async Task<IActionResult> GenerateRandomItems()
+    {
+
+        var rand = new Random();
+
+        string[] productNames = { "Pizza", "Burger", "Pasta", "Salad", "Sushi", "Steak", "Soup", "Sandwich", "Fries", "Taco" };
+        string[] descriptions = {
+    "Absolutely delicious and incredibly satisfying, guaranteed to tantalize your taste buds and leave you craving more",
+    "Richly flavorful and wonderfully savory, crafted with the finest ingredients to ensure a mouth-watering experience",
+    "Exquisitely prepared and delightfully appetizing, perfect for those who appreciate the finer flavors in life",
+    "Unbelievably scrumptious and utterly delectable, a culinary masterpiece that promises to please even the most discerning palates",
+    "Indulgently savory and profoundly satisfying, offering a symphony of flavors that will leave you wanting another bite",
+    "Delightfully aromatic and irresistibly tasty, each bite is a journey through layers of culinary excellence",
+     "Sensationally delicious and remarkably satisfying, a culinary delight that excites the senses with every bite",
+    "Exquisitely flavorful and tantalizingly aromatic, prepared with care to ensure a memorable dining experience",
+    "Sumptuously savory and delightfully rich, a feast for the taste buds that promises pure gastronomic pleasure",
+    "Irresistibly mouth-watering and profoundly delectable, designed to satisfy cravings with its bold and robust flavors",
+    "Elegantly crafted and delightfully nuanced, offering a harmonious blend of textures and tastes in every dish",
+    "Luxuriously indulgent and profoundly flavorful, a gourmet sensation that embodies culinary excellence",
+    "Perfectly balanced and wonderfully appetizing, each ingredient complements the next to create a symphony of flavors",
+    "Deliciously complex and deeply satisfying, designed for those who appreciate the artistry of fine cuisine",
+    "Incredibly appetizing and expertly seasoned, a culinary masterpiece that elevates your dining experience",
+    "Richly satisfying and irresistibly delicious, guaranteed to leave a lasting impression with its exceptional taste"
+
+};
+        string[] ingredients = {
+  "Lasagna noodles, ground beef, ricotta cheese, mozzarella cheese, marinara sauce",
+  "Chicken breasts, lemon juice, garlic powder, olive oil, fresh parsley",
+  "Salmon fillets, soy sauce, honey, garlic, ginger",
+  "Quinoa, black beans, corn, bell peppers, cilantro",
+  "Eggs, bacon, cheddar cheese, spinach, bell peppers"
+        };
+
+
+
+        for (int i = 0; i < 50; i++)
+        {
+            string name = productNames[rand.Next(productNames.Length)];
+            string description = descriptions[rand.Next(descriptions.Length)];
+            string ingredient = ingredients[rand.Next(ingredients.Length)];
+            int portion = rand.Next(100, 500);
+            int discount = rand.Next(0, 30);
+            decimal price = rand.Next(50, 200);
+            int categoryId = rand.Next(1, 10);
+            string[] images = {
+            "https://res.cloudinary.com/dmhklgr4f/image/upload/v1718883383/ojorbjcli5mwxvbkem1z.jpg",
+            "https://res.cloudinary.com/dmhklgr4f/image/upload/v1718883381/eqcdvcrilbunodbbqz6d.jpg",
+            "https://res.cloudinary.com/dmhklgr4f/image/upload/v1718883379/zcravn4aygp6mtvhfuxm.jpg",
+            "https://res.cloudinary.com/dmhklgr4f/image/upload/v1718883377/zfunpauzhsulqybziqms.jpg",
+            "https://res.cloudinary.com/dmhklgr4f/image/upload/v1718883375/cggkhmekk4emsi17madn.jpg",
+            "https://res.cloudinary.com/dmhklgr4f/image/upload/v1718883372/f46z1froeyczdsdvppss.jpg",
+            "https://res.cloudinary.com/dmhklgr4f/image/upload/v1718883370/ktstfpvdtbrwtky2ic3u.jpg",
+            "https://res.cloudinary.com/dmhklgr4f/image/upload/v1718883368/zt4xy6kvrkimemiwgxgk.jpg"
+        };
+
+
+            Product product = new()
+            {
+                Name = name,
+                Description = description,
+                Ingredients = ingredient,
+                Porsion = portion,
+                Discount = discount,
+                Price = price,
+                CategoryId = categoryId,
+
+
+            };
+
+            ProductImg img = new()
+            {
+                Product = product,
+                Url = images[rand.Next(images.Length)],
+                IsMain = true,
+            };
+
+
+            ProductImg additional1 = new() { Product = product, Url = images[rand.Next(images.Length)] };
+            ProductImg additional2 = new() { Product = product, Url = images[rand.Next(images.Length)] };
+            ProductImg additional3 = new() { Product = product, Url = images[rand.Next(images.Length)] };
+            ProductImg additional4 = new() { Product = product, Url = images[rand.Next(images.Length)] };
+            ProductImg additional5 = new() { Product = product, Url = images[rand.Next(images.Length)] };
+
+
+            product.ProductImgs.Add(img);
+            product.ProductImgs.Add(additional1);
+            product.ProductImgs.Add(additional2);
+            product.ProductImgs.Add(additional3);
+            product.ProductImgs.Add(additional4);
+            product.ProductImgs.Add(additional5);
+
+
+            await _context.Products.AddAsync(product);
+        }
+        await _context.SaveChangesAsync();
+
+
+        return Ok("ok");
+    }
 }

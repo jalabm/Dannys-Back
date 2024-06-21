@@ -25,13 +25,13 @@
                                     var orderItem = Model[i];
 
                             <div class="accordion-item">
-                                <div class="accordion-header" id="headingOne">
+                                <div class="accordion-header" id="@String.Concat("heading",i)">
                                     <div class="accordion-button collapsed"
                                          type="button"
                                          data-bs-toggle="collapse"
-                                         data-bs-target="#collapse1"
+                                         data-bs-target="@String.Concat("#collapse",i)"
                                          aria-expanded="true"
-                                         aria-controls="collapse1">
+                                         aria-controls="@String.Concat("collapse",i)">
                                         <a>
                                             <p>Order Id @orderItem.Id</p>
                                             <p>Ordered Date - @orderItem.CreatedAt.ToShortDateString()</p>
@@ -65,9 +65,9 @@
                                             </a>
                                     </div>
                                 </div>
-                                <div id="collapse1"
+                                <div id="@String.Concat("collapse",i)"
                                      class="accordion-collapse collapse "
-                                     aria-labelledby="headingOne"
+                                     aria-labelledby="@String.Concat("heading",i)"
                                      data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="table-responsive">
@@ -104,6 +104,13 @@
 
                                                 </tbody>
                                             </table>
+
+                                            <div style="text-align:center; display:flex; align-items:center; justify-content:space-evenly">
+                                                <p>  City:@orderItem.City </p> 
+                                                <p> Address:@orderItem.StreetAdrees</p> 
+                                                <p> Appartment:@orderItem.Apartment </p>
+                                                <p> Phone:@orderItem.PhoneNumber</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

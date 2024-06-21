@@ -56,7 +56,7 @@
                         </div>
                         <div class="single-cart">
                             <input type="number" value="1" min="1" id="itemCount" />
-                            <a id="addToCartLink" href="@Url.Action("AddToBasket", new { count = 1, id = Model.Id, returnUrl = Context.Request.Path.Value })" class="btn btn-default" onclick="updateRouteCount()">Add to cart</a>
+                            <a id="addToCartLink" asp-action="AddToBasket" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value" class="btn btn-default"  onclick="updateRouteCount()" >Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -147,14 +147,13 @@
 </main>
 
 <script>
+    var addToCartLink = document.getElementById('addToCartLink');
     function updateRouteCount() {
         var itemCount = document.getElementById('itemCount').value;
-        var addToCartLink = document.getElementById('addToCartLink');
-        var baseUrl = '@Url.Action("AddToBasket", new { count = "__count__", id = Model.Id, returnUrl = Context.Request.Path.Value })';
-
+        let href = `${addToCartLink.href}&count=${itemCount}`
         // Replace the placeholder with the actual item count
-        var updatedUrl = baseUrl.replace('__count__', itemCount);
-        addToCartLink.href = updatedUrl;
+        //var updatedUrl = baseUrl.replace('__count__', itemCount);
+        addToCartLink.href = href;
     }
 
     document.addEventListener('DOMContentLoaded', () => {

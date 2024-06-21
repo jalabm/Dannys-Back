@@ -33,14 +33,14 @@
                                         <tr class="orderRow">
                                             <td>@(count++)</td>
                                             <td>
-                                                <a asp-area="@null" asp-controller="Shop" asp-action="Detail" asp-route-id="@item.Product.Id">
+                                                <a  asp-area="@null" asp-controller="Shop" asp-action="Detail" asp-route-id="@item.Product.Id">
 
                                                     <img class="orderImg"
                                                          src="@item.Product.ProductImgs.FirstOrDefault(x=>x.IsMain)?.Url"
                                                          alt="" />
                                                 </a>
                                             </td>
-                                            <td><a asp-area="@null" asp-action="detail" asp-controller="shop" asp-route-id="@item.Product.Id">@item.Product.Name</a></td>
+                                            <td><a style="color:white; text-decoration:none" asp-area="@null" asp-action="detail" asp-controller="shop" asp-route-id="@item.Product.Id">@item.Product.Name</a></td>
                                             <td>@item.Count</td>
                                             <td>$ @item.StaticPrice</td>
                                         </tr>
@@ -50,9 +50,14 @@
 
                                 </tbody>
                             </table>
-                            <div style="display:flex;align-items:center;gap:20px;padding:20px 0;">
+                            <div style="display:flex;align-items:center;justify-content:space-evenly; gap:20px;padding:20px 0;">
                                 <h4>Total : $@total</h4>
-                                <h4>Status :</h4>
+
+                                <h4>  City : @Model.City </h4>
+                                <h4> Address : @Model.StreetAdrees</h4> 
+                                <h4> Appartment : @Model.Apartment </h4>
+                                <h4> Phone : @Model.PhoneNumber</h4>
+                                <h4>Status :
                                 @{
                                     if (Model.IsCanceled == false)
                                     {
@@ -62,7 +67,7 @@
                                         }
                                         else if (Model.Status == false)
                                         {
-                                            <p class="btn btn-secondary statusOutput" >Is Ordered</p>
+                                            <p class="btn btn-secondary statusOutput">Is Ordered</p>
                                         }
                                         else
                                         {
@@ -72,11 +77,13 @@
                                     }
                                     else
                                     {
-                                        <p class="btn btn-danger cancelOutput`" >Is Canceled</p>
+                                        <p class="btn btn-danger cancelOutput`">Is Canceled</p>
                                     }
 
 
                                 }
+                                </h4>
+
                             </div>
                             <a class="btn btn-secondary" asp-action="Index">Back</a>
                         </div>

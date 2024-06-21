@@ -123,6 +123,10 @@ public class AuthorController : Controller
         }
 
 
+        if (dto.Image is not null)
+        {
+
+
         if (!dto.Image.CheckFileSize(2))
         {
             ModelState.AddModelError("Image", "Files cannot be more than 2mb");
@@ -132,6 +136,8 @@ public class AuthorController : Controller
         {
             ModelState.AddModelError("Image", "Files must be image type!");
             return View(dto);
+        }
+
         }
 
         existAuthor = _mapper.Map(dto, existAuthor);

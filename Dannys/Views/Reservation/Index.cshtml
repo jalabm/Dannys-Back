@@ -73,7 +73,7 @@
                                         </select>*@
                                     <input type="datetime-local"
                                            id="meeting-time"
-                                           name="meeting-time" style=" color-scheme: dark;"/>
+                                          asp-for="Time" class="dateTimeInput" style=" color-scheme: dark;"/>
                                     <br />
                                     <span class="text-danger errorMessage" asp-validation-for="Time"></span>
 
@@ -141,7 +141,8 @@
 
 </main>
 
-<script>const countInputs = document.querySelectorAll('.personCountInput');
+<script>
+    const countInputs = document.querySelectorAll('.personCountInput');
     const tableArea = document.querySelector('.tableForm');
     const errorMessage = document.querySelector('.errorMessage')
     const dateTimeInput = document.querySelector('.dateTimeInput')
@@ -155,7 +156,8 @@
         const minutes = String(now.getMinutes()).padStart(2, '0');
 
         const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
-        dateTimeInput.min = currentDateTime;
+
+            dateTimeInput.min = currentDateTime;
     }
 
     setMinDateTime();
@@ -164,6 +166,7 @@
 
     function validateDateTime() {
 
+        console.log(dateTimeInput.value)
         const selectedDateTime = new Date(dateTimeInput.value);
         const currentDateTime = new Date();
         const selectedHours = selectedDateTime.getHours();

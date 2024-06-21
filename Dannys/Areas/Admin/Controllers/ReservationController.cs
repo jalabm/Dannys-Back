@@ -1,9 +1,12 @@
 ﻿using Dannys.Data;
+using Dannys.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dannys.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class ReservationController : Controller
 {
 
@@ -32,7 +35,7 @@ public class ReservationController : Controller
             page = 1;
         ViewBag.CurrentPage = page;
 
-        var reservations = await _context.Reservations.OrderByDescending(x => x.Id).Skip((page - 1) * 10).Take(10).ToListAsync();
+        var reservations = await _context.Reservations.Include(x=>x.Table).OrderByDescending(x => x.Id).Skip((page - 1) * 10).Take(10).ToListAsync();
         return View(reservations);
     }
 

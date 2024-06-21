@@ -38,7 +38,7 @@ public class ReservationController : Controller
 
         foreach (var table in reservedTables)
         {
-            var reservation = table.Reservations.FirstOrDefault(y => y.Date.Date == date);
+            var reservation = table.Reservations.OrderBy(x=>x.Date).FirstOrDefault(y => y.Date.Date == date);
 
             if (reservation is null)
                 continue;

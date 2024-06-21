@@ -7,7 +7,12 @@ namespace Dannys.Models
 		public bool? Status { get; set; }
 		public bool IsCanceled { get; set; }
 
-		public AppUser AppUser { get; set; } = null!;
+        public string PhoneNumber { get; set; } = null!;
+        public string City { get; set; } = null!;
+        public string StreetAdrees { get; set; } = null!;
+        public string? Apartment { get; set; } 
+
+        public AppUser AppUser { get; set; } = null!;
 		public string AppUserId { get; set; } = null!;
 
         public Coupon? Coupon { get; set; }

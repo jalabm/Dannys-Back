@@ -1,85 +1,130 @@
 ﻿<Properties StartupConfiguration="{1019A2E5-0173-4619-B835-56908E768992}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Dannys/Controllers/OrderController.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Dannys/Controllers/HomeController.cs">
     <Files>
-      <File FileName="Dannys/Controllers/HomeController.cs" Line="29" Column="107" />
-      <File FileName="Dannys/Views/Home/Index.cshtml" />
-      <File FileName="Dannys/Views/Shop/Index.cshtml" />
-      <File FileName="Dannys/Controllers/ShopController.cs" />
-      <File FileName="Dannys/Views/Shop/Detail.cshtml" />
-      <File FileName="Dannys/Controllers/BlogController.cs" />
-      <File FileName="Dannys/Views/Blog/Index.cshtml" />
+      <File FileName="Dannys/Controllers/HomeController.cs" Line="32" Column="1" />
+      <File FileName="Dannys/Views/Home/Index.cshtml" Line="226" Column="58" />
+      <File FileName="Dannys/Views/Shop/Index.cshtml" Line="140" Column="50" />
+      <File FileName="Dannys/Controllers/ShopController.cs" Line="29" Column="26" />
+      <File FileName="Dannys/Views/Shop/Detail.cshtml" Line="153" Column="40" />
+      <File FileName="Dannys/Controllers/BlogController.cs" Line="1" Column="1" />
+      <File FileName="Dannys/Views/Blog/Index.cshtml" Line="1" Column="1" />
       <File FileName="Dannys/Models/Comment.cs" />
       <File FileName="Dannys/wwwroot/assets/js/product-detail.js" />
-      <File FileName="Dannys/Models/Product.cs" Line="6" Column="34" />
+      <File FileName="Dannys/Models/Product.cs" />
       <File FileName="Dannys/Dtos/CommentDtos/CommentCreateDto.cs" />
       <File FileName="Dannys/Models/AppUser.cs" />
-      <File FileName="Dannys/Areas/Admin/Controllers/CouponController.cs" />
+      <File FileName="Dannys/Areas/Admin/Controllers/CouponController.cs" Line="9" Column="29" />
       <File FileName="Dannys/Areas/Admin/Views/Coupon/Create.cshtml" />
       <File FileName="Dannys/Areas/Admin/Views/Coupon/Index.cshtml" />
       <File FileName="Dannys/Areas/Admin/Views/Coupon/Update.cshtml" />
-      <File FileName="Dannys/Areas/Admin/Views/Shared/_Layout.cshtml" />
-      <File FileName="Dannys/Areas/Admin/Controllers/TopicController.cs" />
+      <File FileName="Dannys/Areas/Admin/Views/Shared/_Layout.cshtml" Line="174" Column="23" />
+      <File FileName="Dannys/Areas/Admin/Controllers/TopicController.cs" Line="9" Column="29" />
       <File FileName="Dannys/Models/Table.cs" />
       <File FileName="Dannys/Dtos/TableDtos/TableCreateDto.cs" />
       <File FileName="Dannys/Dtos/TableDtos/TableGetDto.cs" />
-      <File FileName="Dannys/Views/Reservation/Index.cshtml" Line="56" Column="85" />
-      <File FileName="Dannys/Areas/Admin/Controllers/ProductController.cs" Line="46" Column="29" />
-      <File FileName="Dannys/Areas/Admin/Controllers/SliderController.cs" />
+      <File FileName="Dannys/Views/Reservation/Index.cshtml" Line="76" Column="56" />
+      <File FileName="Dannys/Areas/Admin/Controllers/ProductController.cs" Line="13" Column="29" />
+      <File FileName="Dannys/Areas/Admin/Controllers/SliderController.cs" Line="14" Column="29" />
       <File FileName="Dannys/Areas/Admin/Views/Table/Create.cshtml" />
       <File FileName="Dannys/Areas/Admin/Views/Table/Index.cshtml" />
-      <File FileName="Dannys/Areas/Admin/Views/Topic/Index.cshtml" Line="23" Column="25" />
+      <File FileName="Dannys/Areas/Admin/Views/Topic/Index.cshtml" />
       <File FileName="Dannys/Areas/Admin/Views/Table/Update.cshtml" />
-      <File FileName="Dannys/Areas/Admin/Controllers/ReservationController.cs" Line="51" Column="1" />
-      <File FileName="Dannys/Areas/Admin/Views/Reservation/Index.cshtml" Line="64" Column="58" />
-      <File FileName="Dannys/Areas/Admin/Views/Order/Index.cshtml" />
-      <File FileName="Dannys/Models/Reservation.cs" Line="12" Column="33" />
-      <File FileName="Dannys/Areas/Admin/Controllers/OrderController.cs" Line="34" Column="110" />
-      <File FileName="Dannys/Dtos/ReservationDto/ReservationCreateDto.cs" Line="17" Column="34" />
-      <File FileName="Dannys/Program.cs" Line="55" Column="25" />
+      <File FileName="Dannys/Areas/Admin/Controllers/ReservationController.cs" Line="38" Column="74" />
+      <File FileName="Dannys/Areas/Admin/Views/Reservation/Index.cshtml" Line="25" Column="48" />
+      <File FileName="Dannys/Areas/Admin/Views/Order/Index.cshtml" Line="172" Column="55" />
+      <File FileName="Dannys/Models/Reservation.cs" />
+      <File FileName="Dannys/Areas/Admin/Controllers/OrderController.cs" Line="9" Column="29" />
+      <File FileName="Dannys/Dtos/ReservationDto/ReservationCreateDto.cs" />
+      <File FileName="Dannys/Program.cs" Line="1" Column="1" />
       <File FileName="Dannys/Interceptors/BaseEntityInterceptor.cs" />
-      <File FileName="Dannys/Migrations/20240603214331_editedReservations.cs" Line="1" Column="1" />
-      <File FileName="Dannys/Controllers/ReservationController.cs" Line="214" Column="1" />
-      <File FileName="Dannys/Controllers/AccountController.cs" Line="15" Column="22" />
-      <File FileName="Dannys/Services/EmailService.cs" Line="35" Column="7" />
+      <File FileName="Dannys/Migrations/20240603214331_editedReservations.cs" />
+      <File FileName="Dannys/Controllers/ReservationController.cs" Line="41" Column="57" />
+      <File FileName="Dannys/Controllers/AccountController.cs" Line="160" Column="47" />
+      <File FileName="Dannys/Services/EmailService.cs" Line="1" Column="1" />
       <File FileName="Dannys/appsettings.json" Line="25" Column="37" />
-      <File FileName="Dannys/Areas/Admin/Views/Product/Index.cshtml" Line="57" Column="37" />
-      <File FileName="Dannys/Data/AppDbContext.cs" Line="26" Column="35" />
-      <File FileName="Dannys/Models/Common/BaseAuditableEntity.cs" Line="10" Column="47" />
-      <File FileName="Dannys/Controllers/OrderController.cs" Line="32" Column="1" />
-      <File FileName="Dannys/Views/Order/Index.cshtml" Line="3" Column="25" />
+      <File FileName="Dannys/Areas/Admin/Views/Product/Index.cshtml" />
+      <File FileName="Dannys/Data/AppDbContext.cs" />
+      <File FileName="Dannys/Models/Common/BaseAuditableEntity.cs" />
+      <File FileName="Dannys/Controllers/OrderController.cs" Line="1" Column="1" />
+      <File FileName="Dannys/Views/Order/Index.cshtml" Line="109" Column="47" />
+      <File FileName="Dannys/Services/LayoutService.cs" />
+      <File FileName="Dannys/Views/_ViewStart.cshtml" />
+      <File FileName="Dannys/Views/Shared/_Layout.cshtml" Line="157" Column="50" />
+      <File FileName="Dannys/Areas/Admin/Views/Order/Detail.cshtml" Line="43" Column="93" />
+      <File FileName="Dannys/Areas/Admin/Views/Product/Detail.cshtml" />
+      <File FileName="Dannys/Areas/Admin/Views/Author/Create.cshtml" />
+      <File FileName="Dannys/Areas/Admin/Views/Author/Index.cshtml" />
+      <File FileName="Dannys/Areas/Admin/Views/Author/Update.cshtml" />
+      <File FileName="Dannys/Areas/Admin/Views/Blog/Create.cshtml" Line="1" Column="1" />
+      <File FileName="Dannys/Areas/Admin/Views/Blog/Index.cshtml" Line="45" Column="78" />
+      <File FileName="Dannys/Areas/Admin/Views/Blog/Update.cshtml" />
+      <File FileName="Dannys/Areas/Admin/Views/Category/Create.cshtml" />
+      <File FileName="Dannys/Areas/Admin/Views/Category/Index.cshtml" />
+      <File FileName="Dannys/Areas/Admin/Views/Category/Update.cshtml" />
+      <File FileName="Dannys/Areas/Admin/Views/Dashboard/Index.cshtml" />
+      <File FileName="Dannys/Areas/Admin/Views/Product/Create.cshtml" Line="1" Column="1" />
+      <File FileName="Dannys/Areas/Admin/Views/Product/Update.cshtml" />
+      <File FileName="Dannys/Views/Menu/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Dannys/Controllers/MenuController.cs" Line="25" Column="60" />
+      <File FileName="Dannys/Views/Account/Register.cshtml" Line="3" Column="1" />
+      <File FileName="Dannys/Areas/Admin/Controllers/AuthorController.cs" Line="141" Column="10" />
+      <File FileName="Dannys/Views/Contact/Index.cshtml" />
+      <File FileName="Dannys/Controllers/ContactController.cs" />
+      <File FileName="Dannys/ViewModels/ContactVM.cs" />
+      <File FileName="Dannys/Models/Subscribe.cs" />
+      <File FileName="Dannys/Controllers/BasketController.cs" Line="85" Column="1" />
+      <File FileName="Dannys/Models/Order.cs" Line="13" Column="48" />
+      <File FileName="Dannys/Dtos/OrderDtos/OrderCreateDto.cs" Line="8" Column="31" />
+      <File FileName="Dannys/Views/Basket/Checkout.cshtml" Line="37" Column="229" />
+      <File FileName="Dannys/ViewModels/HomeVM.cs" Line="12" Column="2" />
+      <File FileName="Dannys/Areas/Admin/Controllers/BlogController.cs" Line="12" Column="1" />
+      <File FileName="Dannys/Areas/Admin/Controllers/CategoryController.cs" Line="9" Column="29" />
+      <File FileName="Dannys/Areas/Admin/Controllers/DashboardController.cs" Line="8" Column="29" />
+      <File FileName="Dannys/Areas/Admin/Controllers/TableController.cs" Line="9" Column="29" />
+      <File FileName="Dannys/Views/Blog/Detail.cshtml" Line="134" Column="47" />
+      <File FileName="Dannys/Views/Account/Login.cshtml" Line="13" Column="13" />
+      <File FileName="Dannys/Views/Basket/Index.cshtml" Line="90" Column="29" />
+      <File FileName="Dannys/Dtos/AuthorDtos/AuthorUpdateDto.cs" Line="9" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Dannys" expanded="True">
             <Node name="Dannys">
-              <Node name="Areas">
-                <Node name="Admin">
-                  <Node name="Views">
-                    <Node name="Reservation" expanded="True" />
+              <Node name="Areas" expanded="True">
+                <Node name="Admin" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                  <Node name="Views" expanded="True">
+                    <Node name="Author" expanded="True" />
+                    <Node name="Product" expanded="True" />
                     <Node name="Shared" expanded="True" />
-                    <Node name="Table" expanded="True" />
-                    <Node name="Topic" expanded="True" />
                   </Node>
                 </Node>
               </Node>
-              <Node name="AutoMappers" expanded="True" />
-              <Node name="Controllers">
-                <Node name="OrderController.cs" selected="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
               </Node>
-              <Node name="Dtos" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="Dtos">
                 <Node name="CommentDtos" expanded="True" />
+                <Node name="OrderDtos" expanded="True" />
                 <Node name="ReservationDto" expanded="True" />
                 <Node name="TableDtos" expanded="True" />
               </Node>
               <Node name="Interceptors" expanded="True" />
+              <Node name="Models">
+                <Node name="Common" expanded="True" />
+              </Node>
               <Node name="Services" expanded="True" />
-              <Node name="Views">
-                <Node name="Order" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Contact" expanded="True" />
+                <Node name="Menu" expanded="True" />
                 <Node name="Reservation" expanded="True" />
+                <Node name="Shared" expanded="True" />
                 <Node name="Shop" expanded="True" />
               </Node>
+              <Node name="wwwroot" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -88,10 +133,12 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Controllers/OrderController.cs" relfile="Dannys/Controllers/OrderController.cs" line="22" column="1" />
+      <Breakpoint file="/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Controllers/ReservationController.cs" relfile="Dannys/Controllers/ReservationController.cs" line="78" column="1" />
+      <Breakpoint file="/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Controllers/BasketController.cs" relfile="Dannys/Controllers/BasketController.cs" line="85" column="1" />
+      <Breakpoint file="/Users/jalememmedli/Desktop/Dannys-Back/Dannys/Controllers/HomeController.cs" relfile="Dannys/Controllers/HomeController.cs" line="29" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Dannys PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

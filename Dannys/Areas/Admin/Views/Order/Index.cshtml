@@ -57,15 +57,15 @@
                                                     }
                                                     else
                                                     {
-                                                        <p class="btn btn-danger cancelOutput`">Is canceled</p>
+                                                        <p class="btn btn-danger statusOutput cancelOutput`">Is canceled</p>
                                                     }
 
 
                                                 }
                                             </td>
                                             <td> @order.CreatedAt.ToShortDateString()</td>
-                                            <td><a class="btn btn-secondary prevBtn" data-status="@order.Status" asp-action="Prev" asp-route-id="@order.Id">Prev status</a></td>
-                                            <td><a class="btn btn-primary nextBtn" data-status="@order.Status" asp-action="Next" asp-route-id="@order.Id">Next status</a></td>
+                                            <td><a class="btn btn-secondary prevBtn" data-status="@order.Status" data-iscancel="@order.IsCanceled" asp-action="Prev" asp-route-id="@order.Id">Prev status</a></td>
+                                            <td><a class="btn btn-primary nextBtn" data-status="@order.Status" data-iscancel="@order.IsCanceled" asp-action="Next" asp-route-id="@order.Id">Next status</a></td>
                                             @if (!order.IsCanceled)
                                             {
                                                 <td><a class="btn btn-danger cancelRepairBtn" data-isCancel="@order.IsCanceled" asp-action="CancelOrRepair" asp-route-id="@order.Id">Cancel Order</a></td>
@@ -123,6 +123,9 @@
     prevButtons.forEach((btn, i) => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+        
+            if (btn.dataset.iscancel=="False") {
+
             if (btn.dataset.status != 'False') {
 
                 const response = fetch(btn.href)
@@ -141,6 +144,7 @@
                     nextButtons[i].dataset.status = "False";
                 }
             }
+            }
 
         })
     })
@@ -149,6 +153,9 @@
     nextButtons.forEach((btn, i) => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+          
+            if (btn.dataset.iscancel=="False") {
+
             if (btn.dataset.status != 'True') {
 
                 const response = fetch(btn.href)
@@ -162,11 +169,12 @@
                 else {
                     statusButtons[i].classList.remove('btn-warning')
                     statusButtons[i].classList.add('btn-success')
-                    statusButtons[i].innerHTML = 'Is done'
+                    statusButtons[i].innerHTML = 'Delivered'
                     btn.dataset.status = "True"
                     prevButtons[i].dataset.status = 'True'
                 }
             }
 
+            }
         })
     })</script>

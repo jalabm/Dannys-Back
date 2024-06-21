@@ -21,13 +21,14 @@ public class ShopController : Controller
     }
     public async Task<IActionResult> Index(int page=1)
     {
-        int pageCount = (int)Math.Ceiling((decimal)_context.Topics.Count() / 4);
+        int pageCount = (int)Math.Ceiling((decimal)_context.Products.Count() / 4); //bug
 
         if (pageCount == 0)
             pageCount = 1;
 
         ViewBag.PageCount = pageCount;
         ViewBag.Page = page;
+        ViewBag.Count = _context.Products.Count();
 
        
 

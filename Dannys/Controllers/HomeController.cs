@@ -26,16 +26,18 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         //ViewBag.Page = page;
-        var products = await _context.Products.Include(x => x.ProductImgs).Include(x => x.Category).Take(8).ToListAsync();
-        var categories = await _context.Categories.ToListAsync();
-        var sliders =await _context.Sliders.ToListAsync();
+        var products = await _context.Products.Include(x => x.ProductImgs).Include(x => x.Category).Take(12).ToListAsync();
+        var categories = await _context.Categories.Where(x=>x.Products.Count>0).Take(10).ToListAsync();
+        var sliders = await _context.Sliders.ToListAsync();
+        var topComments = await _context.Comments.OrderByDescending(x => x.Rating).Include(x => x.AppUser).Take(3).ToListAsync();
 
 
         HomeVM homeVM = new HomeVM()
         {
             Products = products,
             Categories = categories,
-            Sliders=sliders
+            Sliders = sliders,
+            Comments=topComments
 
         };
         return View(homeVM);
@@ -119,6 +121,30 @@ public class HomeController : Controller
         }
 
         return basketItems;
+    }
+
+
+    public async Task<IActionResult> Subscribe(string email, string returnUrl)
+    {
+        if (!ModelState.IsValid)
+            return Redirect(returnUrl);
+
+
+        var isExist = await _context.Subscribes.AnyAsync(x => x.Email.ToLower() == email.ToLower());
+
+        if (isExist)
+            return Redirect(returnUrl);
+
+
+        Subscribe subscribe = new()
+        {
+            Email = email
+        };
+
+        await _context.Subscribes.AddAsync(subscribe);
+        await _context.SaveChangesAsync();
+
+        return Redirect(returnUrl);
     }
 
 }
